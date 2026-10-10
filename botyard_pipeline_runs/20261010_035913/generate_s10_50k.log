@@ -1,0 +1,485 @@
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+PyTorch version 1.13.1
+Device count 1
+/home/grelcy/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/grelcy/.cache/torch_extensions/py38_cu117 as PyTorch extensions root...
+Emitting ninja build file /home/grelcy/.cache/torch_extensions/py38_cu117/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+/home/grelcy/hora/gen_grasp.py:40: Hydra14MigrationWarning: 
+The version_base parameter is not specified.
+Hydra will assume defaults for version 1.1.
+Hydra 1.4 will remove this compatibility behavior.
+Before upgrading to Hydra 1.4, set version_base="1.3" and test your application.
+See https://hydra.cc/docs/upgrades/1.3_to_1.4/prepare_for_1_4/ for preparation instructions.
+  @hydra.main(config_name='config', config_path='configs')
+gen_grasp_botyard.py:13: Hydra14MigrationWarning: 
+The version_base parameter is not specified.
+Hydra will assume defaults for version 1.1.
+Hydra 1.4 will remove this compatibility behavior.
+Before upgrading to Hydra 1.4, set version_base="1.3" and test your application.
+See https://hydra.cc/docs/upgrades/1.3_to_1.4/prepare_for_1_4/ for preparation instructions.
+  @hydra.main(config_name='config',config_path='configs')
+/home/grelcy/miniconda3/envs/hora/lib/python3.8/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(
+[PHASE] building generation environment
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+Fixed-wrist BotYard DOF count: 20
+Fixed-wrist BotYard DOF names: ['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1']
+BotYard policy DOF mapping: {'FFJ4': 0, 'FFJ3': 1, 'FFJ2': 2, 'LFJ4': 4, 'LFJ3': 5, 'LFJ2': 6, 'MFJ4': 8, 'MFJ3': 9, 'MFJ2': 10, 'RFJ4': 12, 'RFJ3': 13, 'RFJ2': 14, 'THJ4': 16, 'THJ3': 17, 'THJ2': 18, 'THJ1': 19}
+[COLLISION] named 28 exclusions applied; finger contact groups resolved
+BotYard fingertip rigid-body handles: {'ffdistal': 9, 'lfdistal': 14, 'mfdistal': 19, 'rfdistal': 24, 'thdistal': 29}
+Object rigid-body handle: 31
+Subscene 0 has 512 articulations
+[COORDINATES] post-physics fixed roots verified: environment-local envs 512
+[ROOTS] {'1.0': [0.0, 0.0, 0.5, 0.5645108819007874, -0.005244936794042587, 0.003042427357286215, 0.8254033327102661]}
+BotYard canonical policy target: [-0.226776, 1.038626, 0.147626, -0.215458, 0.951093, 0.286194, -0.226791, 0.942159, 0.228717, -0.22133, 0.831814, 0.288584, -0.923196, -0.291674, 0.025, 0.59365]
+[GEN] parallel environments 512 independent actual q20 + target16 + object7; acceptance=five_side_pose_motion_v3
+[PHASE] zero-action holding trials started
+[BATCH] 1 tested 512 accepted 222 / 50000 reasonCounts {'missing_finger_side_contact': 274, 'palm_ground_or_cap_support': 64, 'cylinder_tilt': 23, 'tail_pose_drift': 16, 'pose_motion_not_settled': 4, 'object_drop_or_ground': 1} elapsedSeconds 67.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 222 complete False
+[BATCH] 2 tested 1024 accepted 465 / 50000 reasonCounts {'missing_finger_side_contact': 259, 'cylinder_tilt': 25, 'palm_ground_or_cap_support': 59, 'pose_motion_not_settled': 4, 'tail_pose_drift': 12, 'object_drop_or_ground': 1} elapsedSeconds 136.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 465 complete False
+[BATCH] 3 tested 1536 accepted 712 / 50000 reasonCounts {'missing_finger_side_contact': 249, 'cylinder_tilt': 26, 'palm_ground_or_cap_support': 71, 'pose_motion_not_settled': 7, 'tail_pose_drift': 12} elapsedSeconds 204.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 712 complete False
+[BATCH] 4 tested 2048 accepted 956 / 50000 reasonCounts {'palm_ground_or_cap_support': 57, 'missing_finger_side_contact': 258, 'cylinder_tilt': 15, 'pose_motion_not_settled': 14, 'tail_pose_drift': 18, 'object_drop_or_ground': 3, 'object_drift': 2} elapsedSeconds 272.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 956 complete False
+[BATCH] 5 tested 2560 accepted 1171 / 50000 reasonCounts {'missing_finger_side_contact': 283, 'palm_ground_or_cap_support': 67, 'tail_pose_drift': 17, 'cylinder_tilt': 27, 'object_drop_or_ground': 3, 'pose_motion_not_settled': 8} elapsedSeconds 340.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 1171 complete False
+[BATCH] 6 tested 3072 accepted 1403 / 50000 reasonCounts {'missing_finger_side_contact': 267, 'palm_ground_or_cap_support': 60, 'pose_motion_not_settled': 11, 'tail_pose_drift': 23, 'cylinder_tilt': 39, 'object_drift': 1, 'object_drop_or_ground': 4} elapsedSeconds 409.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 1403 complete False
+[BATCH] 7 tested 3584 accepted 1657 / 50000 reasonCounts {'missing_finger_side_contact': 235, 'palm_ground_or_cap_support': 53, 'tail_pose_drift': 23, 'pose_motion_not_settled': 9, 'cylinder_tilt': 18, 'object_drop_or_ground': 2} elapsedSeconds 479.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 1657 complete False
+[BATCH] 8 tested 4096 accepted 1889 / 50000 reasonCounts {'missing_finger_side_contact': 272, 'palm_ground_or_cap_support': 54, 'cylinder_tilt': 27, 'object_drop_or_ground': 1, 'tail_pose_drift': 14, 'pose_motion_not_settled': 5} elapsedSeconds 548.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 1889 complete False
+[BATCH] 9 tested 4608 accepted 2121 / 50000 reasonCounts {'missing_finger_side_contact': 265, 'palm_ground_or_cap_support': 63, 'cylinder_tilt': 33, 'object_drift': 1, 'object_drop_or_ground': 6, 'pose_motion_not_settled': 13, 'tail_pose_drift': 13} elapsedSeconds 616.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 2121 complete False
+[BATCH] 10 tested 5120 accepted 2353 / 50000 reasonCounts {'missing_finger_side_contact': 263, 'cylinder_tilt': 22, 'palm_ground_or_cap_support': 57, 'tail_pose_drift': 21, 'pose_motion_not_settled': 12, 'object_drift': 2, 'object_drop_or_ground': 6} elapsedSeconds 686.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 2353 complete False
+[BATCH] 11 tested 5632 accepted 2612 / 50000 reasonCounts {'missing_finger_side_contact': 239, 'palm_ground_or_cap_support': 60, 'cylinder_tilt': 25, 'object_drift': 3, 'object_drop_or_ground': 4, 'tail_pose_drift': 13, 'pose_motion_not_settled': 7} elapsedSeconds 754.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 2612 complete False
+[BATCH] 12 tested 6144 accepted 2846 / 50000 reasonCounts {'missing_finger_side_contact': 264, 'palm_ground_or_cap_support': 58, 'cylinder_tilt': 17, 'pose_motion_not_settled': 8, 'tail_pose_drift': 16, 'object_drop_or_ground': 3} elapsedSeconds 823.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 2846 complete False
+[BATCH] 13 tested 6656 accepted 3086 / 50000 reasonCounts {'missing_finger_side_contact': 260, 'pose_motion_not_settled': 11, 'palm_ground_or_cap_support': 65, 'cylinder_tilt': 21, 'tail_pose_drift': 14, 'object_drop_or_ground': 5} elapsedSeconds 892.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 3086 complete False
+[BATCH] 14 tested 7168 accepted 3316 / 50000 reasonCounts {'missing_finger_side_contact': 259, 'palm_ground_or_cap_support': 73, 'cylinder_tilt': 24, 'pose_motion_not_settled': 14, 'tail_pose_drift': 23, 'object_drop_or_ground': 6} elapsedSeconds 960.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 3316 complete False
+[BATCH] 15 tested 7680 accepted 3533 / 50000 reasonCounts {'missing_finger_side_contact': 279, 'palm_ground_or_cap_support': 63, 'cylinder_tilt': 21, 'tail_pose_drift': 15, 'pose_motion_not_settled': 13, 'object_drop_or_ground': 1} elapsedSeconds 1030.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 3533 complete False
+[BATCH] 16 tested 8192 accepted 3774 / 50000 reasonCounts {'missing_finger_side_contact': 257, 'palm_ground_or_cap_support': 57, 'pose_motion_not_settled': 13, 'tail_pose_drift': 17, 'cylinder_tilt': 25, 'object_drop_or_ground': 1} elapsedSeconds 1098.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 3774 complete False
+[BATCH] 17 tested 8704 accepted 4018 / 50000 reasonCounts {'missing_finger_side_contact': 248, 'cylinder_tilt': 33, 'palm_ground_or_cap_support': 58, 'pose_motion_not_settled': 10, 'tail_pose_drift': 14} elapsedSeconds 1167.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 4018 complete False
+[BATCH] 18 tested 9216 accepted 4254 / 50000 reasonCounts {'object_drop_or_ground': 3, 'missing_finger_side_contact': 263, 'palm_ground_or_cap_support': 62, 'tail_pose_drift': 17, 'pose_motion_not_settled': 12, 'cylinder_tilt': 23} elapsedSeconds 1236.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 4254 complete False
+[BATCH] 19 tested 9728 accepted 4487 / 50000 reasonCounts {'missing_finger_side_contact': 255, 'palm_ground_or_cap_support': 56, 'cylinder_tilt': 28, 'pose_motion_not_settled': 10, 'tail_pose_drift': 18} elapsedSeconds 1304.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 4487 complete False
+[BATCH] 20 tested 10240 accepted 4731 / 50000 reasonCounts {'cylinder_tilt': 28, 'missing_finger_side_contact': 256, 'palm_ground_or_cap_support': 57, 'pose_motion_not_settled': 10, 'object_drop_or_ground': 4, 'tail_pose_drift': 12} elapsedSeconds 1373.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 4731 complete False
+[BATCH] 21 tested 10752 accepted 4979 / 50000 reasonCounts {'palm_ground_or_cap_support': 65, 'missing_finger_side_contact': 247, 'pose_motion_not_settled': 13, 'tail_pose_drift': 22, 'cylinder_tilt': 22, 'object_drop_or_ground': 6} elapsedSeconds 1441.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 4979 complete False
+[BATCH] 22 tested 11264 accepted 5226 / 50000 reasonCounts {'missing_finger_side_contact': 248, 'palm_ground_or_cap_support': 61, 'tail_pose_drift': 16, 'cylinder_tilt': 27, 'pose_motion_not_settled': 10, 'object_drop_or_ground': 3, 'object_drift': 1} elapsedSeconds 1509.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 5226 complete False
+[BATCH] 23 tested 11776 accepted 5459 / 50000 reasonCounts {'missing_finger_side_contact': 259, 'cylinder_tilt': 29, 'palm_ground_or_cap_support': 83, 'tail_pose_drift': 13, 'object_drop_or_ground': 2, 'pose_motion_not_settled': 11} elapsedSeconds 1578.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 5459 complete False
+[BATCH] 24 tested 12288 accepted 5693 / 50000 reasonCounts {'missing_finger_side_contact': 268, 'tail_pose_drift': 18, 'palm_ground_or_cap_support': 55, 'cylinder_tilt': 25, 'pose_motion_not_settled': 9, 'object_drop_or_ground': 1} elapsedSeconds 1646.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 5693 complete False
+[BATCH] 25 tested 12800 accepted 5923 / 50000 reasonCounts {'palm_ground_or_cap_support': 72, 'missing_finger_side_contact': 263, 'cylinder_tilt': 31, 'object_drop_or_ground': 2, 'tail_pose_drift': 16, 'pose_motion_not_settled': 11} elapsedSeconds 1715.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 5923 complete False
+[BATCH] 26 tested 13312 accepted 6148 / 50000 reasonCounts {'missing_finger_side_contact': 275, 'palm_ground_or_cap_support': 63, 'cylinder_tilt': 23, 'pose_motion_not_settled': 11, 'tail_pose_drift': 15, 'object_drop_or_ground': 1} elapsedSeconds 1783.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 6148 complete False
+[BATCH] 27 tested 13824 accepted 6397 / 50000 reasonCounts {'missing_finger_side_contact': 251, 'palm_ground_or_cap_support': 58, 'tail_pose_drift': 13, 'cylinder_tilt': 22, 'pose_motion_not_settled': 11, 'object_drop_or_ground': 2} elapsedSeconds 1852.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 6397 complete False
+[BATCH] 28 tested 14336 accepted 6631 / 50000 reasonCounts {'missing_finger_side_contact': 264, 'palm_ground_or_cap_support': 62, 'cylinder_tilt': 25, 'pose_motion_not_settled': 9, 'object_drop_or_ground': 2, 'tail_pose_drift': 13} elapsedSeconds 1920.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 6631 complete False
+[BATCH] 29 tested 14848 accepted 6874 / 50000 reasonCounts {'missing_finger_side_contact': 253, 'palm_ground_or_cap_support': 60, 'pose_motion_not_settled': 10, 'cylinder_tilt': 27, 'tail_pose_drift': 16, 'object_drop_or_ground': 1} elapsedSeconds 1988.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 6874 complete False
+[BATCH] 30 tested 15360 accepted 7105 / 50000 reasonCounts {'missing_finger_side_contact': 265, 'palm_ground_or_cap_support': 58, 'cylinder_tilt': 18, 'tail_pose_drift': 18, 'pose_motion_not_settled': 9, 'object_drop_or_ground': 2} elapsedSeconds 2058.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 7105 complete False
+[BATCH] 31 tested 15872 accepted 7322 / 50000 reasonCounts {'missing_finger_side_contact': 279, 'palm_ground_or_cap_support': 66, 'cylinder_tilt': 22, 'object_drop_or_ground': 7, 'pose_motion_not_settled': 9, 'tail_pose_drift': 24, 'object_drift': 2} elapsedSeconds 2126.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 7322 complete False
+[BATCH] 32 tested 16384 accepted 7568 / 50000 reasonCounts {'missing_finger_side_contact': 249, 'palm_ground_or_cap_support': 71, 'cylinder_tilt': 36, 'tail_pose_drift': 20, 'pose_motion_not_settled': 15, 'object_drop_or_ground': 1} elapsedSeconds 2195.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 7568 complete False
+[BATCH] 33 tested 16896 accepted 7794 / 50000 reasonCounts {'missing_finger_side_contact': 271, 'palm_ground_or_cap_support': 60, 'cylinder_tilt': 32, 'pose_motion_not_settled': 10, 'tail_pose_drift': 14, 'object_drop_or_ground': 2} elapsedSeconds 2263.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 7794 complete False
+[BATCH] 34 tested 17408 accepted 8033 / 50000 reasonCounts {'missing_finger_side_contact': 260, 'palm_ground_or_cap_support': 62, 'pose_motion_not_settled': 7, 'tail_pose_drift': 12, 'cylinder_tilt': 17, 'object_drift': 1, 'object_drop_or_ground': 1} elapsedSeconds 2332.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 8033 complete False
+[BATCH] 35 tested 17920 accepted 8261 / 50000 reasonCounts {'missing_finger_side_contact': 264, 'palm_ground_or_cap_support': 60, 'cylinder_tilt': 29, 'pose_motion_not_settled': 7, 'tail_pose_drift': 11} elapsedSeconds 2400.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 8261 complete False
+[BATCH] 36 tested 18432 accepted 8477 / 50000 reasonCounts {'missing_finger_side_contact': 278, 'palm_ground_or_cap_support': 67, 'cylinder_tilt': 24, 'pose_motion_not_settled': 13, 'tail_pose_drift': 19, 'object_drop_or_ground': 1} elapsedSeconds 2468.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 8477 complete False
+[BATCH] 37 tested 18944 accepted 8716 / 50000 reasonCounts {'missing_finger_side_contact': 259, 'cylinder_tilt': 28, 'palm_ground_or_cap_support': 51, 'pose_motion_not_settled': 15, 'tail_pose_drift': 19, 'object_drop_or_ground': 2} elapsedSeconds 2536.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 8716 complete False
+[BATCH] 38 tested 19456 accepted 8939 / 50000 reasonCounts {'missing_finger_side_contact': 277, 'palm_ground_or_cap_support': 58, 'pose_motion_not_settled': 9, 'cylinder_tilt': 28, 'tail_pose_drift': 13, 'object_drop_or_ground': 1} elapsedSeconds 2605.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 8939 complete False
+[BATCH] 39 tested 19968 accepted 9167 / 50000 reasonCounts {'missing_finger_side_contact': 268, 'palm_ground_or_cap_support': 61, 'pose_motion_not_settled': 9, 'tail_pose_drift': 18, 'cylinder_tilt': 24, 'object_drop_or_ground': 3} elapsedSeconds 2674.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 9167 complete False
+[BATCH] 40 tested 20480 accepted 9410 / 50000 reasonCounts {'palm_ground_or_cap_support': 62, 'missing_finger_side_contact': 251, 'cylinder_tilt': 34, 'pose_motion_not_settled': 8, 'tail_pose_drift': 14, 'object_drop_or_ground': 3} elapsedSeconds 2743.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 9410 complete False
+[BATCH] 41 tested 20992 accepted 9632 / 50000 reasonCounts {'missing_finger_side_contact': 272, 'palm_ground_or_cap_support': 63, 'pose_motion_not_settled': 15, 'tail_pose_drift': 18, 'cylinder_tilt': 21, 'object_drop_or_ground': 1} elapsedSeconds 2812.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 9632 complete False
+[BATCH] 42 tested 21504 accepted 9848 / 50000 reasonCounts {'missing_finger_side_contact': 280, 'palm_ground_or_cap_support': 72, 'cylinder_tilt': 28, 'object_drift': 2, 'object_drop_or_ground': 2, 'pose_motion_not_settled': 10, 'tail_pose_drift': 9} elapsedSeconds 2881.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 9848 complete False
+[BATCH] 43 tested 22016 accepted 10100 / 50000 reasonCounts {'missing_finger_side_contact': 249, 'palm_ground_or_cap_support': 57, 'cylinder_tilt': 23, 'tail_pose_drift': 5, 'pose_motion_not_settled': 4} elapsedSeconds 2950.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 10100 complete False
+[BATCH] 44 tested 22528 accepted 10329 / 50000 reasonCounts {'palm_ground_or_cap_support': 61, 'missing_finger_side_contact': 264, 'cylinder_tilt': 18, 'tail_pose_drift': 13, 'object_drop_or_ground': 5, 'pose_motion_not_settled': 7} elapsedSeconds 3018.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 10329 complete False
+[BATCH] 45 tested 23040 accepted 10554 / 50000 reasonCounts {'missing_finger_side_contact': 271, 'cylinder_tilt': 30, 'palm_ground_or_cap_support': 56, 'tail_pose_drift': 19, 'pose_motion_not_settled': 9, 'object_drop_or_ground': 2} elapsedSeconds 3087.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 10554 complete False
+[BATCH] 46 tested 23552 accepted 10792 / 50000 reasonCounts {'palm_ground_or_cap_support': 65, 'missing_finger_side_contact': 260, 'tail_pose_drift': 26, 'cylinder_tilt': 28, 'pose_motion_not_settled': 14} elapsedSeconds 3156.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 10792 complete False
+[BATCH] 47 tested 24064 accepted 11043 / 50000 reasonCounts {'missing_finger_side_contact': 246, 'cylinder_tilt': 29, 'palm_ground_or_cap_support': 65, 'pose_motion_not_settled': 17, 'tail_pose_drift': 19, 'object_drift': 2, 'object_drop_or_ground': 3} elapsedSeconds 3226.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 11043 complete False
+[BATCH] 48 tested 24576 accepted 11288 / 50000 reasonCounts {'missing_finger_side_contact': 252, 'cylinder_tilt': 21, 'palm_ground_or_cap_support': 56, 'object_drop_or_ground': 2, 'tail_pose_drift': 14, 'pose_motion_not_settled': 6} elapsedSeconds 3294.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 11288 complete False
+[BATCH] 49 tested 25088 accepted 11533 / 50000 reasonCounts {'missing_finger_side_contact': 247, 'cylinder_tilt': 35, 'palm_ground_or_cap_support': 67, 'tail_pose_drift': 11, 'pose_motion_not_settled': 13, 'object_drop_or_ground': 1} elapsedSeconds 3363.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 11533 complete False
+[BATCH] 50 tested 25600 accepted 11766 / 50000 reasonCounts {'missing_finger_side_contact': 270, 'palm_ground_or_cap_support': 69, 'cylinder_tilt': 17, 'tail_pose_drift': 12, 'pose_motion_not_settled': 8} elapsedSeconds 3431.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 11766 complete False
+[BATCH] 51 tested 26112 accepted 12002 / 50000 reasonCounts {'missing_finger_side_contact': 256, 'palm_ground_or_cap_support': 75, 'cylinder_tilt': 22, 'pose_motion_not_settled': 11, 'tail_pose_drift': 21, 'object_drop_or_ground': 1} elapsedSeconds 3499.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 12002 complete False
+[BATCH] 52 tested 26624 accepted 12255 / 50000 reasonCounts {'missing_finger_side_contact': 242, 'cylinder_tilt': 34, 'palm_ground_or_cap_support': 61, 'pose_motion_not_settled': 9, 'tail_pose_drift': 20, 'object_drop_or_ground': 1} elapsedSeconds 3568.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 12255 complete False
+[BATCH] 53 tested 27136 accepted 12487 / 50000 reasonCounts {'missing_finger_side_contact': 265, 'palm_ground_or_cap_support': 54, 'cylinder_tilt': 25, 'tail_pose_drift': 17, 'object_drop_or_ground': 3, 'pose_motion_not_settled': 10, 'object_drift': 1} elapsedSeconds 3636.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 12487 complete False
+[BATCH] 54 tested 27648 accepted 12722 / 50000 reasonCounts {'missing_finger_side_contact': 261, 'palm_ground_or_cap_support': 72, 'tail_pose_drift': 23, 'cylinder_tilt': 20, 'pose_motion_not_settled': 16, 'object_drop_or_ground': 2} elapsedSeconds 3705.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 12722 complete False
+[BATCH] 55 tested 28160 accepted 12938 / 50000 reasonCounts {'missing_finger_side_contact': 278, 'palm_ground_or_cap_support': 73, 'cylinder_tilt': 24, 'pose_motion_not_settled': 12, 'object_drop_or_ground': 2, 'tail_pose_drift': 13, 'object_drift': 1} elapsedSeconds 3774.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 12938 complete False
+[BATCH] 56 tested 28672 accepted 13181 / 50000 reasonCounts {'missing_finger_side_contact': 259, 'palm_ground_or_cap_support': 64, 'cylinder_tilt': 26, 'object_drop_or_ground': 2, 'pose_motion_not_settled': 13, 'tail_pose_drift': 19, 'object_drift': 1} elapsedSeconds 3842.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 13181 complete False
+[BATCH] 57 tested 29184 accepted 13403 / 50000 reasonCounts {'missing_finger_side_contact': 269, 'palm_ground_or_cap_support': 66, 'cylinder_tilt': 20, 'pose_motion_not_settled': 13, 'tail_pose_drift': 17} elapsedSeconds 3911.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 13403 complete False
+[BATCH] 58 tested 29696 accepted 13642 / 50000 reasonCounts {'missing_finger_side_contact': 251, 'palm_ground_or_cap_support': 65, 'tail_pose_drift': 19, 'cylinder_tilt': 25, 'pose_motion_not_settled': 13} elapsedSeconds 3979.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 13642 complete False
+[BATCH] 59 tested 30208 accepted 13886 / 50000 reasonCounts {'missing_finger_side_contact': 250, 'palm_ground_or_cap_support': 76, 'cylinder_tilt': 29, 'object_drop_or_ground': 4, 'pose_motion_not_settled': 21, 'tail_pose_drift': 15} elapsedSeconds 4047.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 13886 complete False
+[BATCH] 60 tested 30720 accepted 14113 / 50000 reasonCounts {'missing_finger_side_contact': 268, 'cylinder_tilt': 25, 'palm_ground_or_cap_support': 70, 'pose_motion_not_settled': 12, 'tail_pose_drift': 16, 'object_drop_or_ground': 3} elapsedSeconds 4116.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 14113 complete False
+[BATCH] 61 tested 31232 accepted 14336 / 50000 reasonCounts {'missing_finger_side_contact': 276, 'palm_ground_or_cap_support': 67, 'pose_motion_not_settled': 14, 'cylinder_tilt': 28, 'tail_pose_drift': 19, 'object_drop_or_ground': 4, 'object_drift': 1} elapsedSeconds 4185.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 14336 complete False
+[BATCH] 62 tested 31744 accepted 14578 / 50000 reasonCounts {'missing_finger_side_contact': 250, 'cylinder_tilt': 30, 'palm_ground_or_cap_support': 75, 'pose_motion_not_settled': 10, 'tail_pose_drift': 19, 'object_drop_or_ground': 2} elapsedSeconds 4253.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 14578 complete False
+[BATCH] 63 tested 32256 accepted 14808 / 50000 reasonCounts {'missing_finger_side_contact': 267, 'cylinder_tilt': 25, 'palm_ground_or_cap_support': 70, 'tail_pose_drift': 17, 'pose_motion_not_settled': 8} elapsedSeconds 4322.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 14808 complete False
+[BATCH] 64 tested 32768 accepted 15038 / 50000 reasonCounts {'missing_finger_side_contact': 267, 'palm_ground_or_cap_support': 76, 'cylinder_tilt': 32, 'object_drift': 1, 'object_drop_or_ground': 5, 'tail_pose_drift': 22, 'pose_motion_not_settled': 20} elapsedSeconds 4390.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 15038 complete False
+[BATCH] 65 tested 33280 accepted 15304 / 50000 reasonCounts {'missing_finger_side_contact': 227, 'cylinder_tilt': 27, 'palm_ground_or_cap_support': 64, 'object_drop_or_ground': 3, 'pose_motion_not_settled': 10, 'tail_pose_drift': 12} elapsedSeconds 4459.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 15304 complete False
+[BATCH] 66 tested 33792 accepted 15529 / 50000 reasonCounts {'missing_finger_side_contact': 263, 'palm_ground_or_cap_support': 80, 'cylinder_tilt': 25, 'object_drop_or_ground': 5, 'pose_motion_not_settled': 10, 'tail_pose_drift': 16} elapsedSeconds 4529.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 15529 complete False
+[BATCH] 67 tested 34304 accepted 15756 / 50000 reasonCounts {'palm_ground_or_cap_support': 71, 'pose_motion_not_settled': 9, 'missing_finger_side_contact': 275, 'cylinder_tilt': 22, 'tail_pose_drift': 16, 'object_drop_or_ground': 1} elapsedSeconds 4598.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 15756 complete False
+[BATCH] 68 tested 34816 accepted 16000 / 50000 reasonCounts {'missing_finger_side_contact': 251, 'pose_motion_not_settled': 12, 'tail_pose_drift': 18, 'palm_ground_or_cap_support': 62, 'cylinder_tilt': 34, 'object_drop_or_ground': 1} elapsedSeconds 4667.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 16000 complete False
+[BATCH] 69 tested 35328 accepted 16225 / 50000 reasonCounts {'missing_finger_side_contact': 264, 'palm_ground_or_cap_support': 79, 'pose_motion_not_settled': 17, 'cylinder_tilt': 28, 'tail_pose_drift': 23, 'object_drop_or_ground': 1} elapsedSeconds 4736.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 16225 complete False
+[BATCH] 70 tested 35840 accepted 16444 / 50000 reasonCounts {'missing_finger_side_contact': 281, 'cylinder_tilt': 19, 'palm_ground_or_cap_support': 67, 'tail_pose_drift': 14, 'object_drop_or_ground': 4, 'pose_motion_not_settled': 12, 'object_drift': 1} elapsedSeconds 4805.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 16444 complete False
+[BATCH] 71 tested 36352 accepted 16681 / 50000 reasonCounts {'cylinder_tilt': 21, 'palm_ground_or_cap_support': 67, 'missing_finger_side_contact': 253, 'pose_motion_not_settled': 9, 'tail_pose_drift': 10, 'object_drop_or_ground': 1} elapsedSeconds 4874.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 16681 complete False
+[BATCH] 72 tested 36864 accepted 16936 / 50000 reasonCounts {'missing_finger_side_contact': 246, 'palm_ground_or_cap_support': 63, 'cylinder_tilt': 27, 'pose_motion_not_settled': 13, 'object_drop_or_ground': 3, 'tail_pose_drift': 12} elapsedSeconds 4942.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 16936 complete False
+[BATCH] 73 tested 37376 accepted 17181 / 50000 reasonCounts {'missing_finger_side_contact': 256, 'palm_ground_or_cap_support': 57, 'pose_motion_not_settled': 11, 'tail_pose_drift': 19, 'cylinder_tilt': 24, 'object_drop_or_ground': 2} elapsedSeconds 5009.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 17181 complete False
+[BATCH] 74 tested 37888 accepted 17398 / 50000 reasonCounts {'missing_finger_side_contact': 278, 'cylinder_tilt': 32, 'palm_ground_or_cap_support': 80, 'tail_pose_drift': 19, 'pose_motion_not_settled': 13, 'object_drift': 2, 'object_drop_or_ground': 2} elapsedSeconds 5078.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 17398 complete False
+[BATCH] 75 tested 38400 accepted 17631 / 50000 reasonCounts {'missing_finger_side_contact': 261, 'cylinder_tilt': 28, 'palm_ground_or_cap_support': 81, 'tail_pose_drift': 15, 'pose_motion_not_settled': 14} elapsedSeconds 5147.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 17631 complete False
+[BATCH] 76 tested 38912 accepted 17853 / 50000 reasonCounts {'missing_finger_side_contact': 269, 'cylinder_tilt': 34, 'palm_ground_or_cap_support': 66, 'pose_motion_not_settled': 9, 'tail_pose_drift': 20, 'object_drift': 1, 'object_drop_or_ground': 1} elapsedSeconds 5215.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 17853 complete False
+[BATCH] 77 tested 39424 accepted 18080 / 50000 reasonCounts {'cylinder_tilt': 39, 'missing_finger_side_contact': 266, 'palm_ground_or_cap_support': 65, 'object_drop_or_ground': 4, 'pose_motion_not_settled': 9, 'tail_pose_drift': 10} elapsedSeconds 5283.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 18080 complete False
+[BATCH] 78 tested 39936 accepted 18320 / 50000 reasonCounts {'missing_finger_side_contact': 261, 'cylinder_tilt': 34, 'palm_ground_or_cap_support': 63, 'pose_motion_not_settled': 13, 'tail_pose_drift': 13, 'object_drop_or_ground': 1} elapsedSeconds 5351.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 18320 complete False
+[BATCH] 79 tested 40448 accepted 18559 / 50000 reasonCounts {'palm_ground_or_cap_support': 65, 'tail_pose_drift': 22, 'missing_finger_side_contact': 256, 'cylinder_tilt': 24, 'object_drop_or_ground': 3, 'pose_motion_not_settled': 14} elapsedSeconds 5420.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 18559 complete False
+[BATCH] 80 tested 40960 accepted 18785 / 50000 reasonCounts {'missing_finger_side_contact': 261, 'cylinder_tilt': 32, 'palm_ground_or_cap_support': 66, 'pose_motion_not_settled': 17, 'tail_pose_drift': 20, 'object_drop_or_ground': 3} elapsedSeconds 5488.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 18785 complete False
+[BATCH] 81 tested 41472 accepted 19022 / 50000 reasonCounts {'cylinder_tilt': 37, 'missing_finger_side_contact': 256, 'palm_ground_or_cap_support': 72, 'pose_motion_not_settled': 14, 'tail_pose_drift': 22, 'object_drop_or_ground': 3} elapsedSeconds 5556.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 19022 complete False
+[BATCH] 82 tested 41984 accepted 19258 / 50000 reasonCounts {'missing_finger_side_contact': 260, 'palm_ground_or_cap_support': 82, 'cylinder_tilt': 32, 'pose_motion_not_settled': 14, 'tail_pose_drift': 22, 'object_drop_or_ground': 3} elapsedSeconds 5624.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 19258 complete False
+[BATCH] 83 tested 42496 accepted 19473 / 50000 reasonCounts {'missing_finger_side_contact': 283, 'palm_ground_or_cap_support': 78, 'cylinder_tilt': 33, 'tail_pose_drift': 24, 'object_drop_or_ground': 4, 'pose_motion_not_settled': 8} elapsedSeconds 5693.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 19473 complete False
+[BATCH] 84 tested 43008 accepted 19686 / 50000 reasonCounts {'missing_finger_side_contact': 279, 'cylinder_tilt': 28, 'palm_ground_or_cap_support': 67, 'pose_motion_not_settled': 13, 'tail_pose_drift': 12, 'object_drop_or_ground': 1} elapsedSeconds 5762.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 19686 complete False
+[BATCH] 85 tested 43520 accepted 19904 / 50000 reasonCounts {'missing_finger_side_contact': 277, 'cylinder_tilt': 24, 'palm_ground_or_cap_support': 72, 'pose_motion_not_settled': 15, 'tail_pose_drift': 22, 'object_drop_or_ground': 2} elapsedSeconds 5831.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 19904 complete False
+[BATCH] 86 tested 44032 accepted 20134 / 50000 reasonCounts {'missing_finger_side_contact': 270, 'palm_ground_or_cap_support': 71, 'cylinder_tilt': 25, 'tail_pose_drift': 18, 'pose_motion_not_settled': 9, 'object_drop_or_ground': 1} elapsedSeconds 5900.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 20134 complete False
+[BATCH] 87 tested 44544 accepted 20386 / 50000 reasonCounts {'missing_finger_side_contact': 248, 'cylinder_tilt': 22, 'palm_ground_or_cap_support': 69, 'pose_motion_not_settled': 12, 'object_drop_or_ground': 3, 'tail_pose_drift': 17, 'object_drift': 1} elapsedSeconds 5968.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 20386 complete False
+[BATCH] 88 tested 45056 accepted 20618 / 50000 reasonCounts {'missing_finger_side_contact': 263, 'cylinder_tilt': 26, 'palm_ground_or_cap_support': 62, 'pose_motion_not_settled': 3, 'tail_pose_drift': 8} elapsedSeconds 6036.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 20618 complete False
+[BATCH] 89 tested 45568 accepted 20824 / 50000 reasonCounts {'missing_finger_side_contact': 286, 'palm_ground_or_cap_support': 82, 'cylinder_tilt': 38, 'tail_pose_drift': 14, 'pose_motion_not_settled': 16} elapsedSeconds 6105.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 20824 complete False
+[BATCH] 90 tested 46080 accepted 21062 / 50000 reasonCounts {'missing_finger_side_contact': 254, 'palm_ground_or_cap_support': 67, 'cylinder_tilt': 30, 'object_drop_or_ground': 6, 'tail_pose_drift': 21, 'pose_motion_not_settled': 12} elapsedSeconds 6173.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 21062 complete False
+[BATCH] 91 tested 46592 accepted 21285 / 50000 reasonCounts {'missing_finger_side_contact': 276, 'tail_pose_drift': 10, 'palm_ground_or_cap_support': 67, 'cylinder_tilt': 25, 'pose_motion_not_settled': 4} elapsedSeconds 6242.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 21285 complete False
+[BATCH] 92 tested 47104 accepted 21510 / 50000 reasonCounts {'missing_finger_side_contact': 267, 'palm_ground_or_cap_support': 67, 'cylinder_tilt': 29, 'tail_pose_drift': 15, 'pose_motion_not_settled': 13, 'object_drop_or_ground': 1} elapsedSeconds 6311.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 21510 complete False
+[BATCH] 93 tested 47616 accepted 21738 / 50000 reasonCounts {'missing_finger_side_contact': 266, 'palm_ground_or_cap_support': 70, 'cylinder_tilt': 30, 'object_drop_or_ground': 5, 'pose_motion_not_settled': 16, 'tail_pose_drift': 21, 'object_drift': 1} elapsedSeconds 6380.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 21738 complete False
+[BATCH] 94 tested 48128 accepted 21980 / 50000 reasonCounts {'palm_ground_or_cap_support': 74, 'missing_finger_side_contact': 248, 'tail_pose_drift': 19, 'cylinder_tilt': 29, 'pose_motion_not_settled': 16, 'object_drop_or_ground': 2} elapsedSeconds 6448.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 21980 complete False
+[BATCH] 95 tested 48640 accepted 22204 / 50000 reasonCounts {'missing_finger_side_contact': 268, 'cylinder_tilt': 25, 'palm_ground_or_cap_support': 71, 'object_drop_or_ground': 2, 'pose_motion_not_settled': 11, 'tail_pose_drift': 14} elapsedSeconds 6517.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 22204 complete False
+[BATCH] 96 tested 49152 accepted 22422 / 50000 reasonCounts {'missing_finger_side_contact': 274, 'palm_ground_or_cap_support': 61, 'tail_pose_drift': 18, 'pose_motion_not_settled': 10, 'cylinder_tilt': 22, 'object_drop_or_ground': 2, 'object_drift': 1} elapsedSeconds 6585.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 22422 complete False
+[BATCH] 97 tested 49664 accepted 22646 / 50000 reasonCounts {'missing_finger_side_contact': 266, 'palm_ground_or_cap_support': 66, 'cylinder_tilt': 28, 'pose_motion_not_settled': 7, 'tail_pose_drift': 13, 'object_drift': 1, 'object_drop_or_ground': 2} elapsedSeconds 6653.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 22646 complete False
+[BATCH] 98 tested 50176 accepted 22885 / 50000 reasonCounts {'missing_finger_side_contact': 254, 'cylinder_tilt': 32, 'palm_ground_or_cap_support': 58, 'pose_motion_not_settled': 6, 'tail_pose_drift': 13} elapsedSeconds 6722.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 22885 complete False
+[BATCH] 99 tested 50688 accepted 23129 / 50000 reasonCounts {'missing_finger_side_contact': 251, 'cylinder_tilt': 26, 'palm_ground_or_cap_support': 63, 'tail_pose_drift': 20, 'pose_motion_not_settled': 9, 'object_drift': 1, 'object_drop_or_ground': 3} elapsedSeconds 6790.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 23129 complete False
+[BATCH] 100 tested 51200 accepted 23354 / 50000 reasonCounts {'missing_finger_side_contact': 259, 'cylinder_tilt': 25, 'palm_ground_or_cap_support': 85, 'tail_pose_drift': 12, 'pose_motion_not_settled': 7, 'object_drift': 1, 'object_drop_or_ground': 1} elapsedSeconds 6858.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 23354 complete False
+[BATCH] 101 tested 51712 accepted 23572 / 50000 reasonCounts {'missing_finger_side_contact': 278, 'pose_motion_not_settled': 17, 'cylinder_tilt': 23, 'palm_ground_or_cap_support': 69, 'tail_pose_drift': 18, 'object_drop_or_ground': 5, 'object_drift': 2} elapsedSeconds 6927.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 23572 complete False
+[BATCH] 102 tested 52224 accepted 23821 / 50000 reasonCounts {'missing_finger_side_contact': 243, 'cylinder_tilt': 27, 'palm_ground_or_cap_support': 76, 'tail_pose_drift': 22, 'pose_motion_not_settled': 10, 'object_drop_or_ground': 1} elapsedSeconds 6995.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 23821 complete False
+[BATCH] 103 tested 52736 accepted 24056 / 50000 reasonCounts {'cylinder_tilt': 23, 'palm_ground_or_cap_support': 59, 'tail_pose_drift': 17, 'missing_finger_side_contact': 260, 'pose_motion_not_settled': 13, 'object_drop_or_ground': 2} elapsedSeconds 7064.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 24056 complete False
+[BATCH] 104 tested 53248 accepted 24287 / 50000 reasonCounts {'cylinder_tilt': 29, 'missing_finger_side_contact': 259, 'palm_ground_or_cap_support': 62, 'pose_motion_not_settled': 9, 'object_drop_or_ground': 2, 'tail_pose_drift': 13} elapsedSeconds 7132.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 24287 complete False
+[BATCH] 105 tested 53760 accepted 24530 / 50000 reasonCounts {'missing_finger_side_contact': 252, 'palm_ground_or_cap_support': 62, 'tail_pose_drift': 19, 'pose_motion_not_settled': 15, 'cylinder_tilt': 28} elapsedSeconds 7200.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 24530 complete False
+[BATCH] 106 tested 54272 accepted 24774 / 50000 reasonCounts {'missing_finger_side_contact': 253, 'cylinder_tilt': 17, 'palm_ground_or_cap_support': 65, 'pose_motion_not_settled': 8, 'tail_pose_drift': 6} elapsedSeconds 7269.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 24774 complete False
+[BATCH] 107 tested 54784 accepted 24992 / 50000 reasonCounts {'missing_finger_side_contact': 275, 'cylinder_tilt': 34, 'palm_ground_or_cap_support': 73, 'pose_motion_not_settled': 14, 'tail_pose_drift': 23, 'object_drop_or_ground': 1} elapsedSeconds 7338.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 24992 complete False
+[BATCH] 108 tested 55296 accepted 25223 / 50000 reasonCounts {'missing_finger_side_contact': 257, 'cylinder_tilt': 26, 'palm_ground_or_cap_support': 65, 'pose_motion_not_settled': 8, 'tail_pose_drift': 16, 'object_drop_or_ground': 1} elapsedSeconds 7406.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 25223 complete False
+[BATCH] 109 tested 55808 accepted 25439 / 50000 reasonCounts {'missing_finger_side_contact': 276, 'palm_ground_or_cap_support': 82, 'pose_motion_not_settled': 12, 'cylinder_tilt': 30, 'tail_pose_drift': 23, 'object_drift': 1, 'object_drop_or_ground': 3} elapsedSeconds 7474.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 25439 complete False
+[BATCH] 110 tested 56320 accepted 25672 / 50000 reasonCounts {'missing_finger_side_contact': 263, 'palm_ground_or_cap_support': 73, 'cylinder_tilt': 34, 'pose_motion_not_settled': 9, 'tail_pose_drift': 15} elapsedSeconds 7544.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 25672 complete False
+[BATCH] 111 tested 56832 accepted 25874 / 50000 reasonCounts {'cylinder_tilt': 37, 'object_drift': 1, 'object_drop_or_ground': 1, 'palm_ground_or_cap_support': 82, 'tail_pose_drift': 21, 'missing_finger_side_contact': 288, 'pose_motion_not_settled': 14} elapsedSeconds 7612.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 25874 complete False
+[BATCH] 112 tested 57344 accepted 26090 / 50000 reasonCounts {'missing_finger_side_contact': 277, 'palm_ground_or_cap_support': 70, 'pose_motion_not_settled': 12, 'cylinder_tilt': 34, 'tail_pose_drift': 15, 'object_drop_or_ground': 1} elapsedSeconds 7680.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 26090 complete False
+[BATCH] 113 tested 57856 accepted 26320 / 50000 reasonCounts {'missing_finger_side_contact': 265, 'palm_ground_or_cap_support': 74, 'cylinder_tilt': 28, 'tail_pose_drift': 22, 'pose_motion_not_settled': 12, 'object_drop_or_ground': 1} elapsedSeconds 7749.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 26320 complete False
+[BATCH] 114 tested 58368 accepted 26556 / 50000 reasonCounts {'missing_finger_side_contact': 261, 'cylinder_tilt': 26, 'palm_ground_or_cap_support': 51, 'pose_motion_not_settled': 8, 'tail_pose_drift': 11, 'object_drop_or_ground': 2} elapsedSeconds 7818.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 26556 complete False
+[BATCH] 115 tested 58880 accepted 26797 / 50000 reasonCounts {'missing_finger_side_contact': 253, 'palm_ground_or_cap_support': 69, 'pose_motion_not_settled': 11, 'tail_pose_drift': 19, 'cylinder_tilt': 23, 'object_drop_or_ground': 2} elapsedSeconds 7886.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 26797 complete False
+[BATCH] 116 tested 59392 accepted 27034 / 50000 reasonCounts {'missing_finger_side_contact': 254, 'cylinder_tilt': 30, 'palm_ground_or_cap_support': 64, 'pose_motion_not_settled': 11, 'tail_pose_drift': 9, 'object_drop_or_ground': 1} elapsedSeconds 7955.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 27034 complete False
+[BATCH] 117 tested 59904 accepted 27260 / 50000 reasonCounts {'missing_finger_side_contact': 272, 'cylinder_tilt': 33, 'palm_ground_or_cap_support': 78, 'tail_pose_drift': 22, 'object_drop_or_ground': 1, 'pose_motion_not_settled': 13} elapsedSeconds 8023.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 27260 complete False
+[BATCH] 118 tested 60416 accepted 27499 / 50000 reasonCounts {'missing_finger_side_contact': 255, 'palm_ground_or_cap_support': 72, 'cylinder_tilt': 19, 'pose_motion_not_settled': 16, 'tail_pose_drift': 13} elapsedSeconds 8093.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 27499 complete False
+[BATCH] 119 tested 60928 accepted 27752 / 50000 reasonCounts {'missing_finger_side_contact': 242, 'palm_ground_or_cap_support': 52, 'cylinder_tilt': 16, 'pose_motion_not_settled': 8, 'tail_pose_drift': 11} elapsedSeconds 8161.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 27752 complete False
+[BATCH] 120 tested 61440 accepted 27983 / 50000 reasonCounts {'missing_finger_side_contact': 265, 'cylinder_tilt': 20, 'palm_ground_or_cap_support': 72, 'pose_motion_not_settled': 11, 'tail_pose_drift': 23, 'object_drop_or_ground': 2} elapsedSeconds 8229.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 27983 complete False
+[BATCH] 121 tested 61952 accepted 28222 / 50000 reasonCounts {'missing_finger_side_contact': 258, 'palm_ground_or_cap_support': 66, 'cylinder_tilt': 29, 'tail_pose_drift': 22, 'pose_motion_not_settled': 7, 'object_drop_or_ground': 3} elapsedSeconds 8298.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 28222 complete False
+[BATCH] 122 tested 62464 accepted 28450 / 50000 reasonCounts {'palm_ground_or_cap_support': 74, 'missing_finger_side_contact': 261, 'pose_motion_not_settled': 9, 'tail_pose_drift': 13, 'cylinder_tilt': 28, 'object_drop_or_ground': 3} elapsedSeconds 8366.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 28450 complete False
+[BATCH] 123 tested 62976 accepted 28671 / 50000 reasonCounts {'palm_ground_or_cap_support': 61, 'missing_finger_side_contact': 272, 'cylinder_tilt': 20, 'pose_motion_not_settled': 12, 'tail_pose_drift': 19, 'object_drift': 1, 'object_drop_or_ground': 1} elapsedSeconds 8435.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 28671 complete False
+[BATCH] 124 tested 63488 accepted 28885 / 50000 reasonCounts {'missing_finger_side_contact': 283, 'cylinder_tilt': 33, 'palm_ground_or_cap_support': 70, 'tail_pose_drift': 14, 'pose_motion_not_settled': 10} elapsedSeconds 8503.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 28885 complete False
+[BATCH] 125 tested 64000 accepted 29121 / 50000 reasonCounts {'missing_finger_side_contact': 260, 'palm_ground_or_cap_support': 71, 'cylinder_tilt': 33, 'pose_motion_not_settled': 12, 'tail_pose_drift': 14} elapsedSeconds 8572.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 29121 complete False
+[BATCH] 126 tested 64512 accepted 29343 / 50000 reasonCounts {'palm_ground_or_cap_support': 73, 'pose_motion_not_settled': 12, 'missing_finger_side_contact': 276, 'cylinder_tilt': 19, 'tail_pose_drift': 19, 'object_drop_or_ground': 1} elapsedSeconds 8640.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 29343 complete False
+[BATCH] 127 tested 65024 accepted 29594 / 50000 reasonCounts {'missing_finger_side_contact': 251, 'tail_pose_drift': 18, 'palm_ground_or_cap_support': 60, 'cylinder_tilt': 25, 'object_drop_or_ground': 1, 'pose_motion_not_settled': 5} elapsedSeconds 8708.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 29594 complete False
+[BATCH] 128 tested 65536 accepted 29832 / 50000 reasonCounts {'missing_finger_side_contact': 252, 'cylinder_tilt': 23, 'palm_ground_or_cap_support': 78, 'pose_motion_not_settled': 10, 'object_drop_or_ground': 2, 'tail_pose_drift': 15} elapsedSeconds 8776.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 29832 complete False
+[BATCH] 129 tested 66048 accepted 30065 / 50000 reasonCounts {'missing_finger_side_contact': 257, 'palm_ground_or_cap_support': 82, 'cylinder_tilt': 19, 'tail_pose_drift': 15, 'pose_motion_not_settled': 13} elapsedSeconds 8843.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 30065 complete False
+[BATCH] 130 tested 66560 accepted 30275 / 50000 reasonCounts {'missing_finger_side_contact': 286, 'palm_ground_or_cap_support': 80, 'cylinder_tilt': 21, 'tail_pose_drift': 13, 'pose_motion_not_settled': 8, 'object_drop_or_ground': 1} elapsedSeconds 8911.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 30275 complete False
+[BATCH] 131 tested 67072 accepted 30508 / 50000 reasonCounts {'missing_finger_side_contact': 261, 'palm_ground_or_cap_support': 83, 'cylinder_tilt': 27, 'pose_motion_not_settled': 12, 'tail_pose_drift': 13, 'object_drift': 2, 'object_drop_or_ground': 2} elapsedSeconds 8979.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 30508 complete False
+[BATCH] 132 tested 67584 accepted 30740 / 50000 reasonCounts {'cylinder_tilt': 23, 'missing_finger_side_contact': 263, 'palm_ground_or_cap_support': 62, 'pose_motion_not_settled': 11, 'tail_pose_drift': 11, 'object_drop_or_ground': 1} elapsedSeconds 9047.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 30740 complete False
+[BATCH] 133 tested 68096 accepted 30961 / 50000 reasonCounts {'missing_finger_side_contact': 274, 'cylinder_tilt': 24, 'palm_ground_or_cap_support': 63, 'tail_pose_drift': 11, 'pose_motion_not_settled': 12} elapsedSeconds 9116.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 30961 complete False
+[BATCH] 134 tested 68608 accepted 31182 / 50000 reasonCounts {'missing_finger_side_contact': 280, 'palm_ground_or_cap_support': 72, 'cylinder_tilt': 24, 'tail_pose_drift': 13, 'pose_motion_not_settled': 5} elapsedSeconds 9185.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 31182 complete False
+[BATCH] 135 tested 69120 accepted 31401 / 50000 reasonCounts {'missing_finger_side_contact': 269, 'palm_ground_or_cap_support': 56, 'cylinder_tilt': 29, 'pose_motion_not_settled': 14, 'tail_pose_drift': 21} elapsedSeconds 9254.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 31401 complete False
+[BATCH] 136 tested 69632 accepted 31642 / 50000 reasonCounts {'missing_finger_side_contact': 254, 'palm_ground_or_cap_support': 70, 'pose_motion_not_settled': 10, 'tail_pose_drift': 17, 'cylinder_tilt': 33} elapsedSeconds 9322.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 31642 complete False
+[BATCH] 137 tested 70144 accepted 31874 / 50000 reasonCounts {'cylinder_tilt': 21, 'missing_finger_side_contact': 267, 'palm_ground_or_cap_support': 68, 'pose_motion_not_settled': 12, 'tail_pose_drift': 14} elapsedSeconds 9391.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 31874 complete False
+[BATCH] 138 tested 70656 accepted 32103 / 50000 reasonCounts {'missing_finger_side_contact': 264, 'palm_ground_or_cap_support': 69, 'tail_pose_drift': 19, 'cylinder_tilt': 18, 'pose_motion_not_settled': 14, 'object_drop_or_ground': 1} elapsedSeconds 9460.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 32103 complete False
+[BATCH] 139 tested 71168 accepted 32317 / 50000 reasonCounts {'missing_finger_side_contact': 284, 'pose_motion_not_settled': 9, 'tail_pose_drift': 19, 'cylinder_tilt': 22, 'palm_ground_or_cap_support': 62} elapsedSeconds 9528.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 32317 complete False
+[BATCH] 140 tested 71680 accepted 32545 / 50000 reasonCounts {'missing_finger_side_contact': 266, 'palm_ground_or_cap_support': 49, 'cylinder_tilt': 26, 'tail_pose_drift': 12, 'pose_motion_not_settled': 7, 'object_drop_or_ground': 1} elapsedSeconds 9598.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 32545 complete False
+[BATCH] 141 tested 72192 accepted 32780 / 50000 reasonCounts {'missing_finger_side_contact': 259, 'palm_ground_or_cap_support': 72, 'pose_motion_not_settled': 13, 'tail_pose_drift': 20, 'cylinder_tilt': 16, 'object_drop_or_ground': 1} elapsedSeconds 9668.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 32780 complete False
+[BATCH] 142 tested 72704 accepted 32992 / 50000 reasonCounts {'missing_finger_side_contact': 281, 'cylinder_tilt': 37, 'palm_ground_or_cap_support': 87, 'pose_motion_not_settled': 23, 'tail_pose_drift': 25, 'object_drop_or_ground': 4} elapsedSeconds 9736.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 32992 complete False
+[BATCH] 143 tested 73216 accepted 33229 / 50000 reasonCounts {'missing_finger_side_contact': 255, 'cylinder_tilt': 34, 'palm_ground_or_cap_support': 65, 'tail_pose_drift': 19, 'pose_motion_not_settled': 12, 'object_drop_or_ground': 2, 'object_drift': 1} elapsedSeconds 9804.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 33229 complete False
+[BATCH] 144 tested 73728 accepted 33441 / 50000 reasonCounts {'missing_finger_side_contact': 274, 'palm_ground_or_cap_support': 72, 'cylinder_tilt': 26, 'tail_pose_drift': 13, 'pose_motion_not_settled': 6} elapsedSeconds 9873.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 33441 complete False
+[BATCH] 145 tested 74240 accepted 33660 / 50000 reasonCounts {'missing_finger_side_contact': 271, 'palm_ground_or_cap_support': 72, 'cylinder_tilt': 32, 'pose_motion_not_settled': 10, 'tail_pose_drift': 12, 'object_drop_or_ground': 1} elapsedSeconds 9942.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 33660 complete False
+[BATCH] 146 tested 74752 accepted 33894 / 50000 reasonCounts {'palm_ground_or_cap_support': 66, 'missing_finger_side_contact': 260, 'pose_motion_not_settled': 15, 'cylinder_tilt': 29, 'object_drop_or_ground': 2, 'tail_pose_drift': 14} elapsedSeconds 10011.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 33894 complete False
+[BATCH] 147 tested 75264 accepted 34106 / 50000 reasonCounts {'missing_finger_side_contact': 280, 'cylinder_tilt': 34, 'palm_ground_or_cap_support': 76, 'pose_motion_not_settled': 6, 'tail_pose_drift': 13, 'object_drop_or_ground': 1} elapsedSeconds 10080.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 34106 complete False
+[BATCH] 148 tested 75776 accepted 34327 / 50000 reasonCounts {'missing_finger_side_contact': 276, 'palm_ground_or_cap_support': 75, 'pose_motion_not_settled': 14, 'tail_pose_drift': 17, 'cylinder_tilt': 35, 'object_drop_or_ground': 1} elapsedSeconds 10149.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 34327 complete False
+[BATCH] 149 tested 76288 accepted 34554 / 50000 reasonCounts {'missing_finger_side_contact': 273, 'palm_ground_or_cap_support': 60, 'cylinder_tilt': 16, 'pose_motion_not_settled': 9, 'tail_pose_drift': 15, 'object_drop_or_ground': 1} elapsedSeconds 10217.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 34554 complete False
+[BATCH] 150 tested 76800 accepted 34785 / 50000 reasonCounts {'missing_finger_side_contact': 265, 'palm_ground_or_cap_support': 63, 'tail_pose_drift': 21, 'cylinder_tilt': 30, 'object_drop_or_ground': 2, 'pose_motion_not_settled': 14} elapsedSeconds 10285.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 34785 complete False
+[BATCH] 151 tested 77312 accepted 35004 / 50000 reasonCounts {'missing_finger_side_contact': 275, 'palm_ground_or_cap_support': 77, 'pose_motion_not_settled': 15, 'tail_pose_drift': 24, 'cylinder_tilt': 29, 'object_drop_or_ground': 1} elapsedSeconds 10354.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 35004 complete False
+[BATCH] 152 tested 77824 accepted 35234 / 50000 reasonCounts {'missing_finger_side_contact': 258, 'palm_ground_or_cap_support': 67, 'tail_pose_drift': 18, 'cylinder_tilt': 35, 'pose_motion_not_settled': 12, 'object_drop_or_ground': 2} elapsedSeconds 10423.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 35234 complete False
+[BATCH] 153 tested 78336 accepted 35455 / 50000 reasonCounts {'missing_finger_side_contact': 275, 'palm_ground_or_cap_support': 75, 'pose_motion_not_settled': 12, 'cylinder_tilt': 23, 'tail_pose_drift': 16, 'object_drop_or_ground': 1} elapsedSeconds 10492.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 35455 complete False
+[BATCH] 154 tested 78848 accepted 35657 / 50000 reasonCounts {'missing_finger_side_contact': 295, 'cylinder_tilt': 27, 'palm_ground_or_cap_support': 64, 'tail_pose_drift': 12, 'pose_motion_not_settled': 15, 'object_drop_or_ground': 1} elapsedSeconds 10561.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 35657 complete False
+[BATCH] 155 tested 79360 accepted 35896 / 50000 reasonCounts {'missing_finger_side_contact': 264, 'palm_ground_or_cap_support': 67, 'tail_pose_drift': 21, 'cylinder_tilt': 23, 'pose_motion_not_settled': 12, 'object_drift': 1, 'object_drop_or_ground': 1} elapsedSeconds 10629.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 35896 complete False
+[BATCH] 156 tested 79872 accepted 36133 / 50000 reasonCounts {'missing_finger_side_contact': 252, 'palm_ground_or_cap_support': 54, 'cylinder_tilt': 22, 'pose_motion_not_settled': 5, 'tail_pose_drift': 9, 'object_drop_or_ground': 1} elapsedSeconds 10699.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 36133 complete False
+[BATCH] 157 tested 80384 accepted 36347 / 50000 reasonCounts {'missing_finger_side_contact': 274, 'palm_ground_or_cap_support': 66, 'cylinder_tilt': 29, 'tail_pose_drift': 23, 'pose_motion_not_settled': 8} elapsedSeconds 10767.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 36347 complete False
+[BATCH] 158 tested 80896 accepted 36571 / 50000 reasonCounts {'missing_finger_side_contact': 267, 'palm_ground_or_cap_support': 83, 'pose_motion_not_settled': 12, 'cylinder_tilt': 37, 'tail_pose_drift': 20, 'object_drop_or_ground': 1} elapsedSeconds 10836.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 36571 complete False
+[BATCH] 159 tested 81408 accepted 36795 / 50000 reasonCounts {'missing_finger_side_contact': 275, 'palm_ground_or_cap_support': 62, 'cylinder_tilt': 19, 'pose_motion_not_settled': 8, 'tail_pose_drift': 16, 'object_drift': 1, 'object_drop_or_ground': 1} elapsedSeconds 10904.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 36795 complete False
+[BATCH] 160 tested 81920 accepted 37045 / 50000 reasonCounts {'missing_finger_side_contact': 248, 'cylinder_tilt': 28, 'palm_ground_or_cap_support': 70, 'tail_pose_drift': 20, 'pose_motion_not_settled': 13} elapsedSeconds 10973.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 37045 complete False
+[BATCH] 161 tested 82432 accepted 37260 / 50000 reasonCounts {'missing_finger_side_contact': 282, 'palm_ground_or_cap_support': 79, 'pose_motion_not_settled': 14, 'tail_pose_drift': 24, 'cylinder_tilt': 24} elapsedSeconds 11042.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 37260 complete False
+[BATCH] 162 tested 82944 accepted 37487 / 50000 reasonCounts {'palm_ground_or_cap_support': 70, 'missing_finger_side_contact': 265, 'cylinder_tilt': 24, 'pose_motion_not_settled': 9, 'tail_pose_drift': 16, 'object_drop_or_ground': 3} elapsedSeconds 11110.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 37487 complete False
+[BATCH] 163 tested 83456 accepted 37708 / 50000 reasonCounts {'missing_finger_side_contact': 271, 'cylinder_tilt': 29, 'palm_ground_or_cap_support': 71, 'tail_pose_drift': 22, 'pose_motion_not_settled': 7, 'object_drop_or_ground': 1} elapsedSeconds 11178.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 37708 complete False
+[BATCH] 164 tested 83968 accepted 37948 / 50000 reasonCounts {'missing_finger_side_contact': 256, 'palm_ground_or_cap_support': 69, 'tail_pose_drift': 17, 'cylinder_tilt': 29, 'pose_motion_not_settled': 16, 'object_drop_or_ground': 1} elapsedSeconds 11246.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 37948 complete False
+[BATCH] 165 tested 84480 accepted 38191 / 50000 reasonCounts {'missing_finger_side_contact': 240, 'palm_ground_or_cap_support': 72, 'pose_motion_not_settled': 11, 'tail_pose_drift': 20, 'cylinder_tilt': 24, 'object_drop_or_ground': 1} elapsedSeconds 11315.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 38191 complete False
+[BATCH] 166 tested 84992 accepted 38415 / 50000 reasonCounts {'missing_finger_side_contact': 263, 'palm_ground_or_cap_support': 80, 'cylinder_tilt': 23, 'pose_motion_not_settled': 11, 'tail_pose_drift': 17} elapsedSeconds 11383.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 38415 complete False
+[BATCH] 167 tested 85504 accepted 38634 / 50000 reasonCounts {'cylinder_tilt': 25, 'palm_ground_or_cap_support': 71, 'missing_finger_side_contact': 271, 'pose_motion_not_settled': 9, 'tail_pose_drift': 17, 'object_drop_or_ground': 2} elapsedSeconds 11452.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 38634 complete False
+[BATCH] 168 tested 86016 accepted 38857 / 50000 reasonCounts {'missing_finger_side_contact': 275, 'palm_ground_or_cap_support': 64, 'tail_pose_drift': 15, 'cylinder_tilt': 28, 'pose_motion_not_settled': 11, 'object_drop_or_ground': 1} elapsedSeconds 11521.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 38857 complete False
+[BATCH] 169 tested 86528 accepted 39081 / 50000 reasonCounts {'missing_finger_side_contact': 266, 'cylinder_tilt': 28, 'palm_ground_or_cap_support': 74, 'tail_pose_drift': 15, 'pose_motion_not_settled': 13} elapsedSeconds 11589.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 39081 complete False
+[BATCH] 170 tested 87040 accepted 39308 / 50000 reasonCounts {'missing_finger_side_contact': 263, 'palm_ground_or_cap_support': 76, 'pose_motion_not_settled': 10, 'tail_pose_drift': 19, 'cylinder_tilt': 26, 'object_drop_or_ground': 1} elapsedSeconds 11659.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 39308 complete False
+[BATCH] 171 tested 87552 accepted 39543 / 50000 reasonCounts {'missing_finger_side_contact': 258, 'tail_pose_drift': 16, 'palm_ground_or_cap_support': 65, 'pose_motion_not_settled': 6, 'cylinder_tilt': 29, 'object_drop_or_ground': 1} elapsedSeconds 11728.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 39543 complete False
+[BATCH] 172 tested 88064 accepted 39783 / 50000 reasonCounts {'missing_finger_side_contact': 261, 'palm_ground_or_cap_support': 65, 'pose_motion_not_settled': 17, 'tail_pose_drift': 18, 'cylinder_tilt': 23, 'object_drop_or_ground': 3} elapsedSeconds 11796.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 39783 complete False
+[BATCH] 173 tested 88576 accepted 40014 / 50000 reasonCounts {'palm_ground_or_cap_support': 67, 'missing_finger_side_contact': 265, 'cylinder_tilt': 20, 'pose_motion_not_settled': 15, 'tail_pose_drift': 12, 'object_drop_or_ground': 1} elapsedSeconds 11865.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 40014 complete False
+[BATCH] 174 tested 89088 accepted 40226 / 50000 reasonCounts {'missing_finger_side_contact': 283, 'tail_pose_drift': 16, 'palm_ground_or_cap_support': 74, 'pose_motion_not_settled': 10, 'cylinder_tilt': 36, 'object_drop_or_ground': 1} elapsedSeconds 11933.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 40226 complete False
+[BATCH] 175 tested 89600 accepted 40463 / 50000 reasonCounts {'missing_finger_side_contact': 259, 'cylinder_tilt': 33, 'palm_ground_or_cap_support': 75, 'pose_motion_not_settled': 16, 'tail_pose_drift': 18, 'object_drift': 1, 'object_drop_or_ground': 1} elapsedSeconds 12002.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 40463 complete False
+[BATCH] 176 tested 90112 accepted 40685 / 50000 reasonCounts {'cylinder_tilt': 34, 'missing_finger_side_contact': 276, 'palm_ground_or_cap_support': 65, 'tail_pose_drift': 21, 'pose_motion_not_settled': 11, 'object_drop_or_ground': 2, 'object_drift': 1} elapsedSeconds 12071.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 40685 complete False
+[BATCH] 177 tested 90624 accepted 40921 / 50000 reasonCounts {'missing_finger_side_contact': 258, 'cylinder_tilt': 27, 'palm_ground_or_cap_support': 65, 'pose_motion_not_settled': 13, 'tail_pose_drift': 18, 'object_drift': 1, 'object_drop_or_ground': 4} elapsedSeconds 12140.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 40921 complete False
+[BATCH] 178 tested 91136 accepted 41142 / 50000 reasonCounts {'missing_finger_side_contact': 262, 'palm_ground_or_cap_support': 81, 'cylinder_tilt': 26, 'pose_motion_not_settled': 11, 'tail_pose_drift': 16} elapsedSeconds 12208.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 41142 complete False
+[BATCH] 179 tested 91648 accepted 41371 / 50000 reasonCounts {'missing_finger_side_contact': 268, 'cylinder_tilt': 35, 'palm_ground_or_cap_support': 72, 'pose_motion_not_settled': 16, 'tail_pose_drift': 12, 'object_drop_or_ground': 2} elapsedSeconds 12276.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 41371 complete False
+[BATCH] 180 tested 92160 accepted 41575 / 50000 reasonCounts {'missing_finger_side_contact': 287, 'palm_ground_or_cap_support': 81, 'cylinder_tilt': 33, 'tail_pose_drift': 21, 'pose_motion_not_settled': 6} elapsedSeconds 12345.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 41575 complete False
+[BATCH] 181 tested 92672 accepted 41817 / 50000 reasonCounts {'missing_finger_side_contact': 258, 'cylinder_tilt': 25, 'palm_ground_or_cap_support': 70, 'tail_pose_drift': 13, 'pose_motion_not_settled': 12} elapsedSeconds 12414.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 41817 complete False
+[BATCH] 182 tested 93184 accepted 42035 / 50000 reasonCounts {'missing_finger_side_contact': 270, 'palm_ground_or_cap_support': 77, 'cylinder_tilt': 30, 'pose_motion_not_settled': 16, 'object_drop_or_ground': 2, 'tail_pose_drift': 21} elapsedSeconds 12482.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 42035 complete False
+[BATCH] 183 tested 93696 accepted 42260 / 50000 reasonCounts {'missing_finger_side_contact': 267, 'palm_ground_or_cap_support': 64, 'cylinder_tilt': 20, 'pose_motion_not_settled': 13, 'tail_pose_drift': 11} elapsedSeconds 12551.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 42260 complete False
+[BATCH] 184 tested 94208 accepted 42492 / 50000 reasonCounts {'missing_finger_side_contact': 254, 'cylinder_tilt': 24, 'palm_ground_or_cap_support': 74, 'tail_pose_drift': 17, 'object_drop_or_ground': 2, 'pose_motion_not_settled': 11} elapsedSeconds 12619.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 42492 complete False
+[BATCH] 185 tested 94720 accepted 42696 / 50000 reasonCounts {'missing_finger_side_contact': 288, 'palm_ground_or_cap_support': 64, 'cylinder_tilt': 23, 'object_drift': 1, 'object_drop_or_ground': 1, 'tail_pose_drift': 12, 'pose_motion_not_settled': 10} elapsedSeconds 12687.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 42696 complete False
+[BATCH] 186 tested 95232 accepted 42925 / 50000 reasonCounts {'missing_finger_side_contact': 260, 'palm_ground_or_cap_support': 56, 'cylinder_tilt': 35, 'object_drop_or_ground': 1, 'tail_pose_drift': 10, 'pose_motion_not_settled': 5} elapsedSeconds 12755.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 42925 complete False
+[BATCH] 187 tested 95744 accepted 43156 / 50000 reasonCounts {'missing_finger_side_contact': 260, 'palm_ground_or_cap_support': 88, 'cylinder_tilt': 36, 'pose_motion_not_settled': 7, 'tail_pose_drift': 13} elapsedSeconds 12824.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 43156 complete False
+[BATCH] 188 tested 96256 accepted 43381 / 50000 reasonCounts {'missing_finger_side_contact': 259, 'cylinder_tilt': 32, 'palm_ground_or_cap_support': 81, 'tail_pose_drift': 21, 'pose_motion_not_settled': 13} elapsedSeconds 12893.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 43381 complete False
+[BATCH] 189 tested 96768 accepted 43607 / 50000 reasonCounts {'missing_finger_side_contact': 265, 'palm_ground_or_cap_support': 83, 'cylinder_tilt': 25, 'tail_pose_drift': 15, 'pose_motion_not_settled': 10, 'object_drop_or_ground': 1} elapsedSeconds 12961.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 43607 complete False
+[BATCH] 190 tested 97280 accepted 43831 / 50000 reasonCounts {'missing_finger_side_contact': 260, 'palm_ground_or_cap_support': 90, 'pose_motion_not_settled': 14, 'tail_pose_drift': 21, 'cylinder_tilt': 29, 'object_drop_or_ground': 2} elapsedSeconds 13031.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 43831 complete False
+[BATCH] 191 tested 97792 accepted 44056 / 50000 reasonCounts {'missing_finger_side_contact': 265, 'palm_ground_or_cap_support': 72, 'tail_pose_drift': 17, 'pose_motion_not_settled': 9, 'cylinder_tilt': 35, 'object_drop_or_ground': 3} elapsedSeconds 13100.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 44056 complete False
+[BATCH] 192 tested 98304 accepted 44277 / 50000 reasonCounts {'missing_finger_side_contact': 272, 'cylinder_tilt': 21, 'palm_ground_or_cap_support': 68, 'object_drop_or_ground': 1, 'pose_motion_not_settled': 4, 'tail_pose_drift': 13} elapsedSeconds 13169.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 44277 complete False
+[BATCH] 193 tested 98816 accepted 44502 / 50000 reasonCounts {'missing_finger_side_contact': 271, 'palm_ground_or_cap_support': 74, 'cylinder_tilt': 33, 'tail_pose_drift': 19, 'object_drop_or_ground': 2, 'pose_motion_not_settled': 13} elapsedSeconds 13238.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 44502 complete False
+[BATCH] 194 tested 99328 accepted 44724 / 50000 reasonCounts {'missing_finger_side_contact': 264, 'palm_ground_or_cap_support': 69, 'tail_pose_drift': 11, 'cylinder_tilt': 24, 'pose_motion_not_settled': 10, 'object_drop_or_ground': 1} elapsedSeconds 13307.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 44724 complete False
+[BATCH] 195 tested 99840 accepted 44954 / 50000 reasonCounts {'missing_finger_side_contact': 266, 'palm_ground_or_cap_support': 74, 'cylinder_tilt': 27, 'tail_pose_drift': 21, 'pose_motion_not_settled': 14} elapsedSeconds 13375.7
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 44954 complete False
+[BATCH] 196 tested 100352 accepted 45178 / 50000 reasonCounts {'missing_finger_side_contact': 267, 'palm_ground_or_cap_support': 76, 'cylinder_tilt': 33, 'tail_pose_drift': 14, 'pose_motion_not_settled': 11, 'object_drift': 1, 'object_drop_or_ground': 1} elapsedSeconds 13444.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 45178 complete False
+[BATCH] 197 tested 100864 accepted 45424 / 50000 reasonCounts {'missing_finger_side_contact': 247, 'palm_ground_or_cap_support': 75, 'cylinder_tilt': 21, 'tail_pose_drift': 18, 'pose_motion_not_settled': 12} elapsedSeconds 13513.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 45424 complete False
+[BATCH] 198 tested 101376 accepted 45658 / 50000 reasonCounts {'missing_finger_side_contact': 262, 'palm_ground_or_cap_support': 73, 'cylinder_tilt': 24, 'tail_pose_drift': 16, 'pose_motion_not_settled': 11} elapsedSeconds 13581.4
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 45658 complete False
+[BATCH] 199 tested 101888 accepted 45889 / 50000 reasonCounts {'missing_finger_side_contact': 267, 'cylinder_tilt': 36, 'palm_ground_or_cap_support': 75, 'pose_motion_not_settled': 18, 'tail_pose_drift': 26} elapsedSeconds 13649.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 45889 complete False
+[BATCH] 200 tested 102400 accepted 46124 / 50000 reasonCounts {'missing_finger_side_contact': 257, 'palm_ground_or_cap_support': 80, 'cylinder_tilt': 29, 'tail_pose_drift': 11, 'pose_motion_not_settled': 11, 'object_drop_or_ground': 1} elapsedSeconds 13718.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 46124 complete False
+[BATCH] 201 tested 102912 accepted 46358 / 50000 reasonCounts {'missing_finger_side_contact': 260, 'cylinder_tilt': 35, 'palm_ground_or_cap_support': 74, 'tail_pose_drift': 15, 'pose_motion_not_settled': 6, 'object_drift': 1, 'object_drop_or_ground': 1} elapsedSeconds 13786.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 46358 complete False
+[BATCH] 202 tested 103424 accepted 46579 / 50000 reasonCounts {'missing_finger_side_contact': 271, 'cylinder_tilt': 30, 'palm_ground_or_cap_support': 67, 'pose_motion_not_settled': 16, 'tail_pose_drift': 22, 'object_drop_or_ground': 1} elapsedSeconds 13855.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 46579 complete False
+[BATCH] 203 tested 103936 accepted 46801 / 50000 reasonCounts {'missing_finger_side_contact': 268, 'palm_ground_or_cap_support': 76, 'cylinder_tilt': 31, 'pose_motion_not_settled': 14, 'tail_pose_drift': 13, 'object_drop_or_ground': 1} elapsedSeconds 13923.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 46801 complete False
+[BATCH] 204 tested 104448 accepted 47016 / 50000 reasonCounts {'missing_finger_side_contact': 279, 'palm_ground_or_cap_support': 80, 'cylinder_tilt': 31, 'pose_motion_not_settled': 7, 'tail_pose_drift': 16, 'object_drop_or_ground': 1} elapsedSeconds 13991.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 47016 complete False
+[BATCH] 205 tested 104960 accepted 47238 / 50000 reasonCounts {'missing_finger_side_contact': 270, 'cylinder_tilt': 37, 'palm_ground_or_cap_support': 76, 'object_drop_or_ground': 2, 'pose_motion_not_settled': 13, 'tail_pose_drift': 19} elapsedSeconds 14060.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 47238 complete False
+[BATCH] 206 tested 105472 accepted 47445 / 50000 reasonCounts {'palm_ground_or_cap_support': 93, 'missing_finger_side_contact': 287, 'cylinder_tilt': 36, 'pose_motion_not_settled': 18, 'object_drop_or_ground': 2, 'tail_pose_drift': 16} elapsedSeconds 14129.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 47445 complete False
+[BATCH] 207 tested 105984 accepted 47691 / 50000 reasonCounts {'cylinder_tilt': 20, 'missing_finger_side_contact': 250, 'palm_ground_or_cap_support': 56, 'tail_pose_drift': 16, 'object_drop_or_ground': 1, 'pose_motion_not_settled': 10} elapsedSeconds 14198.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 47691 complete False
+[BATCH] 208 tested 106496 accepted 47914 / 50000 reasonCounts {'missing_finger_side_contact': 268, 'tail_pose_drift': 15, 'palm_ground_or_cap_support': 75, 'cylinder_tilt': 33, 'pose_motion_not_settled': 10, 'object_drop_or_ground': 1} elapsedSeconds 14267.6
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 47914 complete False
+[BATCH] 209 tested 107008 accepted 48144 / 50000 reasonCounts {'missing_finger_side_contact': 269, 'palm_ground_or_cap_support': 68, 'cylinder_tilt': 27, 'pose_motion_not_settled': 6, 'tail_pose_drift': 13, 'object_drop_or_ground': 1} elapsedSeconds 14336.5
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 48144 complete False
+[BATCH] 210 tested 107520 accepted 48360 / 50000 reasonCounts {'missing_finger_side_contact': 277, 'palm_ground_or_cap_support': 70, 'cylinder_tilt': 25, 'pose_motion_not_settled': 11, 'tail_pose_drift': 11, 'object_drop_or_ground': 1} elapsedSeconds 14405.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 48360 complete False
+[BATCH] 211 tested 108032 accepted 48582 / 50000 reasonCounts {'cylinder_tilt': 30, 'missing_finger_side_contact': 266, 'palm_ground_or_cap_support': 75, 'object_drop_or_ground': 2, 'pose_motion_not_settled': 9, 'tail_pose_drift': 16} elapsedSeconds 14475.1
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 48582 complete False
+[BATCH] 212 tested 108544 accepted 48806 / 50000 reasonCounts {'missing_finger_side_contact': 262, 'cylinder_tilt': 24, 'palm_ground_or_cap_support': 84, 'tail_pose_drift': 15, 'pose_motion_not_settled': 9} elapsedSeconds 14544.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 48806 complete False
+[BATCH] 213 tested 109056 accepted 49035 / 50000 reasonCounts {'missing_finger_side_contact': 256, 'tail_pose_drift': 11, 'palm_ground_or_cap_support': 83, 'cylinder_tilt': 32, 'pose_motion_not_settled': 8, 'object_drop_or_ground': 1} elapsedSeconds 14613.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 49035 complete False
+[BATCH] 214 tested 109568 accepted 49244 / 50000 reasonCounts {'missing_finger_side_contact': 287, 'palm_ground_or_cap_support': 80, 'pose_motion_not_settled': 16, 'tail_pose_drift': 27, 'cylinder_tilt': 27, 'object_drop_or_ground': 4} elapsedSeconds 14682.2
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 49244 complete False
+[BATCH] 215 tested 110080 accepted 49480 / 50000 reasonCounts {'palm_ground_or_cap_support': 75, 'missing_finger_side_contact': 253, 'pose_motion_not_settled': 11, 'cylinder_tilt': 32, 'object_drop_or_ground': 1, 'tail_pose_drift': 12} elapsedSeconds 14751.3
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 49480 complete False
+[BATCH] 216 tested 110592 accepted 49717 / 50000 reasonCounts {'palm_ground_or_cap_support': 67, 'missing_finger_side_contact': 261, 'cylinder_tilt': 31, 'tail_pose_drift': 14, 'pose_motion_not_settled': 11, 'object_drop_or_ground': 1} elapsedSeconds 14819.8
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 49717 complete False
+[BATCH] 217 tested 111104 accepted 49937 / 50000 reasonCounts {'missing_finger_side_contact': 277, 'palm_ground_or_cap_support': 72, 'cylinder_tilt': 28, 'pose_motion_not_settled': 10, 'tail_pose_drift': 19, 'object_drop_or_ground': 1} elapsedSeconds 14888.9
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.partial.npy rows 49937 complete False
+[BATCH] 218 tested 111616 accepted 50000 / 50000 reasonCounts {'cylinder_tilt': 28, 'missing_finger_side_contact': 256, 'palm_ground_or_cap_support': 82, 'pose_motion_not_settled': 15, 'tail_pose_drift': 23} elapsedSeconds 14958.0
+[SAVE] botyard_multiscale_v4_grasp_50k_s10.npy rows 50000 complete True

@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "phase": "done",
+  "scales": [
+    1.0
+  ],
+  "countPerScale": 50000,
+  "trainSteps": 10000000,
+  "numEnvs": 512,
+  "generationNumEnvs": 512,
+  "events": [
+    {
+      "phase": "train",
+      "exit": 0
+    }
+  ],
+  "output": "outputs/BotyardHandHora/hora_baseline_s10_20261010_150321",
+  "simulationBackend": {
+    "simDevice": "cuda:0",
+    "physics": "gpu",
+    "tensorPipeline": "cpu",
+    "controllerFeedback": "every_physics_step"
+  },
+  "trainingMode": "hora_baseline",
+  "pretrainingReplayRequired": false
+}

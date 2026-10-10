@@ -1,0 +1,51 @@
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+PyTorch version 1.13.1
+Device count 1
+/home/grelcy/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/grelcy/.cache/torch_extensions/py38_cu117 as PyTorch extensions root...
+Emitting ninja build file /home/grelcy/.cache/torch_extensions/py38_cu117/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+/home/grelcy/hora/gen_grasp.py:40: Hydra14MigrationWarning: 
+The version_base parameter is not specified.
+Hydra will assume defaults for version 1.1.
+Hydra 1.4 will remove this compatibility behavior.
+Before upgrading to Hydra 1.4, set version_base="1.3" and test your application.
+See https://hydra.cc/docs/upgrades/1.3_to_1.4/prepare_for_1_4/ for preparation instructions.
+  @hydra.main(config_name='config', config_path='configs')
+gen_grasp_botyard.py:13: Hydra14MigrationWarning: 
+The version_base parameter is not specified.
+Hydra will assume defaults for version 1.1.
+Hydra 1.4 will remove this compatibility behavior.
+Before upgrading to Hydra 1.4, set version_base="1.3" and test your application.
+See https://hydra.cc/docs/upgrades/1.3_to_1.4/prepare_for_1_4/ for preparation instructions.
+  @hydra.main(config_name='config',config_path='configs')
+/home/grelcy/miniconda3/envs/hora/lib/python3.8/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(
+[PHASE] building generation environment
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+Fixed-wrist BotYard DOF count: 20
+Fixed-wrist BotYard DOF names: ['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1']
+BotYard policy DOF mapping: {'FFJ4': 0, 'FFJ3': 1, 'FFJ2': 2, 'LFJ4': 4, 'LFJ3': 5, 'LFJ2': 6, 'MFJ4': 8, 'MFJ3': 9, 'MFJ2': 10, 'RFJ4': 12, 'RFJ3': 13, 'RFJ2': 14, 'THJ4': 16, 'THJ3': 17, 'THJ2': 18, 'THJ1': 19}
+[COLLISION] named 28 exclusions applied; finger contact groups resolved
+BotYard fingertip rigid-body handles: {'ffdistal': 9, 'lfdistal': 14, 'mfdistal': 19, 'rfdistal': 24, 'thdistal': 29}
+Object rigid-body handle: 31
+Subscene 0 has 1 articulations
+[COORDINATES] post-physics fixed roots verified: world envs 1
+[ROOTS] {'0.9': [0.0, 0.0, 0.5, 0.5284273028373718, -0.020259033888578415, 0.03829240798950195, 0.8478725552558899]}
+BotYard canonical policy target: [-0.226776, 1.038626, 0.147626, -0.215458, 0.951093, 0.286194, -0.226791, 0.942159, 0.228717, -0.22133, 0.831814, 0.288584, -0.923196, -0.291674, 0.025, 0.59365]
+[GEN] measured root preserved; actual q20 + target16 + object7; acceptance=five_side_pose_motion_v3
+[PHASE] zero-action holding trials started
+[TRIAL] 1 accepted 1 / 1 reasons [] metrics {'maxTiltDeg': 0.03798342318013932, 'maxDriftM': 1.6811826923203637e-05, 'minBottomZ': 0.7129725595711808, 'maxPoseLinearSpeed': 4.8220869424047014e-05, 'maxPoseAngularSpeed': 0.0022425050588169163, 'tailPositionDriftM': 2.1499284606199463e-07, 'tailOrientationDriftDeg': 0.0003558461284144056, 'maxSDKLinearSpeed': 0.014270529358041897, 'maxSDKAngularSpeed': 0.5050808420141759}
+[SAVE] botyard_multiscale_v4_grasp_1_s09.npy rows 1 complete True

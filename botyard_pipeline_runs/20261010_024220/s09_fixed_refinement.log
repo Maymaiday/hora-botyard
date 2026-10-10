@@ -1,0 +1,98 @@
+[COMMAND] ['/home/grelcy/miniconda3/envs/hora/bin/python', '-u', 'tools/botyard_two_stage_worker.py', '--repo', '/home/grelcy/hora', '--scale', '0.9', '--replay', '/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_10mrad_source.json', '--report', '/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_10mrad.json', '--pose-validation', '--ff-preload', '0.01', '--cold-hold-seconds', '8']
+[LOG] /home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_10mrad.log
+[PHASE] importing Isaac Gym
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+[API CHECK] 32 required Gym methods available
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+[COORDINATES] one environment; origin=[0.0, 0.0, 0.0]; state offset=[0,0,0]
+[PHASE] loading fixed hand asset
+[COLLISION FILTERS] 28 named pairs, 24 shapes, readback passed
+[OBJECT ASSET] {"replaceCylinderWithCapsule": false}
+[CONFIG] actual DOFs=['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1'] gravity=-9.81 mass=0.05000000074505806 dt=0.004166666666666667 armature=True
+[FF PRELOAD] extra target gap rad=0.01; J4/thumb unchanged
+[STAGE] ff_preload_ramp duration=1.0s
+[STAGE] cold_start_settle duration=0.4s
+[STAGE] cold_start_hold duration=8.0s
+[VELOCITY DIAGNOSTIC] {"classification": "pose_motion_below_limit_inspect_readout_residual", "perPhysicsStepSamples": true, "expectedDt": 0.004166666666666667, "medianSampleDt": 0.00416666666666643, "sampleCount": 2016, "sdkAngularMedianRadS": 0.25094257945625353, "sdkAngularMaxRadS": 0.31758004582547683, "poseAngularRmsRadS": 0.00906882837997702, "poseAngularMaxRadS": 0.026133024466783974, "poseSignedMeanAngularSpeedRadS": 0.006966744798767515, "velocityPoseResidualRmsRadS": 0.26272369013354524, "maxTrapezoidIntegrationResidualDeg": 0.0750485404560058, "tailPositionChangeMm": 0.188134774559134, "tailOrientationChangeDeg": 0.3992796575573244, "interpretation": "Empirical classification only; solver correction versus API readout cause requires additional evidence.", "acceptanceThresholdsChanged": false}
+[RESULT] accepted=False report=/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_10mrad.json
+[JOB DONE] ff_10mrad exit 0 reason None
+[FF CHECK] {"trial": "ff_10mrad", "accepted": false, "check": {"passed": false, "reasons": ["cylinder_tilt", "missing_finger_side_contact"], "metrics": {"maxTiltDeg": 3.463977201276732, "maxDriftM": 0.0033674049631401727, "minBottomZ": 0.7202331765038139, "maxPoseLinearSpeed": 0.00041120359104341247, "maxPoseAngularSpeed": 0.026133024466782482, "tailPositionDriftM": 0.0001870354855373247, "tailOrientationDriftDeg": 0.39693679084862094, "maxSDKLinearSpeed": 0.018543570274344463, "maxSDKAngularSpeed": 0.31758004582547683}, "validationVersion": "five_side_pose_motion_v3", "sdkVelocityIsDiagnosticOnly": true, "physicsSteps": 2016}, "ffPreloadCheck": {"passed": false, "sideContactFraction": 0.058333333333333334, "tailLoadedFraction": 0.0, "medianFlexionGapRad": [-1.8978118896395557e-06, -1.8417835234707525e-07], "criterion": "all hold frames have ff side contact; >=95% tail has >=0.005rad positive error on FFJ3 or FFJ2", "interpretation": "controller preload proxy; not measured normal force"}}
+[COMMAND] ['/home/grelcy/miniconda3/envs/hora/bin/python', '-u', 'tools/botyard_two_stage_worker.py', '--repo', '/home/grelcy/hora', '--scale', '0.9', '--replay', '/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_20mrad_source.json', '--report', '/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_20mrad.json', '--pose-validation', '--ff-preload', '0.02', '--cold-hold-seconds', '8']
+[LOG] /home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_20mrad.log
+[PHASE] importing Isaac Gym
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+[API CHECK] 32 required Gym methods available
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+[COORDINATES] one environment; origin=[0.0, 0.0, 0.0]; state offset=[0,0,0]
+[PHASE] loading fixed hand asset
+[COLLISION FILTERS] 28 named pairs, 24 shapes, readback passed
+[OBJECT ASSET] {"replaceCylinderWithCapsule": false}
+[CONFIG] actual DOFs=['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1'] gravity=-9.81 mass=0.05000000074505806 dt=0.004166666666666667 armature=True
+[FF PRELOAD] extra target gap rad=0.02; J4/thumb unchanged
+[STAGE] ff_preload_ramp duration=1.0s
+[STAGE] cold_start_settle duration=0.4s
+[STAGE] cold_start_hold duration=8.0s
+[VELOCITY DIAGNOSTIC] {"classification": "reported_velocity_pose_mismatch_at_physics_step_resolution", "perPhysicsStepSamples": true, "expectedDt": 0.004166666666666667, "medianSampleDt": 0.00416666666666643, "sampleCount": 2016, "sdkAngularMedianRadS": 0.3994587288662762, "sdkAngularMaxRadS": 0.4012791353343419, "poseAngularRmsRadS": 0.0008264773187966126, "poseAngularMaxRadS": 0.002532138203005186, "poseSignedMeanAngularSpeedRadS": 5.7213502838421025e-06, "velocityPoseResidualRmsRadS": 0.3994228611372527, "maxTrapezoidIntegrationResidualDeg": 0.09568713259038343, "tailPositionChangeMm": 0.0002814520921377969, "tailOrientationChangeDeg": 0.0009931688492149254, "interpretation": "Empirical classification only; solver correction versus API readout cause requires additional evidence.", "acceptanceThresholdsChanged": false}
+[RESULT] accepted=False report=/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_20mrad.json
+[JOB DONE] ff_20mrad exit 0 reason None
+[FF CHECK] {"trial": "ff_20mrad", "accepted": false, "check": {"passed": false, "reasons": ["cylinder_tilt", "missing_finger_side_contact"], "metrics": {"maxTiltDeg": 2.6498339932023622, "maxDriftM": 0.0023057678332674392, "minBottomZ": 0.7214995586501598, "maxPoseLinearSpeed": 7.274590617153503e-05, "maxPoseAngularSpeed": 0.0025321382030050418, "tailPositionDriftM": 2.1258853063579364e-07, "tailOrientationDriftDeg": 0.0010731416642896599, "maxSDKLinearSpeed": 0.024109567237375402, "maxSDKAngularSpeed": 0.4012791353343419}, "validationVersion": "five_side_pose_motion_v3", "sdkVelocityIsDiagnosticOnly": true, "physicsSteps": 2016}, "ffPreloadCheck": {"passed": false, "sideContactFraction": 0.07291666666666667, "tailLoadedFraction": 0.0, "medianFlexionGapRad": [-2.126693725568174e-06, -2.0444393158958185e-07], "criterion": "all hold frames have ff side contact; >=95% tail has >=0.005rad positive error on FFJ3 or FFJ2", "interpretation": "controller preload proxy; not measured normal force"}}
+[COMMAND] ['/home/grelcy/miniconda3/envs/hora/bin/python', '-u', 'tools/botyard_two_stage_worker.py', '--repo', '/home/grelcy/hora', '--scale', '0.9', '--replay', '/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_40mrad_source.json', '--report', '/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_40mrad.json', '--pose-validation', '--ff-preload', '0.04', '--cold-hold-seconds', '8']
+[LOG] /home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_40mrad.log
+[PHASE] importing Isaac Gym
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+[API CHECK] 32 required Gym methods available
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+[COORDINATES] one environment; origin=[0.0, 0.0, 0.0]; state offset=[0,0,0]
+[PHASE] loading fixed hand asset
+[COLLISION FILTERS] 28 named pairs, 24 shapes, readback passed
+[OBJECT ASSET] {"replaceCylinderWithCapsule": false}
+[CONFIG] actual DOFs=['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1'] gravity=-9.81 mass=0.05000000074505806 dt=0.004166666666666667 armature=True
+[FF PRELOAD] extra target gap rad=0.04; J4/thumb unchanged
+[STAGE] ff_preload_ramp duration=1.0s
+[STAGE] cold_start_settle duration=0.4s
+[STAGE] cold_start_hold duration=8.0s
+[VELOCITY DIAGNOSTIC] {"classification": "reported_velocity_pose_mismatch_at_physics_step_resolution", "perPhysicsStepSamples": true, "expectedDt": 0.004166666666666667, "medianSampleDt": 0.00416666666666643, "sampleCount": 2016, "sdkAngularMedianRadS": 0.5157904554755325, "sdkAngularMaxRadS": 0.5195637406203814, "poseAngularRmsRadS": 0.007273258294299343, "poseAngularMaxRadS": 0.008262852937293078, "poseSignedMeanAngularSpeedRadS": 2.8636346724761144e-05, "velocityPoseResidualRmsRadS": 0.4975980036246839, "maxTrapezoidIntegrationResidualDeg": 0.12067721046224383, "tailPositionChangeMm": 0.0011633467861329543, "tailOrientationChangeDeg": 0.0018384201957740774, "interpretation": "Empirical classification only; solver correction versus API readout cause requires additional evidence.", "acceptanceThresholdsChanged": false}
+[RESULT] accepted=False report=/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_40mrad.json
+[JOB DONE] ff_40mrad exit 0 reason None
+[FF CHECK] {"trial": "ff_40mrad", "accepted": false, "check": {"passed": false, "reasons": ["cylinder_tilt", "missing_finger_side_contact"], "metrics": {"maxTiltDeg": 3.4943572959925997, "maxDriftM": 0.002014135270913367, "minBottomZ": 0.7202022333963144, "maxPoseLinearSpeed": 0.0002872152724712539, "maxPoseAngularSpeed": 0.00826285293729261, "tailPositionDriftM": 1.1321343541298796e-06, "tailOrientationDriftDeg": 0.0020490003612343996, "maxSDKLinearSpeed": 0.01547026563471047, "maxSDKAngularSpeed": 0.5195637406203814}, "validationVersion": "five_side_pose_motion_v3", "sdkVelocityIsDiagnosticOnly": true, "physicsSteps": 2016}, "ffPreloadCheck": {"passed": true, "sideContactFraction": 1.0, "tailLoadedFraction": 1.0, "medianFlexionGapRad": [0.010585703849792516, 0.005709269046783455], "criterion": "all hold frames have ff side contact; >=95% tail has >=0.005rad positive error on FFJ3 or FFJ2", "interpretation": "controller preload proxy; not measured normal force"}}
+[COMMAND] ['/home/grelcy/miniconda3/envs/hora/bin/python', '-u', 'tools/botyard_two_stage_worker.py', '--repo', '/home/grelcy/hora', '--scale', '0.9', '--replay', '/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_60mrad_source.json', '--report', '/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_60mrad.json', '--pose-validation', '--ff-preload', '0.06', '--cold-hold-seconds', '8']
+[LOG] /home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_60mrad.log
+[PHASE] importing Isaac Gym
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+[API CHECK] 32 required Gym methods available
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+[COORDINATES] one environment; origin=[0.0, 0.0, 0.0]; state offset=[0,0,0]
+[PHASE] loading fixed hand asset
+[COLLISION FILTERS] 28 named pairs, 24 shapes, readback passed
+[OBJECT ASSET] {"replaceCylinderWithCapsule": false}
+[CONFIG] actual DOFs=['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1'] gravity=-9.81 mass=0.05000000074505806 dt=0.004166666666666667 armature=True
+[FF PRELOAD] extra target gap rad=0.06; J4/thumb unchanged
+[STAGE] ff_preload_ramp duration=1.0s
+[STAGE] cold_start_settle duration=0.4s
+[STAGE] cold_start_hold duration=8.0s
+[VELOCITY DIAGNOSTIC] {"classification": "pose_motion_below_limit_inspect_readout_residual", "perPhysicsStepSamples": true, "expectedDt": 0.004166666666666667, "medianSampleDt": 0.00416666666666643, "sampleCount": 2016, "sdkAngularMedianRadS": 0.3502712084447933, "sdkAngularMaxRadS": 0.39037306104875236, "poseAngularRmsRadS": 0.013061676115813577, "poseAngularMaxRadS": 0.04240643339627129, "poseSignedMeanAngularSpeedRadS": 0.012080687789570386, "velocityPoseResidualRmsRadS": 0.34492726288150727, "maxTrapezoidIntegrationResidualDeg": 0.09050569518597025, "tailPositionChangeMm": 0.4337714110296116, "tailOrientationChangeDeg": 0.6923090422240614, "interpretation": "Empirical classification only; solver correction versus API readout cause requires additional evidence.", "acceptanceThresholdsChanged": false}
+[RESULT] accepted=False report=/home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials/ff_60mrad.json
+[JOB DONE] ff_60mrad exit 0 reason None
+[FF CHECK] {"trial": "ff_60mrad", "accepted": false, "check": {"passed": false, "reasons": ["cylinder_tilt", "object_drop_or_ground", "missing_finger_side_contact"], "metrics": {"maxTiltDeg": 10.058142288681108, "maxDriftM": 0.006048808719720123, "minBottomZ": 0.7120853212193118, "maxPoseLinearSpeed": 0.0009705664730356451, "maxPoseAngularSpeed": 0.04240643339626887, "tailPositionDriftM": 0.0004322786420091248, "tailOrientationDriftDeg": 0.6899740744523195, "maxSDKLinearSpeed": 0.01922318353625111, "maxSDKAngularSpeed": 0.39037306104875236}, "validationVersion": "five_side_pose_motion_v3", "sdkVelocityIsDiagnosticOnly": true, "physicsSteps": 2016}, "ffPreloadCheck": {"passed": true, "sideContactFraction": 1.0, "tailLoadedFraction": 1.0, "medianFlexionGapRad": [0.02411550045013433, 0.012326297760009763], "criterion": "all hold frames have ff side contact; >=95% tail has >=0.005rad positive error on FFJ3 or FFJ2", "interpretation": "controller preload proxy; not measured normal force"}}
+Traceback (most recent call last):
+  File "tools/repair_botyard_ff_preload.py", line 75, in <module>
+    try:sys.exit(main())
+  File "tools/repair_botyard_ff_preload.py", line 72, in main
+    raise RuntimeError('No repeatedly stable loaded forefinger grasp within 10/20/40/60mrad search; inspect '+str(out))
+RuntimeError: No repeatedly stable loaded forefinger grasp within 10/20/40/60mrad search; inspect /home/grelcy/hora/botyard_pipeline_runs/20261010_024220/s09_fixed_refinement_trials

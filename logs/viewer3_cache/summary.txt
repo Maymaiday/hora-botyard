@@ -1,0 +1,19 @@
+Viewer3 unattended cache pipeline started: Thu 08 Oct 2026 02:45:41 CST
+GPU_ID=0 NUM_ENVS=2048 EP_LEN=80
+================================================================
+RUN: env NUM_ENVS=2048 EP_LEN=80 bash scripts/gen_grasp_botyard.sh 0 5000
+LOG: logs/viewer3_cache/01_generate_5k.log
+================================================================
+RUN: python tools/validate_viewer3_cache.py cache/botyard_cylinder_viewer3_grasp_5k_s10.npy --expected-count 5000 --summary logs/viewer3_cache/5k_validation.json
+LOG: logs/viewer3_cache/02_validate_5k.log
+5k validation passed. Starting 50k production cache.
+================================================================
+RUN: env NUM_ENVS=2048 EP_LEN=80 bash scripts/gen_grasp_botyard.sh 0 50000
+LOG: logs/viewer3_cache/03_generate_50k.log
+================================================================
+RUN: python tools/validate_viewer3_cache.py cache/botyard_cylinder_viewer3_grasp_50k_s10.npy --expected-count 50000 --summary logs/viewer3_cache/50k_validation.json
+LOG: logs/viewer3_cache/04_validate_50k.log
+================================================================
+SUCCESS: Viewer3 cylinder 50k cache is ready.
+CACHE: cache/botyard_cylinder_viewer3_grasp_50k_s10.npy
+Finished: Thu 08 Oct 2026 02:58:10 CST

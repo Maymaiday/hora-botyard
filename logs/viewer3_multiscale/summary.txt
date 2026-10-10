@@ -1,0 +1,19 @@
+Viewer3 multiscale unattended pipeline
+Started: Thu 08 Oct 2026 03:05:48 CST
+GPU_ID=0, NUM_ENVS=1024, EP_LEN=80
+Validating existing scale 1.0 cache...
+Scale 1.0 PASS.
+============================================================
+Scale 0.9: PROBE 500
+Scale 0.9 probe PASS. Starting 50k production.
+Scale 0.9: 50k PASS.
+============================================================
+Scale 0.8: PROBE 500
+Scale 0.8 probe PASS. Starting 50k production.
+Scale 0.8: 50k PASS.
+============================================================
+All three caches passed.
+  cache/botyard_cylinder_viewer3_grasp_50k_s08.npy
+  cache/botyard_cylinder_viewer3_grasp_50k_s09.npy
+  cache/botyard_cylinder_viewer3_grasp_50k_s10.npy
+Starting multiscale Stage1 automatically...

@@ -202,7 +202,7 @@ class VecTask(Env):
         pass
 
     def set_sim_params_up_axis(self, sim_params: gymapi.SimParams, axis: str) -> int:
-        """Set gravity based on up axis and return axis index.
+        """Select the up axis, preserve configured gravity, and return axis index.
 
         Args:
             sim_params: sim params to modify the axis for.
@@ -212,9 +212,8 @@ class VecTask(Env):
         """
         if axis == 'z':
             sim_params.up_axis = gymapi.UP_AXIS_Z
-            sim_params.gravity.x = 0
-            sim_params.gravity.y = 0
-            sim_params.gravity.z = -9.81
+            # Gravity was already read from config in _parse_sim_params.
+            # Selecting an up axis must not overwrite a zero-gravity trial.
             return 2
         return 1
 
@@ -266,9 +265,15 @@ class VecTask(Env):
             self.render()
             self.update_low_level_control()
             self.gym.simulate(self.sim)
+            if self.device == 'cpu' and getattr(self, 'cpu_feedback_each_substep', False):
+                # CPU state must be available before the next low-level PD update.
+                self.gym.fetch_results(self.sim, True)
+            hook=getattr(self, 'on_physics_step', None)
+            if hook is not None:
+                hook()
 
         # to fix!
-        if self.device == 'cpu':
+        if self.device == 'cpu' and not getattr(self, 'cpu_feedback_each_substep', False):
             self.gym.fetch_results(self.sim, True)
 
         # fill time out buffer

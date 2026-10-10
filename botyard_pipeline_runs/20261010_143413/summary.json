@@ -1,0 +1,41 @@
+{
+  "complete": false,
+  "phase": "mixed_training_replay",
+  "scales": [
+    1.0,
+    0.9
+  ],
+  "countPerScale": 50000,
+  "trainSteps": 1000000,
+  "numEnvs": 512,
+  "generationNumEnvs": 512,
+  "events": [
+    {
+      "phase": "mixed_training_replay",
+      "exit": 1
+    }
+  ],
+  "output": null,
+  "simulationBackend": {
+    "simDevice": "cuda:0",
+    "physics": "gpu",
+    "tensorPipeline": "cpu",
+    "controllerFeedback": "every_physics_step"
+  },
+  "availableTrainingData": {
+    "1.0": {
+      "rows": 50000,
+      "source": "/home/grelcy/hora/cache/botyard_multiscale_v4_grasp_50k_s10.npy",
+      "trainingCache": "/home/grelcy/hora/cache/botyard_multiscale_v4_grasp_available_20261010_143413_s10.npy",
+      "sourceWasPartial": false
+    },
+    "0.9": {
+      "rows": 12746,
+      "source": "/home/grelcy/hora/cache/botyard_multiscale_v4_grasp_50k_s09.partial.npy",
+      "trainingCache": "/home/grelcy/hora/cache/botyard_multiscale_v4_grasp_available_20261010_143413_s09.npy",
+      "sourceWasPartial": true
+    }
+  },
+  "cacheTag": "available_20261010_143413",
+  "error": "Mixed-scale training-scene replay did not complete/pass; training blocked"
+}

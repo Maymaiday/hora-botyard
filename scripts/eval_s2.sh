@@ -3,8 +3,8 @@ GPUS=$1
 CACHE=$2
 C=outputs/AllegroHandHora/"${CACHE}"/stage2_nn/last.pth
 CUDA_VISIBLE_DEVICES=${GPUS} \
-python train.py task=AllegroHandHora headless=True \
-task.env.numEnvs=20000 test=True task.on_evaluation=True \
+python train.py task=BotyardHandHora headless=True \
+task.env.numEnvs=5000 test=True task.on_evaluation=True \
 task.env.object.type=cylinder_default \
 train.algo=ProprioAdapt \
 task.env.randomization.randomizeMass=True \

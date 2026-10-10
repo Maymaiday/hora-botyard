@@ -1,0 +1,6 @@
+{
+  "sourceArchive": "two_stage_vertical_results.zip",
+  "sourceArchiveSha256": "18e20ac2161a37eaaacff30ae8b96349adb55bd4f524152e562fecbff611c0a8",
+  "referenceRole": "passed lift/flip/alignment candidate; NOT accepted canonical",
+  "thresholdsChanged": false
+}

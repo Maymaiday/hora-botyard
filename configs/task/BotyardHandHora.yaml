@@ -1,0 +1,213 @@
+name: BotyardHandHora
+physics_engine: ${..physics_engine}
+on_evaluation: false
+env:
+  numEnvs: 48
+  numObservations: 96
+  numActions: 16
+  envSpacing: 0.25
+  episodeLength: 400
+  enableDebugVis: false
+  aggregateMode: 0
+  controller:
+    torque_control: true
+    controlFrequencyInv: 6
+    pgain: 3
+    dgain: 0.1
+    actionStepRad: 0.006
+  genGrasps: false
+  clipObservations: 5.0
+  clipActions: 1.0
+  reset_height_threshold: 0.6477125120162964
+  grasp_cache_name: botyard_multiscale_v4
+  botyard:
+    handPosition:
+    - 0.0
+    - 0.0
+    - 0.5
+    handRotationRPY:
+    - 1.1997117091063476
+    - -0.012093638009523122
+    - -0.0008992541477675919
+    objectPosition:
+    - 0.006690913578495385
+    - -0.2815489023923875
+    - 0.7277125120162964
+    torqueLimit: 0.5
+    handQuaternionXYZW:
+    - 0.5645108773621628
+    - -0.005244936663741248
+    - 0.0030424272444171774
+    - 0.8254033581320449
+    objectQuaternionXYZW:
+    - 0.9994307727135511
+    - 0.03350731693504946
+    - -0.0022817402617923356
+    - -0.00319122647051599
+    collisionExcludes: grasp_seed_banks/current_verified/collision_excludes.json
+    scaleSeedFiles:
+      '1.0': grasp_seed_banks/calibrated_v4/s10.json
+      '0.9': grasp_seed_banks/calibrated_v4/s09.json
+      '0.8': grasp_seed_banks/calibrated_v4/s08.json
+  canonicalPolicyPose:
+  - -0.22677556910503854
+  - 1.0386258602142333
+  - 0.14762575328350067
+  - -0.21545778306433985
+  - 0.951093339920044
+  - 0.28619387149810793
+  - -0.22679115132055916
+  - 0.9421590805053711
+  - 0.22871688902378082
+  - -0.221330254902544
+  - 0.8318144321441651
+  - 0.28858416676521303
+  - -0.9231959994175802
+  - -0.2916736681837782
+  - 0.024999941266658256
+  - 0.5936501860618592
+  graspPoseNoise: 0.01
+  minGraspContacts: 4
+  graspTipDistanceThreshold: 0.08
+  targetGraspCount: 50000
+  graspObjectXYNoise: 0.003
+  graspObjectZNoise: 0.002
+  minNearFingerCount: 4
+  requireThumbContact: true
+  rejectSupportContact: true
+  maxCylinderTiltDeg: 20.0
+  minGraspObjectHeight: 0.5
+  forceScale: 0.0
+  randomForceProbScalar: 0.0
+  forceDecay: 0.9
+  forceDecayInterval: 0.08
+  hora:
+    propHistoryLen: 30
+    privInfoDim: 9
+  reward:
+    angvelClipMin: -0.5
+    angvelClipMax: 0.5
+    rotateRewardScale: 1.0
+    objLinvelPenaltyScale: -0.3
+    poseDiffPenaltyScale: -0.3
+    torquePenaltyScale: -0.1
+    workPenaltyScale: -2.0
+  baseObjScale: 1.0
+  randomization:
+    randomizeMass: false
+    randomizeMassLower: 0.05
+    randomizeMassUpper: 0.051
+    randomizeCOM: false
+    randomizeCOMLower: -0.01
+    randomizeCOMUpper: 0.01
+    randomizeFriction: false
+    randomizeFrictionLower: 0.3
+    randomizeFrictionUpper: 3.0
+    randomizeScale: true
+    scaleListInit: true
+    randomizeScaleList:
+    - 1.0
+    - 0.9
+    - 0.8
+    randomizeScaleLower: 1.0
+    randomizeScaleUpper: 1.0
+    randomizePDGains: false
+    randomizePGainLower: 2.9
+    randomizePGainUpper: 3.1
+    randomizeDGainLower: 0.09
+    randomizeDGainUpper: 0.11
+    jointNoiseScale: 0.0
+    scaleJitter: 0.0
+  privInfo:
+    enableObjPos: true
+    enableObjScale: true
+    enableObjMass: true
+    enableObjCOM: true
+    enableObjFriction: true
+  object:
+    type: cylinder
+    sampleProb:
+    - 1.0
+    assetFile: assets/cylinder.urdf
+    massKg: 0.05
+    fixedFriction: 0.5
+  asset:
+    handAsset: assets/botyard_dexhand_gym/urdf/right_dexhand.urdf
+  enableCameraSensors: false
+  graspCacheCountTag: 5k
+  graspSeedBank: grasp_seed_banks/current_verified/s10.json
+  graspReport: cache/generation_v4_report.json
+  maxGraspEpisodes: 2000
+  graspStallEpisodeLimit: 128
+  constraints:
+    targetOffsetLimits16:
+    - 0.08
+    - 0.3
+    - 0.3
+    - 0.08
+    - 0.3
+    - 0.3
+    - 0.08
+    - 0.3
+    - 0.3
+    - 0.08
+    - 0.3
+    - 0.3
+    - 0.06
+    - 0.08
+    - 0.3
+    - 0.3
+    poseWeights20:
+    - 1.5
+    - 0.7
+    - 0.7
+    - 0.7
+    - 1.5
+    - 0.7
+    - 0.7
+    - 0.7
+    - 1.5
+    - 0.7
+    - 0.7
+    - 0.7
+    - 1.5
+    - 0.7
+    - 0.7
+    - 0.7
+    - 3.0
+    - 3.0
+    - 1.0
+    - 1.0
+    positionPenaltyScale: -0.15
+    tiltPenaltyScale: -0.1
+    maxHorizontalDriftM: 0.02
+    maxVerticalDriftM: 0.03
+    maxDropM: 0.02
+    maxTiltDeg: 15.0
+    maxActualPoseOffsetMultiplier: 2.0
+    failurePenalty: -2.0
+  debugMetricsEvery: 100
+  metricsPath: ''
+sim:
+  dt: 0.004166666666666667
+  substeps: 1
+  up_axis: z
+  use_gpu_pipeline: ${eq:${...pipeline},'gpu'}
+  gravity:
+  - 0.0
+  - 0.0
+  - -9.81
+  physx:
+    num_threads: ${....num_threads}
+    solver_type: ${....solver_type}
+    use_gpu: ${contains:'cuda',${....sim_device}}
+    num_position_iterations: 8
+    num_velocity_iterations: 4
+    max_gpu_contact_pairs: 8388608
+    num_subscenes: ${....num_subscenes}
+    contact_offset: 0.002
+    rest_offset: 0.0
+    bounce_threshold_velocity: 0.2
+    max_depenetration_velocity: 2.0
+    default_buffer_size_multiplier: 5.0
+    contact_collection: 2

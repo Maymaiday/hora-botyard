@@ -1,0 +1,107 @@
+[FIXED WRIST REFINE] cycle 0 scale 0.8 correctionDeg 5.028
+[COMMAND] ['/home/grelcy/miniconda3/envs/hora/bin/python', '-u', 'tools/botyard_two_stage_worker.py', '--repo', '/home/grelcy/hora', '--scale', '0.8', '--replay', '/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/proposal_0.json', '--report', '/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/cold_0.json', '--pose-validation', '--cold-hold-seconds', '8']
+[LOG] /home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/cold_0.log
+[PHASE] importing Isaac Gym
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+[API CHECK] 32 required Gym methods available
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+[COORDINATES] one environment; origin=[0.0, 0.0, 0.0]; state offset=[0,0,0]
+[PHASE] loading fixed hand asset
+[COLLISION FILTERS] 28 named pairs, 24 shapes, readback passed
+[OBJECT ASSET] {"replaceCylinderWithCapsule": false}
+[CONFIG] actual DOFs=['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1'] gravity=-9.81 mass=0.05000000074505806 dt=0.004166666666666667 armature=True
+[STAGE] cold_start_settle duration=0.4s
+[STAGE] cold_start_hold duration=8.0s
+[VELOCITY DIAGNOSTIC] {"classification": "pose_motion_below_limit_inspect_readout_residual", "perPhysicsStepSamples": true, "expectedDt": 0.004166666666666667, "medianSampleDt": 0.00416666666666643, "sampleCount": 2016, "sdkAngularMedianRadS": 0.15522614399710397, "sdkAngularMaxRadS": 0.1738997287183326, "poseAngularRmsRadS": 0.014808902029224427, "poseAngularMaxRadS": 0.016124329470841765, "poseSignedMeanAngularSpeedRadS": 0.014764590430763445, "velocityPoseResidualRmsRadS": 0.1683012195981101, "maxTrapezoidIntegrationResidualDeg": 0.0444423028580894, "tailPositionChangeMm": 0.1894541956388832, "tailOrientationChangeDeg": 0.845802222685589, "interpretation": "Empirical classification only; solver correction versus API readout cause requires additional evidence.", "acceptanceThresholdsChanged": false}
+[RESULT] accepted=False report=/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/cold_0.json
+[JOB DONE] cold_0 exit 0 reason None
+[REFINE CHECK] {"cycle": 0, "accepted": false, "check": {"passed": false, "reasons": ["cylinder_tilt"], "metrics": {"maxTiltDeg": 8.248911783188731, "maxDriftM": 0.0037191419754329393, "minBottomZ": 0.6780985337948439, "maxPoseLinearSpeed": 0.0002336944886622255, "maxPoseAngularSpeed": 0.01612432947084085, "tailPositionDriftM": 0.00018859360195810755, "tailOrientationDriftDeg": 0.84210304596626, "maxSDKLinearSpeed": 0.0038084282214785586, "maxSDKAngularSpeed": 0.1738997287183326}, "validationVersion": "five_side_pose_motion_v3", "sdkVelocityIsDiagnosticOnly": true, "physicsSteps": 2016}}
+[FIXED WRIST REFINE] cycle 1 scale 0.8 correctionDeg 8.0
+[COMMAND] ['/home/grelcy/miniconda3/envs/hora/bin/python', '-u', 'tools/botyard_two_stage_worker.py', '--repo', '/home/grelcy/hora', '--scale', '0.8', '--replay', '/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/proposal_1.json', '--report', '/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/cold_1.json', '--pose-validation', '--cold-hold-seconds', '8']
+[LOG] /home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/cold_1.log
+[PHASE] importing Isaac Gym
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+[API CHECK] 32 required Gym methods available
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+[COORDINATES] one environment; origin=[0.0, 0.0, 0.0]; state offset=[0,0,0]
+[PHASE] loading fixed hand asset
+[COLLISION FILTERS] 28 named pairs, 24 shapes, readback passed
+[OBJECT ASSET] {"replaceCylinderWithCapsule": false}
+[CONFIG] actual DOFs=['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1'] gravity=-9.81 mass=0.05000000074505806 dt=0.004166666666666667 armature=True
+[STAGE] cold_start_settle duration=0.4s
+[STAGE] cold_start_hold duration=8.0s
+[VELOCITY DIAGNOSTIC] {"classification": "pose_motion_below_limit_inspect_readout_residual", "perPhysicsStepSamples": true, "expectedDt": 0.004166666666666667, "medianSampleDt": 0.00416666666666643, "sampleCount": 2016, "sdkAngularMedianRadS": 0.2936571656912452, "sdkAngularMaxRadS": 0.3052097859360412, "poseAngularRmsRadS": 0.0031092453831800724, "poseAngularMaxRadS": 0.0307452173641586, "poseSignedMeanAngularSpeedRadS": 0.001566941808897749, "velocityPoseResidualRmsRadS": 0.2917387695387274, "maxTrapezoidIntegrationResidualDeg": 0.07065430831984758, "tailPositionChangeMm": 0.21423984244253855, "tailOrientationChangeDeg": 0.08971454450076594, "interpretation": "Empirical classification only; solver correction versus API readout cause requires additional evidence.", "acceptanceThresholdsChanged": false}
+[RESULT] accepted=False report=/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/cold_1.json
+[JOB DONE] cold_1 exit 0 reason None
+[REFINE CHECK] {"cycle": 1, "accepted": false, "check": {"passed": false, "reasons": ["cylinder_tilt"], "metrics": {"maxTiltDeg": 2.135548107048769, "maxDriftM": 0.0023534887540070304, "minBottomZ": 0.7147714439128501, "maxPoseLinearSpeed": 0.0007210398908740217, "maxPoseAngularSpeed": 0.03074521736415685, "tailPositionDriftM": 0.00021334632158467013, "tailOrientationDriftDeg": 0.08936500651128994, "maxSDKLinearSpeed": 0.01224569252352135, "maxSDKAngularSpeed": 0.3052097859360412}, "validationVersion": "five_side_pose_motion_v3", "sdkVelocityIsDiagnosticOnly": true, "physicsSteps": 2016}}
+[FIXED WRIST REFINE] cycle 2 scale 0.8 correctionDeg 1.909
+[COMMAND] ['/home/grelcy/miniconda3/envs/hora/bin/python', '-u', 'tools/botyard_two_stage_worker.py', '--repo', '/home/grelcy/hora', '--scale', '0.8', '--replay', '/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/proposal_2.json', '--report', '/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/cold_2.json', '--pose-validation', '--cold-hold-seconds', '8']
+[LOG] /home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/cold_2.log
+[PHASE] importing Isaac Gym
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+[API CHECK] 32 required Gym methods available
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+[COORDINATES] one environment; origin=[0.0, 0.0, 0.0]; state offset=[0,0,0]
+[PHASE] loading fixed hand asset
+[COLLISION FILTERS] 28 named pairs, 24 shapes, readback passed
+[OBJECT ASSET] {"replaceCylinderWithCapsule": false}
+[CONFIG] actual DOFs=['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1'] gravity=-9.81 mass=0.05000000074505806 dt=0.004166666666666667 armature=True
+[STAGE] cold_start_settle duration=0.4s
+[STAGE] cold_start_hold duration=8.0s
+[VELOCITY DIAGNOSTIC] {"classification": "pose_motion_below_limit_inspect_readout_residual", "perPhysicsStepSamples": true, "expectedDt": 0.004166666666666667, "medianSampleDt": 0.00416666666666643, "sampleCount": 2016, "sdkAngularMedianRadS": 0.2362359383507607, "sdkAngularMaxRadS": 0.2623120839102729, "poseAngularRmsRadS": 0.004186445906508164, "poseAngularMaxRadS": 0.0064643792780336535, "poseSignedMeanAngularSpeedRadS": 0.0018298514829406954, "velocityPoseResidualRmsRadS": 0.23299901411610385, "maxTrapezoidIntegrationResidualDeg": 0.058189527465409834, "tailPositionChangeMm": 0.18794327358605906, "tailOrientationChangeDeg": 0.10516152171360717, "interpretation": "Empirical classification only; solver correction versus API readout cause requires additional evidence.", "acceptanceThresholdsChanged": false}
+[RESULT] accepted=True report=/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/cold_2.json
+[JOB DONE] cold_2 exit 0 reason None
+[REFINE CHECK] {"cycle": 2, "accepted": true, "check": {"passed": true, "reasons": [], "metrics": {"maxTiltDeg": 0.5567391267981988, "maxDriftM": 0.0015496038918805242, "minBottomZ": 0.7251187033222869, "maxPoseLinearSpeed": 0.0002305538556114803, "maxPoseAngularSpeed": 0.006464379278033285, "tailPositionDriftM": 0.00018716643003571917, "tailOrientationDriftDeg": 0.10441742833890619, "maxSDKLinearSpeed": 0.008541362162842275, "maxSDKAngularSpeed": 0.2623120839102729}, "validationVersion": "five_side_pose_motion_v3", "sdkVelocityIsDiagnosticOnly": true, "physicsSteps": 2016}}
+[COMMAND] ['/home/grelcy/miniconda3/envs/hora/bin/python', '-u', 'tools/botyard_two_stage_worker.py', '--repo', '/home/grelcy/hora', '--scale', '0.8', '--replay', '/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/accepted_candidate.json', '--report', '/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/confirmation_0.json', '--pose-validation', '--cold-hold-seconds', '8']
+[LOG] /home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/confirmation_0.log
+[PHASE] importing Isaac Gym
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+[API CHECK] 32 required Gym methods available
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+[COORDINATES] one environment; origin=[0.0, 0.0, 0.0]; state offset=[0,0,0]
+[PHASE] loading fixed hand asset
+[COLLISION FILTERS] 28 named pairs, 24 shapes, readback passed
+[OBJECT ASSET] {"replaceCylinderWithCapsule": false}
+[CONFIG] actual DOFs=['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1'] gravity=-9.81 mass=0.05000000074505806 dt=0.004166666666666667 armature=True
+[STAGE] cold_start_settle duration=0.4s
+[STAGE] cold_start_hold duration=8.0s
+[VELOCITY DIAGNOSTIC] {"classification": "pose_motion_below_limit_inspect_readout_residual", "perPhysicsStepSamples": true, "expectedDt": 0.004166666666666667, "medianSampleDt": 0.00416666666666643, "sampleCount": 2016, "sdkAngularMedianRadS": 0.17053750221564964, "sdkAngularMaxRadS": 0.18822382950909394, "poseAngularRmsRadS": 0.0023113686744758795, "poseAngularMaxRadS": 0.004040914826918235, "poseSignedMeanAngularSpeedRadS": 0.0005612644900740882, "velocityPoseResidualRmsRadS": 0.17218280932493063, "maxTrapezoidIntegrationResidualDeg": 0.04276982298199191, "tailPositionChangeMm": 0.21567583932789405, "tailOrientationChangeDeg": 0.03268738867918697, "interpretation": "Empirical classification only; solver correction versus API readout cause requires additional evidence.", "acceptanceThresholdsChanged": false}
+[RESULT] accepted=True report=/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/confirmation_0.json
+[JOB DONE] confirmation_0 exit 0 reason None
+[COMMAND] ['/home/grelcy/miniconda3/envs/hora/bin/python', '-u', 'tools/botyard_two_stage_worker.py', '--repo', '/home/grelcy/hora', '--scale', '0.8', '--replay', '/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/accepted_candidate.json', '--report', '/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/confirmation_1.json', '--pose-validation', '--cold-hold-seconds', '8']
+[LOG] /home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/confirmation_1.log
+[PHASE] importing Isaac Gym
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+[API CHECK] 32 required Gym methods available
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+[COORDINATES] one environment; origin=[0.0, 0.0, 0.0]; state offset=[0,0,0]
+[PHASE] loading fixed hand asset
+[COLLISION FILTERS] 28 named pairs, 24 shapes, readback passed
+[OBJECT ASSET] {"replaceCylinderWithCapsule": false}
+[CONFIG] actual DOFs=['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1'] gravity=-9.81 mass=0.05000000074505806 dt=0.004166666666666667 armature=True
+[STAGE] cold_start_settle duration=0.4s
+[STAGE] cold_start_hold duration=8.0s
+[VELOCITY DIAGNOSTIC] {"classification": "pose_motion_below_limit_inspect_readout_residual", "perPhysicsStepSamples": true, "expectedDt": 0.004166666666666667, "medianSampleDt": 0.00416666666666643, "sampleCount": 2016, "sdkAngularMedianRadS": 0.17053750221564964, "sdkAngularMaxRadS": 0.18822382950909394, "poseAngularRmsRadS": 0.0023113686744758795, "poseAngularMaxRadS": 0.004040914826918235, "poseSignedMeanAngularSpeedRadS": 0.0005612644900740882, "velocityPoseResidualRmsRadS": 0.17218280932493063, "maxTrapezoidIntegrationResidualDeg": 0.04276982298199191, "tailPositionChangeMm": 0.21567583932789405, "tailOrientationChangeDeg": 0.03268738867918697, "interpretation": "Empirical classification only; solver correction versus API readout cause requires additional evidence.", "acceptanceThresholdsChanged": false}
+[RESULT] accepted=True report=/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4_trials/confirmation_1.json
+[JOB DONE] confirmation_1 exit 0 reason None
+[REFINE PASS] /home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_refined_4.json

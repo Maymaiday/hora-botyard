@@ -1,0 +1,15 @@
+{
+  "complete": false,
+  "phase": "start",
+  "scales": [
+    1.0,
+    0.9,
+    0.8
+  ],
+  "countPerScale": 5000,
+  "trainSteps": 1000000,
+  "numEnvs": 48,
+  "events": [],
+  "output": null,
+  "error": "[Errno 2] No such file or directory: '/home/grelcy/hora/botyard_pipeline_runs/20261010_022331/s09_fixed_refinement_trials/accepted_candidate.json'"
+}

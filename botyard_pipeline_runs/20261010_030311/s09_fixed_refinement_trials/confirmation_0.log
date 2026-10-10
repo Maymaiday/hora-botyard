@@ -1,0 +1,17 @@
+[PHASE] importing Isaac Gym
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+[API CHECK] 32 required Gym methods available
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+[COORDINATES] one environment; origin=[0.0, 0.0, 0.0]; state offset=[0,0,0]
+[PHASE] loading fixed hand asset
+[COLLISION FILTERS] 28 named pairs, 24 shapes, readback passed
+[OBJECT ASSET] {"replaceCylinderWithCapsule": false}
+[CONFIG] actual DOFs=['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1'] gravity=-9.81 mass=0.05000000074505806 dt=0.004166666666666667 armature=True
+[STAGE] cold_start_settle duration=0.4s
+[STAGE] cold_start_hold duration=8.0s
+[VELOCITY DIAGNOSTIC] {"classification": "reported_velocity_pose_mismatch_at_physics_step_resolution", "perPhysicsStepSamples": true, "expectedDt": 0.004166666666666667, "medianSampleDt": 0.00416666666666643, "sampleCount": 2016, "sdkAngularMedianRadS": 0.49692815761487696, "sdkAngularMaxRadS": 0.4996794711481741, "poseAngularRmsRadS": 0.0007702866236739857, "poseAngularMaxRadS": 0.001971999336911772, "poseSignedMeanAngularSpeedRadS": 2.0574464361080173e-06, "velocityPoseResidualRmsRadS": 0.49696574457575193, "maxTrapezoidIntegrationResidualDeg": 0.11912926426179106, "tailPositionChangeMm": 0.00022526506156017196, "tailOrientationChangeDeg": 0.00040620584070383405, "interpretation": "Empirical classification only; solver correction versus API readout cause requires additional evidence.", "acceptanceThresholdsChanged": false}
+[RESULT] accepted=True report=/home/grelcy/hora/botyard_pipeline_runs/20261010_030311/s09_fixed_refinement_trials/confirmation_0.json

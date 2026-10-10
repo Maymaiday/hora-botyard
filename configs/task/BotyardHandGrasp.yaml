@@ -1,0 +1,26 @@
+name: BotyardHandGrasp
+defaults:
+- BotyardHandHora
+- _self_
+env:
+  genGrasps: true
+  episodeLength: 136
+  numEnvs: 1
+  targetGraspCount: 100
+  graspPoseNoise: 0.02
+  graspObjectXYNoise: 0.0005
+  graspObjectZNoise: 0.0005
+  graspWarmupSeconds: 0.4
+  maxCylinderTiltDeg: 2.0
+  maxGraspDrift: 0.008
+  maxGraspDrop: 0.005
+  graspCheckpointEvery: 100
+  randomization:
+    randomizeScale: false
+    scaleListInit: false
+    randomizeMass: false
+    randomizePDGains: false
+    randomizeFriction: false
+    randomizeCOM: false
+  maxGraspEpisodes: 250000
+  graspStallEpisodeLimit: 256

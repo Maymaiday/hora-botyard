@@ -1,0 +1,557 @@
+{
+  "completed": false,
+  "accepted": false,
+  "stage": "ff_preload_proposal",
+  "candidateIndex": 4,
+  "scale": 0.9,
+  "objectAssetUrdf": "<?xml version=\"1.0\"?>\n<robot name=\"object\">\n  <link name=\"object\">\n    <visual>\n      <origin xyz=\"0 0 0\"/>\n      <geometry>\n        <cylinder radius=\"0.04\" length=\"0.08\"/>\n      </geometry>\n    </visual>\n\n    <collision>\n      <origin xyz=\"0 0 0\"/>\n      <geometry>\n        <cylinder radius=\"0.04\" length=\"0.08\"/>\n      </geometry>\n    </collision>\n\n    <inertial>\n      <mass value=\"0.05\" />\n      <inertia ixx=\"0.0001\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.0001\" iyz=\"0.0\" izz=\"0.0001\"/>\n    </inertial>\n  </link>\n</robot>\n",
+  "objectAssetSha256": "a2657b0315ed140cb3563b31d3f06a06784006c54638b3e08d1093a8cb9c9f1a",
+  "candidate": {
+    "index": 4,
+    "scale": 0.9,
+    "close16": [
+      -0.24040540105463207,
+      1.0121169328689574,
+      0.19946787655353546,
+      -0.20580240773129022,
+      0.9508034825325012,
+      0.32334610223770144,
+      -0.22279857734897213,
+      0.7265126347541809,
+      0.5149303913116455,
+      -0.22688552065103626,
+      0.7760111331939697,
+      0.3921499490737915,
+      -0.831046968475096,
+      -0.11876629537184272,
+      0.07240649089217185,
+      0.23116807043552398
+    ],
+    "open16": [
+      -0.24040540105463207,
+      0.5921083770946876,
+      0.017176586795746546,
+      -0.20580240773129022,
+      0.5558565124024613,
+      0.15419687761249637,
+      -0.22279857734897213,
+      0.32435531921151906,
+      0.3425403909734197,
+      -0.22688552065103626,
+      0.38244306339617107,
+      0.22477672872959745,
+      -0.831046968475096,
+      -0.11876629537184272,
+      0.09699288363906208,
+      0.026527255267521727
+    ],
+    "rootStart7": [
+      0.008900603515545488,
+      -0.25238949188956056,
+      0.3084468926649879,
+      0.866212599689232,
+      0.015215655448154262,
+      -0.008771742946096268,
+      -0.4993668716430768
+    ],
+    "goalRPY": [
+      1.0459135466746474,
+      0.0,
+      0.03512784456992463
+    ],
+    "objectStart7": [
+      0.0,
+      0.0,
+      0.037000000000000005,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "gripOffsetZ": 0.006029738211655529,
+    "xyOffset": [
+      -0.0007980674007936617,
+      -5.170322082943737e-05
+    ],
+    "meshFloorClearance": 0.026784643432421,
+    "palmGap": 0.051788678808950134,
+    "pregraspVertexClearance": 0.0625818106392949,
+    "liftDistance": 0.31746262778772805,
+    "requiredFlipPivotZ": 0.354462627787728,
+    "nominalClose16": [
+      -0.24040540105463207,
+      0.9921083770946876,
+      0.17717658679574655,
+      -0.20580240773129022,
+      0.9558565124024613,
+      0.3141968776124964,
+      -0.22279857734897213,
+      0.7243553192115191,
+      0.5025403909734197,
+      -0.22688552065103626,
+      0.7824430633961711,
+      0.38477672872959745,
+      -0.831046968475096,
+      -0.11876629537184272,
+      0.09699288363906208,
+      0.22652725526752174
+    ]
+  },
+  "controllerVersion": "contact_closure_v3_vertical_named28",
+  "collisionConfiguration": {
+    "source": "https://github.com/wangrp1997/tendon-spin",
+    "commit": "b41630f427d873223d7441fc37838830da32554c",
+    "pairs": [
+      [
+        "fabase",
+        "falink1"
+      ],
+      [
+        "fabase",
+        "pmbase"
+      ],
+      [
+        "falink1",
+        "pmbase"
+      ],
+      [
+        "pmbase",
+        "palm"
+      ],
+      [
+        "palm",
+        "thbase"
+      ],
+      [
+        "palm",
+        "thproximal"
+      ],
+      [
+        "palm",
+        "ffbase"
+      ],
+      [
+        "palm",
+        "mfbase"
+      ],
+      [
+        "palm",
+        "rfbase"
+      ],
+      [
+        "palm",
+        "lfbase"
+      ],
+      [
+        "thbase",
+        "thproximal"
+      ],
+      [
+        "thproximal",
+        "thmiddle"
+      ],
+      [
+        "thmiddle",
+        "thdistal"
+      ],
+      [
+        "ffbase",
+        "ffproximal"
+      ],
+      [
+        "ffbase",
+        "mfbase"
+      ],
+      [
+        "ffproximal",
+        "ffmiddle"
+      ],
+      [
+        "ffmiddle",
+        "ffdistal"
+      ],
+      [
+        "mfbase",
+        "mfproximal"
+      ],
+      [
+        "mfbase",
+        "rfbase"
+      ],
+      [
+        "mfproximal",
+        "mfmiddle"
+      ],
+      [
+        "mfmiddle",
+        "mfdistal"
+      ],
+      [
+        "rfbase",
+        "rfproximal"
+      ],
+      [
+        "rfbase",
+        "lfbase"
+      ],
+      [
+        "rfproximal",
+        "rfmiddle"
+      ],
+      [
+        "rfmiddle",
+        "rfdistal"
+      ],
+      [
+        "lfbase",
+        "lfproximal"
+      ],
+      [
+        "lfproximal",
+        "lfmiddle"
+      ],
+      [
+        "lfmiddle",
+        "lfdistal"
+      ]
+    ],
+    "bodyMasks": {
+      "world": 0,
+      "search_link_0": 0,
+      "search_link_1": 0,
+      "search_link_2": 0,
+      "search_link_3": 0,
+      "search_link_4": 0,
+      "search_link_5": 0,
+      "fabase": 3,
+      "falink1": 5,
+      "pmbase": 14,
+      "palm": 1016,
+      "central": 0,
+      "ffbase": 24640,
+      "ffproximal": 40960,
+      "ffmiddle": 98304,
+      "ffdistal": 65536,
+      "fftip": 0,
+      "lfbase": 37749248,
+      "lfproximal": 100663296,
+      "lfmiddle": 201326592,
+      "lfdistal": 134217728,
+      "lftip": 0,
+      "mfbase": 409728,
+      "mfproximal": 655360,
+      "mfmiddle": 1572864,
+      "mfdistal": 1048576,
+      "mftip": 0,
+      "rfbase": 6553856,
+      "rfproximal": 10485760,
+      "rfmiddle": 25165824,
+      "rfdistal": 16777216,
+      "rftip": 0,
+      "thbase": 1040,
+      "thproximal": 3104,
+      "thmiddle": 6144,
+      "thdistal": 4096,
+      "thtip": 0
+    },
+    "shapeCount": 24,
+    "readbackPassed": true
+  },
+  "trackingCheck": {
+    "passed": true,
+    "toleranceRad": 0.08,
+    "speedLimitRadS": 0.5,
+    "reasons": [],
+    "joints": []
+  },
+  "pregraspCheck": {
+    "passed": true,
+    "reasons": []
+  },
+  "closureController": {
+    "holdingTarget16": [
+      -0.24040540105463207,
+      1.0121169328689574,
+      0.19946787655353546,
+      -0.20580240773129022,
+      0.9508034825325012,
+      0.32334610223770144,
+      -0.22279857734897213,
+      0.7265126347541809,
+      0.5149303913116455,
+      -0.22688552065103626,
+      0.7760111331939697,
+      0.3921499490737915,
+      -0.831046968475096,
+      -0.11876629537184272,
+      0.07240649089217185,
+      0.23116807043552398
+    ],
+    "maximumTarget16": [
+      -0.24040540105463207,
+      1.3421083770946876,
+      0.5271765867957465,
+      -0.20580240773129022,
+      1.3058565124024613,
+      0.6641968776124964,
+      -0.22279857734897213,
+      1.0743553192115192,
+      0.8525403909734197,
+      -0.22688552065103626,
+      1.132443063396171,
+      0.7347767287295974,
+      -0.831046968475096,
+      -0.11876629537184272,
+      0.4469928836390621,
+      0.5765272552675217
+    ],
+    "latchedFingers": [
+      "ff",
+      "lf",
+      "mf",
+      "rf",
+      "th"
+    ],
+    "contactFlexion16ByFinger": {
+      "ff": [
+        0.9871169328689575,
+        0.17446787655353546
+      ],
+      "lf": [
+        0.9258034825325012,
+        0.2983461022377014
+      ],
+      "mf": [
+        0.7015126347541809,
+        0.4899303913116455
+      ],
+      "rf": [
+        0.7510111331939697,
+        0.3671499490737915
+      ],
+      "th": [
+        0.04740649089217186,
+        0.206168070435524
+      ]
+    },
+    "rateRadS": 0.12,
+    "preloadRad": 0.025,
+    "semantics": "geometric contact latch; not force regulation"
+  },
+  "closureStrictCheck": {
+    "passed": true,
+    "reasons": [],
+    "tailSeconds": 0.3,
+    "sideContactFractions": {
+      "ff": 1.0,
+      "lf": 1.0,
+      "mf": 1.0,
+      "rf": 1.0,
+      "th": 1.0
+    },
+    "meanContactBandZ": 0.0043878678031495375,
+    "motion": {
+      "velocityWithinFraction": 1.0,
+      "maxLinearSpeed": 0.006264899612459417,
+      "maxAngularSpeed": 0.16229182568869413,
+      "linearLimit": 0.03,
+      "angularLimit": 0.3,
+      "rule": "every sample within limits"
+    }
+  },
+  "settleStrictCheck": {
+    "passed": true,
+    "reasons": [],
+    "tailSeconds": 0.3,
+    "sideContactFractions": {
+      "ff": 1.0,
+      "lf": 1.0,
+      "mf": 1.0,
+      "rf": 1.0,
+      "th": 1.0
+    },
+    "meanContactBandZ": 0.004345204226201407,
+    "motion": {
+      "velocityWithinFraction": 1.0,
+      "maxLinearSpeed": 0.005992330552364785,
+      "maxAngularSpeed": 0.16806355290552294,
+      "linearLimit": 0.03,
+      "angularLimit": 0.3,
+      "rule": "every sample within limits"
+    }
+  },
+  "closedGripCheck": {
+    "passed": true,
+    "reasons": [],
+    "tailSeconds": 0.3,
+    "sideContactFractions": {
+      "ff": 1.0,
+      "lf": 1.0,
+      "mf": 1.0,
+      "rf": 1.0,
+      "th": 1.0
+    },
+    "meanContactBandZ": 0.004345204226201407,
+    "motion": {
+      "velocityWithinFraction": 1.0,
+      "maxLinearSpeed": 0.005992330552364785,
+      "maxAngularSpeed": 0.16806355290552294,
+      "linearLimit": 0.03,
+      "angularLimit": 0.3,
+      "rule": "95% within limits + bounded peaks + pose stability",
+      "maxPositionChangeM": 2.1605236379221526e-05,
+      "maxOrientationChangeDeg": 0.0482267823893966,
+      "positionLimitM": 0.001,
+      "orientationLimitDeg": 1.0,
+      "peakLinearLimit": 0.06,
+      "peakAngularLimit": 0.6
+    },
+    "validationVersion": "per_physics_step_pose_motion",
+    "poseMotion": {
+      "maxLinearSpeed": 0.00011513815901437986,
+      "maxAngularSpeed": 0.004405370393856119,
+      "driftM": 2.1259035398109476e-05,
+      "driftDeg": 0.04780095957312242
+    }
+  },
+  "legacyClosedGripCheck": {
+    "passed": true,
+    "reasons": [],
+    "tailSeconds": 0.3,
+    "sideContactFractions": {
+      "ff": 1.0,
+      "lf": 1.0,
+      "mf": 1.0,
+      "rf": 1.0,
+      "th": 1.0
+    },
+    "meanContactBandZ": 0.004345204226201407,
+    "motion": {
+      "velocityWithinFraction": 1.0,
+      "maxLinearSpeed": 0.005992330552364785,
+      "maxAngularSpeed": 0.16806355290552294,
+      "linearLimit": 0.03,
+      "angularLimit": 0.3,
+      "rule": "95% within limits + bounded peaks + pose stability",
+      "maxPositionChangeM": 2.1605236379221526e-05,
+      "maxOrientationChangeDeg": 0.0482267823893966,
+      "positionLimitM": 0.001,
+      "orientationLimitDeg": 1.0,
+      "peakLinearLimit": 0.06,
+      "peakAngularLimit": 0.6
+    }
+  },
+  "initialContactBandMeanZ": 0.004345204226201407,
+  "stage1": {
+    "passed": true,
+    "reasons": []
+  },
+  "axisAlignment": {
+    "axisSign": -1,
+    "initialErrorDeg": 11.480047773448051,
+    "toleranceDeg": 2.0,
+    "cycles": [
+      {
+        "cycle": 0,
+        "requestedAngleDeg": 10.000000000000002,
+        "measuredErrorDeg": 1.5309729988562186
+      },
+      {
+        "cycle": 1,
+        "requestedAngleDeg": 1.5309729988562186,
+        "measuredErrorDeg": 0.5721795035375792
+      }
+    ],
+    "maximumTotalCorrectionDeg": 20.0,
+    "objectPoseWritten": false,
+    "finalCheck": {
+      "passed": true,
+      "reasons": [],
+      "axisSign": -1,
+      "toleranceDeg": 2.0,
+      "maxTailErrorDeg": 1.0817793165870118,
+      "finalErrorDeg": 1.0807103924318924,
+      "convention": "axis line aligned to world Z; post-flip local +Z usually points toward world -Z"
+    }
+  },
+  "stage2": {
+    "passed": true,
+    "reasons": []
+  },
+  "final": {
+    "q20": [
+      -0.23864290118217468,
+      1.0111650228500366,
+      0.19894637167453766,
+      0.1991768777370453,
+      -0.2349521815776825,
+      0.9183645844459534,
+      0.3063293397426605,
+      0.31487715244293213,
+      -0.21666820347309113,
+      0.7124481797218323,
+      0.5070163607597351,
+      0.5109351873397827,
+      -0.22747018933296204,
+      0.7509881258010864,
+      0.37844952940940857,
+      0.3853684067726135,
+      -0.8458066582679749,
+      -0.1530075967311859,
+      0.02561751753091812,
+      0.2131563127040863
+    ],
+    "relativeObject7": [
+      0.010793342845487726,
+      0.1073815283193359,
+      0.3471291521730419,
+      0.8565342859148616,
+      -0.05030115007643975,
+      -0.018791083195465616,
+      0.5132891062019987
+    ],
+    "hand7": [
+      0,
+      0,
+      0.5,
+      0.5124755356465035,
+      -0.010294324912231688,
+      0.03287223333873443,
+      0.8580106459209901
+    ]
+  },
+  "coldStartVerticalCheck": {
+    "passed": true,
+    "reasons": [],
+    "axisSign": -1,
+    "toleranceDeg": 2.0,
+    "maxTailErrorDeg": 1.8662085086837843,
+    "finalErrorDeg": 1.8662085086837843,
+    "convention": "axis line aligned to world Z; post-flip local +Z usually points toward world -Z"
+  },
+  "poseColdStartCheck": {
+    "passed": true,
+    "reasons": [],
+    "metrics": {
+      "maxTiltDeg": 1.8662085086837843,
+      "maxDriftM": 0.0013324049159199756,
+      "minBottomZ": 0.7219089157504566,
+      "maxPoseLinearSpeed": 0.0010590873477070912,
+      "maxPoseAngularSpeed": 0.02022187047364355,
+      "tailPositionDriftM": 0.0005382878465997236,
+      "tailOrientationDriftDeg": 0.6162285237614757,
+      "maxSDKLinearSpeed": 0.028011966525443577,
+      "maxSDKAngularSpeed": 0.5776245413069526
+    },
+    "validationVersion": "five_side_pose_motion_v3",
+    "sdkVelocityIsDiagnosticOnly": true,
+    "physicsSteps": 816
+  },
+  "fixedWristRefinement": {
+    "correctionDeg": 4.171643491829048,
+    "sourceTiltDeg": 4.171643491828873,
+    "source": "last actual cold-hold frame; unchanged holding target; new hand root orientation",
+    "proposalIsVerified": false,
+    "cumulativeCorrectionDeg": 15.027858222666751
+  }
+}

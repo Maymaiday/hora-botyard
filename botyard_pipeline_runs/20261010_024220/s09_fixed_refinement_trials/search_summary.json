@@ -1,0 +1,150 @@
+{
+  "complete": false,
+  "trials": [
+    {
+      "trial": "ff_10mrad",
+      "accepted": false,
+      "check": {
+        "passed": false,
+        "reasons": [
+          "cylinder_tilt",
+          "missing_finger_side_contact"
+        ],
+        "metrics": {
+          "maxTiltDeg": 3.463977201276732,
+          "maxDriftM": 0.0033674049631401727,
+          "minBottomZ": 0.7202331765038139,
+          "maxPoseLinearSpeed": 0.00041120359104341247,
+          "maxPoseAngularSpeed": 0.026133024466782482,
+          "tailPositionDriftM": 0.0001870354855373247,
+          "tailOrientationDriftDeg": 0.39693679084862094,
+          "maxSDKLinearSpeed": 0.018543570274344463,
+          "maxSDKAngularSpeed": 0.31758004582547683
+        },
+        "validationVersion": "five_side_pose_motion_v3",
+        "sdkVelocityIsDiagnosticOnly": true,
+        "physicsSteps": 2016
+      },
+      "ffPreloadCheck": {
+        "passed": false,
+        "sideContactFraction": 0.058333333333333334,
+        "tailLoadedFraction": 0.0,
+        "medianFlexionGapRad": [
+          -1.8978118896395557e-06,
+          -1.8417835234707525e-07
+        ],
+        "criterion": "all hold frames have ff side contact; >=95% tail has >=0.005rad positive error on FFJ3 or FFJ2",
+        "interpretation": "controller preload proxy; not measured normal force"
+      }
+    },
+    {
+      "trial": "ff_20mrad",
+      "accepted": false,
+      "check": {
+        "passed": false,
+        "reasons": [
+          "cylinder_tilt",
+          "missing_finger_side_contact"
+        ],
+        "metrics": {
+          "maxTiltDeg": 2.6498339932023622,
+          "maxDriftM": 0.0023057678332674392,
+          "minBottomZ": 0.7214995586501598,
+          "maxPoseLinearSpeed": 7.274590617153503e-05,
+          "maxPoseAngularSpeed": 0.0025321382030050418,
+          "tailPositionDriftM": 2.1258853063579364e-07,
+          "tailOrientationDriftDeg": 0.0010731416642896599,
+          "maxSDKLinearSpeed": 0.024109567237375402,
+          "maxSDKAngularSpeed": 0.4012791353343419
+        },
+        "validationVersion": "five_side_pose_motion_v3",
+        "sdkVelocityIsDiagnosticOnly": true,
+        "physicsSteps": 2016
+      },
+      "ffPreloadCheck": {
+        "passed": false,
+        "sideContactFraction": 0.07291666666666667,
+        "tailLoadedFraction": 0.0,
+        "medianFlexionGapRad": [
+          -2.126693725568174e-06,
+          -2.0444393158958185e-07
+        ],
+        "criterion": "all hold frames have ff side contact; >=95% tail has >=0.005rad positive error on FFJ3 or FFJ2",
+        "interpretation": "controller preload proxy; not measured normal force"
+      }
+    },
+    {
+      "trial": "ff_40mrad",
+      "accepted": false,
+      "check": {
+        "passed": false,
+        "reasons": [
+          "cylinder_tilt",
+          "missing_finger_side_contact"
+        ],
+        "metrics": {
+          "maxTiltDeg": 3.4943572959925997,
+          "maxDriftM": 0.002014135270913367,
+          "minBottomZ": 0.7202022333963144,
+          "maxPoseLinearSpeed": 0.0002872152724712539,
+          "maxPoseAngularSpeed": 0.00826285293729261,
+          "tailPositionDriftM": 1.1321343541298796e-06,
+          "tailOrientationDriftDeg": 0.0020490003612343996,
+          "maxSDKLinearSpeed": 0.01547026563471047,
+          "maxSDKAngularSpeed": 0.5195637406203814
+        },
+        "validationVersion": "five_side_pose_motion_v3",
+        "sdkVelocityIsDiagnosticOnly": true,
+        "physicsSteps": 2016
+      },
+      "ffPreloadCheck": {
+        "passed": true,
+        "sideContactFraction": 1.0,
+        "tailLoadedFraction": 1.0,
+        "medianFlexionGapRad": [
+          0.010585703849792516,
+          0.005709269046783455
+        ],
+        "criterion": "all hold frames have ff side contact; >=95% tail has >=0.005rad positive error on FFJ3 or FFJ2",
+        "interpretation": "controller preload proxy; not measured normal force"
+      }
+    },
+    {
+      "trial": "ff_60mrad",
+      "accepted": false,
+      "check": {
+        "passed": false,
+        "reasons": [
+          "cylinder_tilt",
+          "object_drop_or_ground",
+          "missing_finger_side_contact"
+        ],
+        "metrics": {
+          "maxTiltDeg": 10.058142288681108,
+          "maxDriftM": 0.006048808719720123,
+          "minBottomZ": 0.7120853212193118,
+          "maxPoseLinearSpeed": 0.0009705664730356451,
+          "maxPoseAngularSpeed": 0.04240643339626887,
+          "tailPositionDriftM": 0.0004322786420091248,
+          "tailOrientationDriftDeg": 0.6899740744523195,
+          "maxSDKLinearSpeed": 0.01922318353625111,
+          "maxSDKAngularSpeed": 0.39037306104875236
+        },
+        "validationVersion": "five_side_pose_motion_v3",
+        "sdkVelocityIsDiagnosticOnly": true,
+        "physicsSteps": 2016
+      },
+      "ffPreloadCheck": {
+        "passed": true,
+        "sideContactFraction": 1.0,
+        "tailLoadedFraction": 1.0,
+        "medianFlexionGapRad": [
+          0.02411550045013433,
+          0.012326297760009763
+        ],
+        "criterion": "all hold frames have ff side contact; >=95% tail has >=0.005rad positive error on FFJ3 or FFJ2",
+        "interpretation": "controller preload proxy; not measured normal force"
+      }
+    }
+  ]
+}

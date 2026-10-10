@@ -1,0 +1,109 @@
+{
+  "complete": false,
+  "phase": "generate_s10_5k",
+  "scales": [
+    1.0,
+    0.9,
+    0.8
+  ],
+  "countPerScale": 5000,
+  "trainSteps": 1000000,
+  "numEnvs": 48,
+  "events": [
+    {
+      "phase": "anchor_s10_1_attempt_0",
+      "exit": 0
+    },
+    {
+      "phase": "anchor_s09_1_attempt_0",
+      "exit": 0
+    },
+    {
+      "phase": "s08_search_13",
+      "exit": 0
+    },
+    {
+      "phase": "s08_search_2",
+      "exit": 0
+    },
+    {
+      "phase": "s08_cold_2",
+      "exit": 0
+    },
+    {
+      "phase": "s08_search_4",
+      "exit": 0
+    },
+    {
+      "phase": "s08_cold_4",
+      "exit": 0
+    },
+    {
+      "phase": "s08_refine_4",
+      "exit": 0
+    },
+    {
+      "phase": "anchor_s08_1_attempt_0",
+      "exit": 0
+    }
+  ],
+  "output": null,
+  "canonicalSearch": {
+    "s08": [
+      {
+        "candidate": 13,
+        "stage": "flip",
+        "reasons": [
+          "final_cylinder_axis_not_vertical",
+          "missing_finger_side_contact",
+          "missing_finger_side_contacts",
+          "recovery_drop"
+        ],
+        "closureContactFractions": {
+          "ff": 1.0,
+          "lf": 1.0,
+          "mf": 1.0,
+          "rf": 1.0,
+          "th": 1.0
+        },
+        "report": "/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_two_stage_13.json"
+      },
+      {
+        "candidate": 2,
+        "stage": "awaiting_fixed_wrist_cold_start",
+        "reasons": [],
+        "closureContactFractions": {
+          "ff": 1.0,
+          "lf": 1.0,
+          "mf": 1.0,
+          "rf": 1.0,
+          "th": 1.0
+        },
+        "report": "/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_two_stage_2.json",
+        "coldReasons": [
+          "cylinder_tilt",
+          "missing_finger_side_contact"
+        ]
+      },
+      {
+        "candidate": 4,
+        "stage": "awaiting_fixed_wrist_cold_start",
+        "reasons": [],
+        "closureContactFractions": {
+          "ff": 1.0,
+          "lf": 1.0,
+          "mf": 1.0,
+          "rf": 1.0,
+          "th": 1.0
+        },
+        "report": "/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_two_stage_4.json",
+        "coldReasons": [
+          "cylinder_tilt"
+        ],
+        "refinementOutcome": "accepted",
+        "refinementRejectionReason": null
+      }
+    ]
+  },
+  "error": "interrupted"
+}

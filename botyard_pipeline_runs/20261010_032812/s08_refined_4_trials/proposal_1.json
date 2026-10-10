@@ -1,0 +1,762 @@
+{
+  "completed": false,
+  "accepted": false,
+  "stage": "fixed_wrist_root_proposal",
+  "candidateIndex": 4,
+  "scale": 0.8,
+  "objectAssetUrdf": "<?xml version=\"1.0\"?>\n<robot name=\"object\">\n  <link name=\"object\">\n    <visual>\n      <origin xyz=\"0 0 0\"/>\n      <geometry>\n        <cylinder radius=\"0.04\" length=\"0.08\"/>\n      </geometry>\n    </visual>\n\n    <collision>\n      <origin xyz=\"0 0 0\"/>\n      <geometry>\n        <cylinder radius=\"0.04\" length=\"0.08\"/>\n      </geometry>\n    </collision>\n\n    <inertial>\n      <mass value=\"0.05\" />\n      <inertia ixx=\"0.0001\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.0001\" iyz=\"0.0\" izz=\"0.0001\"/>\n    </inertial>\n  </link>\n</robot>\n",
+  "objectAssetSha256": "a2657b0315ed140cb3563b31d3f06a06784006c54638b3e08d1093a8cb9c9f1a",
+  "candidate": {
+    "index": 4,
+    "scale": 0.8,
+    "close16": [
+      -0.21673983066382013,
+      1.1881494140625,
+      0.2612334108352661,
+      -0.20876336715165025,
+      0.9900552868843079,
+      0.3168854951858521,
+      -0.19050044971633323,
+      0.6581520676612854,
+      0.6454072237014771,
+      -0.20833278226743446,
+      0.6508184909820557,
+      0.5642013788223267,
+      -0.9938562207540811,
+      -0.01723558716532999,
+      0.19512953758239746,
+      0.15556780397891998
+    ],
+    "open16": [
+      -0.21673983066382013,
+      0.705063738384147,
+      0.017176654358946636,
+      -0.20876336715165025,
+      0.5858713010378747,
+      0.1433315009180496,
+      -0.19050044971633323,
+      0.2574407225789819,
+      0.47293719342670326,
+      -0.20833278226743446,
+      0.2591394562432021,
+      0.39822106919442724,
+      -0.9938562207540811,
+      -0.01723558716532999,
+      0.21139502795493514,
+      0.0
+    ],
+    "rootStart7": [
+      0.006955503021456932,
+      -0.25456345158966814,
+      0.29991568648619393,
+      0.866212599689232,
+      0.015215655448154262,
+      -0.008771742946096268,
+      -0.4993668716430768
+    ],
+    "goalRPY": [
+      1.0459135466746474,
+      0.0,
+      0.03512784456992463
+    ],
+    "objectStart7": [
+      0.0,
+      0.0,
+      0.033,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "gripOffsetZ": 0.005359767299249359,
+    "xyOffset": [
+      -0.0007980674007936617,
+      -5.170322082943737e-05
+    ],
+    "meshFloorClearance": 0.019159540598141345,
+    "palmGap": 0.05125747263015615,
+    "pregraspVertexClearance": 0.06272854524324002,
+    "liftDistance": 0.31693142160893395,
+    "requiredFlipPivotZ": 0.349931421608934,
+    "nominalClose16": [
+      -0.21673983066382013,
+      1.105063738384147,
+      0.17717665435894664,
+      -0.20876336715165025,
+      0.9858713010378747,
+      0.3033315009180496,
+      -0.19050044971633323,
+      0.6574407225789819,
+      0.6329371934267033,
+      -0.20833278226743446,
+      0.6591394562432021,
+      0.5582210691944273,
+      -0.9938562207540811,
+      -0.01723558716532999,
+      0.21139502795493514,
+      0.1477259243209948
+    ]
+  },
+  "controllerVersion": "contact_closure_v3_vertical_named28",
+  "collisionConfiguration": {
+    "source": "https://github.com/wangrp1997/tendon-spin",
+    "commit": "b41630f427d873223d7441fc37838830da32554c",
+    "pairs": [
+      [
+        "fabase",
+        "falink1"
+      ],
+      [
+        "fabase",
+        "pmbase"
+      ],
+      [
+        "falink1",
+        "pmbase"
+      ],
+      [
+        "pmbase",
+        "palm"
+      ],
+      [
+        "palm",
+        "thbase"
+      ],
+      [
+        "palm",
+        "thproximal"
+      ],
+      [
+        "palm",
+        "ffbase"
+      ],
+      [
+        "palm",
+        "mfbase"
+      ],
+      [
+        "palm",
+        "rfbase"
+      ],
+      [
+        "palm",
+        "lfbase"
+      ],
+      [
+        "thbase",
+        "thproximal"
+      ],
+      [
+        "thproximal",
+        "thmiddle"
+      ],
+      [
+        "thmiddle",
+        "thdistal"
+      ],
+      [
+        "ffbase",
+        "ffproximal"
+      ],
+      [
+        "ffbase",
+        "mfbase"
+      ],
+      [
+        "ffproximal",
+        "ffmiddle"
+      ],
+      [
+        "ffmiddle",
+        "ffdistal"
+      ],
+      [
+        "mfbase",
+        "mfproximal"
+      ],
+      [
+        "mfbase",
+        "rfbase"
+      ],
+      [
+        "mfproximal",
+        "mfmiddle"
+      ],
+      [
+        "mfmiddle",
+        "mfdistal"
+      ],
+      [
+        "rfbase",
+        "rfproximal"
+      ],
+      [
+        "rfbase",
+        "lfbase"
+      ],
+      [
+        "rfproximal",
+        "rfmiddle"
+      ],
+      [
+        "rfmiddle",
+        "rfdistal"
+      ],
+      [
+        "lfbase",
+        "lfproximal"
+      ],
+      [
+        "lfproximal",
+        "lfmiddle"
+      ],
+      [
+        "lfmiddle",
+        "lfdistal"
+      ]
+    ],
+    "bodyMasks": {
+      "world": 0,
+      "search_link_0": 0,
+      "search_link_1": 0,
+      "search_link_2": 0,
+      "search_link_3": 0,
+      "search_link_4": 0,
+      "search_link_5": 0,
+      "fabase": 3,
+      "falink1": 5,
+      "pmbase": 14,
+      "palm": 1016,
+      "central": 0,
+      "ffbase": 24640,
+      "ffproximal": 40960,
+      "ffmiddle": 98304,
+      "ffdistal": 65536,
+      "fftip": 0,
+      "lfbase": 37749248,
+      "lfproximal": 100663296,
+      "lfmiddle": 201326592,
+      "lfdistal": 134217728,
+      "lftip": 0,
+      "mfbase": 409728,
+      "mfproximal": 655360,
+      "mfmiddle": 1572864,
+      "mfdistal": 1048576,
+      "mftip": 0,
+      "rfbase": 6553856,
+      "rfproximal": 10485760,
+      "rfmiddle": 25165824,
+      "rfdistal": 16777216,
+      "rftip": 0,
+      "thbase": 1040,
+      "thproximal": 3104,
+      "thmiddle": 6144,
+      "thdistal": 4096,
+      "thtip": 0
+    },
+    "shapeCount": 24,
+    "readbackPassed": true
+  },
+  "trackingCheck": {
+    "passed": true,
+    "toleranceRad": 0.08,
+    "speedLimitRadS": 0.5,
+    "reasons": [],
+    "joints": []
+  },
+  "pregraspCheck": {
+    "passed": true,
+    "reasons": []
+  },
+  "closureController": {
+    "holdingTarget16": [
+      -0.21673983066382013,
+      1.1281494140625,
+      0.2012334108352661,
+      -0.20876336715165025,
+      0.9900552868843079,
+      0.3168854951858521,
+      -0.19050044971633323,
+      0.6581520676612854,
+      0.6454072237014771,
+      -0.20833278226743446,
+      0.6508184909820557,
+      0.5642013788223267,
+      -0.9938562207540811,
+      -0.01723558716532999,
+      0.19512953758239746,
+      0.15556780397891998
+    ],
+    "maximumTarget16": [
+      -0.21673983066382013,
+      1.4550637383841472,
+      0.5271766543589467,
+      -0.20876336715165025,
+      1.3358713010378747,
+      0.6533315009180496,
+      -0.19050044971633323,
+      1.0074407225789819,
+      0.9829371934267033,
+      -0.20833278226743446,
+      1.0091394562432021,
+      0.9082210691944272,
+      -0.9938562207540811,
+      -0.01723558716532999,
+      0.5613950279549351,
+      0.4977259243209948
+    ],
+    "latchedFingers": [
+      "ff",
+      "lf",
+      "mf",
+      "rf",
+      "th"
+    ],
+    "contactFlexion16ByFinger": {
+      "ff": [
+        1.1031494140625,
+        0.1762334108352661
+      ],
+      "lf": [
+        0.9650552868843079,
+        0.29188549518585205
+      ],
+      "mf": [
+        0.6331520676612854,
+        0.620407223701477
+      ],
+      "rf": [
+        0.6258184909820557,
+        0.5392013788223267
+      ],
+      "th": [
+        0.17012953758239746,
+        0.13056780397891998
+      ]
+    },
+    "rateRadS": 0.12,
+    "preloadRad": 0.025,
+    "semantics": "geometric contact latch; not force regulation"
+  },
+  "closureStrictCheck": {
+    "passed": true,
+    "reasons": [],
+    "tailSeconds": 0.3,
+    "sideContactFractions": {
+      "ff": 1.0,
+      "lf": 1.0,
+      "mf": 1.0,
+      "rf": 1.0,
+      "th": 1.0
+    },
+    "meanContactBandZ": 0.0013275662687454014,
+    "motion": {
+      "velocityWithinFraction": 1.0,
+      "maxLinearSpeed": 0.01016114174606837,
+      "maxAngularSpeed": 0.24523207684250042,
+      "linearLimit": 0.03,
+      "angularLimit": 0.3,
+      "rule": "every sample within limits"
+    }
+  },
+  "settleStrictCheck": {
+    "passed": false,
+    "reasons": [
+      "object_not_settled_after_close"
+    ],
+    "tailSeconds": 0.3,
+    "sideContactFractions": {
+      "ff": 1.0,
+      "lf": 1.0,
+      "mf": 1.0,
+      "rf": 1.0,
+      "th": 1.0
+    },
+    "meanContactBandZ": 0.0021899691004663296,
+    "motion": {
+      "velocityWithinFraction": 0.0136986301369863,
+      "maxLinearSpeed": 0.01268114862028334,
+      "maxAngularSpeed": 0.7473908666298498,
+      "linearLimit": 0.03,
+      "angularLimit": 0.3,
+      "rule": "every sample within limits"
+    }
+  },
+  "closedGripCheck": {
+    "passed": true,
+    "reasons": [],
+    "tailSeconds": 0.3,
+    "sideContactFractions": {
+      "ff": 1.0,
+      "lf": 1.0,
+      "mf": 1.0,
+      "rf": 1.0,
+      "th": 1.0
+    },
+    "meanContactBandZ": 0.0021899691004663296,
+    "motion": {
+      "velocityWithinFraction": 0.0136986301369863,
+      "maxLinearSpeed": 0.01268114862028334,
+      "maxAngularSpeed": 0.7473908666298498,
+      "linearLimit": 0.03,
+      "angularLimit": 0.3,
+      "rule": "95% within limits + bounded peaks + pose stability",
+      "maxPositionChangeM": 6.834950318579118e-05,
+      "maxOrientationChangeDeg": 0.20088187861085657,
+      "positionLimitM": 0.001,
+      "orientationLimitDeg": 1.0,
+      "peakLinearLimit": 0.06,
+      "peakAngularLimit": 0.6
+    },
+    "validationVersion": "per_physics_step_pose_motion",
+    "poseMotion": {
+      "maxLinearSpeed": 0.0004136882930037229,
+      "maxAngularSpeed": 0.01967999885378469,
+      "driftM": 6.777939521125431e-05,
+      "driftDeg": 0.1989524704798712
+    }
+  },
+  "legacyClosedGripCheck": {
+    "passed": false,
+    "reasons": [
+      "object_not_settled_after_close"
+    ],
+    "tailSeconds": 0.3,
+    "sideContactFractions": {
+      "ff": 1.0,
+      "lf": 1.0,
+      "mf": 1.0,
+      "rf": 1.0,
+      "th": 1.0
+    },
+    "meanContactBandZ": 0.0021899691004663296,
+    "motion": {
+      "velocityWithinFraction": 0.0136986301369863,
+      "maxLinearSpeed": 0.01268114862028334,
+      "maxAngularSpeed": 0.7473908666298498,
+      "linearLimit": 0.03,
+      "angularLimit": 0.3,
+      "rule": "95% within limits + bounded peaks + pose stability",
+      "maxPositionChangeM": 6.834950318579118e-05,
+      "maxOrientationChangeDeg": 0.20088187861085657,
+      "positionLimitM": 0.001,
+      "orientationLimitDeg": 1.0,
+      "peakLinearLimit": 0.06,
+      "peakAngularLimit": 0.6
+    }
+  },
+  "initialContactBandMeanZ": 0.0021899691004663296,
+  "holdRecovery": {
+    "lift_hold": {
+      "controller": {
+        "initialTarget16": [
+          -0.21673983066382013,
+          1.1281494140625,
+          0.2012334108352661,
+          -0.20876336715165025,
+          0.9900552868843079,
+          0.3168854951858521,
+          -0.19050044971633323,
+          0.6581520676612854,
+          0.6454072237014771,
+          -0.20833278226743446,
+          0.6508184909820557,
+          0.5642013788223267,
+          -0.9938562207540811,
+          -0.01723558716532999,
+          0.19512953758239746,
+          0.15556780397891998
+        ],
+        "holdingTarget16": [
+          -0.21673983066382013,
+          1.1881494140625,
+          0.2612334108352661,
+          -0.20876336715165025,
+          0.9900552868843079,
+          0.3168854951858521,
+          -0.19050044971633323,
+          0.6581520676612854,
+          0.6454072237014771,
+          -0.20833278226743446,
+          0.6508184909820557,
+          0.5642013788223267,
+          -0.9938562207540811,
+          -0.01723558716532999,
+          0.19512953758239746,
+          0.15556780397891998
+        ],
+        "targetIncrement16": [
+          0.0,
+          0.06000000000000005,
+          0.05999999999999997,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "maximumTarget16": [
+          -0.21673983066382013,
+          1.1881494140625,
+          0.2612334108352661,
+          -0.20876336715165025,
+          1.0500552868843078,
+          0.37688549518585207,
+          -0.19050044971633323,
+          0.7181520676612854,
+          0.705407223701477,
+          -0.20833278226743446,
+          0.7108184909820556,
+          0.6242013788223266,
+          -0.9938562207540811,
+          -0.01723558716532999,
+          0.2551295375823974,
+          0.21556780397891998
+        ],
+        "updateCounts": {
+          "ff": 961,
+          "lf": 0,
+          "mf": 0,
+          "rf": 0,
+          "th": 0
+        },
+        "rateRadS": 0.015,
+        "missingContactDelaySeconds": 0.06,
+        "weakContactDelaySeconds": 0.2,
+        "weakGapThresholdRad": 0.005,
+        "weakGapGoalRad": 0.01,
+        "maximumPositiveErrorRad": 0.025,
+        "semantics": "bounded geometric contact and position-error recovery; not measured force control"
+      },
+      "recoverySeconds": 5.0,
+      "frozenSeconds": 3.0,
+      "safetyReasons": [],
+      "frozenTargets": true,
+      "coldReplayUsesRecovery": false
+    },
+    "final_hold": {
+      "controller": {
+        "initialTarget16": [
+          -0.21673983066382013,
+          1.1281494140625,
+          0.2012334108352661,
+          -0.20876336715165025,
+          0.9900552868843079,
+          0.3168854951858521,
+          -0.19050044971633323,
+          0.6581520676612854,
+          0.6454072237014771,
+          -0.20833278226743446,
+          0.6508184909820557,
+          0.5642013788223267,
+          -0.9938562207540811,
+          -0.01723558716532999,
+          0.19512953758239746,
+          0.15556780397891998
+        ],
+        "holdingTarget16": [
+          -0.21673983066382013,
+          1.1881494140625,
+          0.2612334108352661,
+          -0.20876336715165025,
+          0.9900552868843079,
+          0.3168854951858521,
+          -0.19050044971633323,
+          0.6581520676612854,
+          0.6454072237014771,
+          -0.20833278226743446,
+          0.6508184909820557,
+          0.5642013788223267,
+          -0.9938562207540811,
+          -0.01723558716532999,
+          0.19512953758239746,
+          0.15556780397891998
+        ],
+        "targetIncrement16": [
+          0.0,
+          0.06000000000000005,
+          0.05999999999999997,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "maximumTarget16": [
+          -0.21673983066382013,
+          1.1881494140625,
+          0.2612334108352661,
+          -0.20876336715165025,
+          1.0500552868843078,
+          0.37688549518585207,
+          -0.19050044971633323,
+          0.7181520676612854,
+          0.705407223701477,
+          -0.20833278226743446,
+          0.7108184909820556,
+          0.6242013788223266,
+          -0.9938562207540811,
+          -0.01723558716532999,
+          0.2551295375823974,
+          0.21556780397891998
+        ],
+        "updateCounts": {
+          "ff": 961,
+          "lf": 0,
+          "mf": 0,
+          "rf": 0,
+          "th": 0
+        },
+        "rateRadS": 0.015,
+        "missingContactDelaySeconds": 0.06,
+        "weakContactDelaySeconds": 0.2,
+        "weakGapThresholdRad": 0.005,
+        "weakGapGoalRad": 0.01,
+        "maximumPositiveErrorRad": 0.025,
+        "semantics": "bounded geometric contact and position-error recovery; not measured force control"
+      },
+      "recoverySeconds": 5.0,
+      "frozenSeconds": 3.0,
+      "safetyReasons": [],
+      "frozenTargets": true,
+      "coldReplayUsesRecovery": false
+    }
+  },
+  "stage1": {
+    "passed": true,
+    "reasons": []
+  },
+  "axisAlignment": {
+    "axisSign": -1,
+    "initialErrorDeg": 5.213305171604876,
+    "toleranceDeg": 2.0,
+    "cycles": [
+      {
+        "cycle": 0,
+        "requestedAngleDeg": 5.213305171604875,
+        "measuredErrorDeg": 0.27006630840147744
+      }
+    ],
+    "maximumTotalCorrectionDeg": 20.0,
+    "objectPoseWritten": false,
+    "finalCheck": {
+      "passed": true,
+      "reasons": [],
+      "axisSign": -1,
+      "toleranceDeg": 2.0,
+      "maxTailErrorDeg": 0.6501247934836806,
+      "finalErrorDeg": 0.6495027757805278,
+      "convention": "axis line aligned to world Z; post-flip local +Z usually points toward world -Z"
+    }
+  },
+  "stage2": {
+    "passed": true,
+    "reasons": []
+  },
+  "final": {
+    "q20": [
+      -0.20286600291728973,
+      1.1912789344787598,
+      0.26350998878479004,
+      0.2624463140964508,
+      -0.24816708266735077,
+      0.9554773569107056,
+      0.2983059287071228,
+      0.30742478370666504,
+      -0.18647122383117676,
+      0.6459128260612488,
+      0.6388165354728699,
+      0.642443835735321,
+      -0.211744487285614,
+      0.6259204745292664,
+      0.5503511428833008,
+      0.5573892593383789,
+      -1.0035942792892456,
+      -0.06094031035900116,
+      0.15713390707969666,
+      0.13944940268993378
+    ],
+    "relativeObject7": [
+      0.01127285818135862,
+      0.09471098921479315,
+      0.3429608014445942,
+      0.859996099581843,
+      -0.0121849440202665,
+      -0.04283214395389462,
+      0.5083538563712805
+    ],
+    "hand7": [
+      0,
+      0,
+      0.5,
+      0.5111307505606071,
+      -0.02494514950801524,
+      0.040229281905196715,
+      0.8581985202881474
+    ],
+    "object7": [
+      0.001687503411576835,
+      -0.25616100605060377,
+      0.7471802003569835,
+      0.9994413140548167,
+      0.0333517875365774,
+      -0.0010831402686859205,
+      -0.0018827733944628106
+    ]
+  },
+  "coldHoldSeconds": 8.0,
+  "coldStartVerticalCheck": {
+    "passed": false,
+    "reasons": [
+      "final_cylinder_axis_not_vertical"
+    ],
+    "axisSign": -1,
+    "toleranceDeg": 2.0,
+    "maxTailErrorDeg": 8.248911783188731,
+    "finalErrorDeg": 8.248911783188731,
+    "convention": "axis line aligned to world Z; post-flip local +Z usually points toward world -Z"
+  },
+  "poseColdStartCheck": {
+    "passed": false,
+    "reasons": [
+      "cylinder_tilt"
+    ],
+    "metrics": {
+      "maxTiltDeg": 8.248911783188731,
+      "maxDriftM": 0.0037191419754329393,
+      "minBottomZ": 0.6780985337948439,
+      "maxPoseLinearSpeed": 0.0002336944886622255,
+      "maxPoseAngularSpeed": 0.01612432947084085,
+      "tailPositionDriftM": 0.00018859360195810755,
+      "tailOrientationDriftDeg": 0.84210304596626,
+      "maxSDKLinearSpeed": 0.0038084282214785586,
+      "maxSDKAngularSpeed": 0.1738997287183326
+    },
+    "validationVersion": "five_side_pose_motion_v3",
+    "sdkVelocityIsDiagnosticOnly": true,
+    "physicsSteps": 2016
+  },
+  "fixedWristRefinement": {
+    "correctionDeg": 8.0,
+    "sourceTiltDeg": 8.248911783188731,
+    "source": "last actual cold-hold frame; unchanged holding target; new hand root orientation",
+    "proposalIsVerified": false,
+    "cumulativeCorrectionDeg": 13.02803783932604
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "complete": false,
+  "phase": "generate_s09_50k",
+  "scales": [
+    1.0,
+    0.9,
+    0.8
+  ],
+  "countPerScale": 50000,
+  "trainSteps": 1000000,
+  "numEnvs": 528,
+  "generationNumEnvs": 512,
+  "events": [],
+  "output": null,
+  "error": "interrupted"
+}

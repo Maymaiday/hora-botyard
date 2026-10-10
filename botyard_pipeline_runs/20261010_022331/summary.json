@@ -1,0 +1,24 @@
+{
+  "complete": false,
+  "phase": "s09_fixed_refinement",
+  "scales": [
+    1.0,
+    0.9,
+    0.8
+  ],
+  "countPerScale": 5000,
+  "trainSteps": 1000000,
+  "numEnvs": 48,
+  "events": [
+    {
+      "phase": "anchor_s10_1_attempt_0",
+      "exit": 0
+    },
+    {
+      "phase": "s09_fixed_refinement",
+      "exit": 1
+    }
+  ],
+  "output": null,
+  "error": "Fixed-wrist refinement failed; inspect its per-trial reports"
+}

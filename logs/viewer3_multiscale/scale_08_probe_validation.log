@@ -1,0 +1,20 @@
+{
+  "path": "cache/botyard_cylinder_viewer3_grasp_500_s08.npy",
+  "shape": [
+    500,
+    27
+  ],
+  "finite": true,
+  "object_z_min": 0.607341468334198,
+  "object_z_median": 0.6198636293411255,
+  "object_z_max": 0.6269434094429016,
+  "quat_norm_min": 0.9999998807907104,
+  "quat_norm_max": 1.0,
+  "tilt_median_deg": 11.31514801187799,
+  "tilt_p90_deg": 17.179497896868753,
+  "tilt_max_deg": 19.887321619820845,
+  "joint_std_mean": 0.010038940235972404,
+  "pass": true,
+  "problems": []
+}
+VALIDATION: PASS

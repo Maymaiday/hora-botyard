@@ -1,0 +1,14 @@
+{
+  "simulationValidated": false,
+  "reason": "Isaac Gym unavailable in authoring environment",
+  "offlineTestsPassed": 10,
+  "pythonSyntaxVersion": "3.8",
+  "preflightScales": [
+    1.0,
+    0.9,
+    0.8
+  ],
+  "timeoutWorkerStopped": true,
+  "missingSdkFailureLoggedAndPacked": true,
+  "trainingCache": false
+}

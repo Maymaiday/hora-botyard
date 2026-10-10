@@ -1,0 +1,35 @@
+[PHASE] importing Isaac Gym
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+[API CHECK] 32 required Gym methods available
+Not connected to PVD
+Physics Engine: PhysX
+Physics Device: cpu
+GPU Pipeline: disabled
+[COORDINATES] one environment; origin=[0.0, 0.0, 0.0]; state offset=[0,0,0]
+[PHASE] loading six-DOF wrist hand asset
+[COLLISION FILTERS] 28 named pairs, 24 shapes, readback passed
+[OBJECT ASSET] {"replaceCylinderWithCapsule": false}
+[CONFIG] actual DOFs=['SEARCH_X', 'SEARCH_Y', 'SEARCH_Z', 'SEARCH_YAW', 'SEARCH_PITCH', 'SEARCH_ROLL', 'FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1'] gravity=-9.81 mass=0.05000000074505806 dt=0.004166666666666667 armature=True
+[STAGE] pregrasp duration=0.4s
+[STAGE] approach duration=1.0s
+[STAGE] close duration=1.5s
+[STAGE] contact_close duration=3.5s; flexion budget +.35rad; preload .025rad
+[STAGE] grip_settle duration=1.0s
+[GRIP SETTLE] {"passed": true, "reasons": [], "tailSeconds": 0.3, "sideContactFractions": {"ff": 1.0, "lf": 1.0, "mf": 1.0, "rf": 1.0, "th": 1.0}, "meanContactBandZ": 0.0008058200768124924, "motion": {"velocityWithinFraction": 0.8904109589041096, "maxLinearSpeed": 0.012884698079662204, "maxAngularSpeed": 0.34461030390997266, "linearLimit": 0.03, "angularLimit": 0.3, "rule": "95% within limits + bounded peaks + pose stability", "maxPositionChangeM": 9.965212544714009e-05, "maxOrientationChangeDeg": 0.30324362854242837, "positionLimitM": 0.001, "orientationLimitDeg": 1.0, "peakLinearLimit": 0.06, "peakAngularLimit": 0.6}, "validationVersion": "per_physics_step_pose_motion", "poseMotion": {"maxLinearSpeed": 0.0019613870442241285, "maxAngularSpeed": 0.06201109161620944, "driftM": 0.00010066381113099463, "driftDeg": 0.30250105460337295}}
+[STAGE] lift duration=2.0s
+[STAGE] lift_hold_recovery duration=5.0s
+[STAGE] lift_hold_frozen duration=3.0s
+[SIM] lift_hold_frozen simulated 16.61s
+[HOLD RECOVERY] lift_hold {"controller": {"initialTarget16": [-0.20571540233918284, 1.177819275856018, 0.2269873559474945, -0.2164782606352062, 1.034247064590454, 0.3393035471439362, -0.2056069115923531, 0.7011090159416199, 0.6676790356636048, -0.20646144766298719, 0.6927708625793457, 0.5855798959732056, -1.0349409837567203, -0.05250688834738964, 0.1914062887430191, 0.07887928336858749], "holdingTarget16": [-0.20571540233918284, 1.237819275856018, 0.28698735594749447, -0.2164782606352062, 1.034247064590454, 0.3393035471439362, -0.2056069115923531, 0.7011090159416199, 0.6676790356636048, -0.20646144766298719, 0.6927708625793457, 0.5855798959732056, -1.0349409837567203, -0.05250688834738964, 0.1914062887430191, 0.07887928336858749], "targetIncrement16": [0.0, 0.06000000000000005, 0.05999999999999997, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "maximumTarget16": [-0.20571540233918284, 1.237819275856018, 0.28698735594749447, -0.2164782606352062, 1.094247064590454, 0.3993035471439362, -0.2056069115923531, 0.7611090159416198, 0.7276790356636047, -0.20646144766298719, 0.7527708625793457, 0.6455798959732055, -1.0349409837567203, -0.05250688834738964, 0.25140628874301907, 0.1388792833685875], "updateCounts": {"ff": 960, "lf": 0, "mf": 0, "rf": 0, "th": 0}, "rateRadS": 0.015, "missingContactDelaySeconds": 0.06, "weakContactDelaySeconds": 0.2, "weakGapThresholdRad": 0.005, "weakGapGoalRad": 0.01, "maximumPositiveErrorRad": 0.025, "semantics": "bounded geometric contact and position-error recovery; not measured force control"}, "recoverySeconds": 5.0, "frozenSeconds": 3.0, "safetyReasons": [], "frozenTargets": true, "coldReplayUsesRecovery": false}
+[STAGE] flip duration=3.0s
+[STAGE] final_hold_recovery duration=5.0s
+[STAGE] final_hold_frozen duration=3.0s
+[HOLD RECOVERY] final_hold {"controller": {"initialTarget16": [-0.20571540233918284, 1.177819275856018, 0.2269873559474945, -0.2164782606352062, 1.034247064590454, 0.3393035471439362, -0.2056069115923531, 0.7011090159416199, 0.6676790356636048, -0.20646144766298719, 0.6927708625793457, 0.5855798959732056, -1.0349409837567203, -0.05250688834738964, 0.1914062887430191, 0.07887928336858749], "holdingTarget16": [-0.20571540233918284, 1.237819275856018, 0.28698735594749447, -0.2164782606352062, 1.034247064590454, 0.3393035471439362, -0.2056069115923531, 0.7011090159416199, 0.6676790356636048, -0.20646144766298719, 0.6927708625793457, 0.5855798959732056, -1.0349409837567203, -0.05250688834738964, 0.1914062887430191, 0.07887928336858749], "targetIncrement16": [0.0, 0.06000000000000005, 0.05999999999999997, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "maximumTarget16": [-0.20571540233918284, 1.237819275856018, 0.28698735594749447, -0.2164782606352062, 1.094247064590454, 0.3993035471439362, -0.2056069115923531, 0.7611090159416198, 0.7276790356636047, -0.20646144766298719, 0.7527708625793457, 0.6455798959732055, -1.0349409837567203, -0.05250688834738964, 0.25140628874301907, 0.1388792833685875], "updateCounts": {"ff": 960, "lf": 0, "mf": 0, "rf": 0, "th": 0}, "rateRadS": 0.015, "missingContactDelaySeconds": 0.06, "weakContactDelaySeconds": 0.2, "weakGapThresholdRad": 0.005, "weakGapGoalRad": 0.01, "maximumPositiveErrorRad": 0.025, "semantics": "bounded geometric contact and position-error recovery; not measured force control"}, "recoverySeconds": 5.0, "frozenSeconds": 3.0, "safetyReasons": [], "frozenTargets": true, "coldReplayUsesRecovery": false}
+[STAGE] axis_align_0 duration=1.2s
+[SIM] axis_align_0 simulated 28.40s
+[STAGE] axis_align_settle_0 duration=0.8s
+[AXIS ALIGN] error 0.863deg, total wrist correction 5.300deg
+[STAGE] aligned_final_hold duration=3.0s
+[PASS] lift and flip; supervisor will verify FIXED wrist cold start in a separate process
+[RESULT] accepted=False report=/home/grelcy/hora/botyard_pipeline_runs/20261010_032812/s08_two_stage_2.json

@@ -1,0 +1,62 @@
+{
+  "protocol": "tabletop_lift_flip_fixed_wrist",
+  "trainingCache": false,
+  "runs": [
+    {
+      "exitCode": 0,
+      "stopReason": null,
+      "wallSeconds": 2.2058260859921575,
+      "report": "/home/grelcy/hora/two_stage_vertical_results/s10_object_only.json",
+      "completed": true,
+      "accepted": false,
+      "stage": "object_only_settle",
+      "error": null
+    },
+    {
+      "exitCode": 0,
+      "stopReason": null,
+      "wallSeconds": 35.910136004007654,
+      "report": "/home/grelcy/hora/two_stage_vertical_results/s10_000.json",
+      "completed": true,
+      "accepted": false,
+      "stage": "awaiting_fixed_wrist_cold_start",
+      "error": null
+    },
+    {
+      "exitCode": 0,
+      "stopReason": null,
+      "wallSeconds": 7.258167964988388,
+      "report": "/home/grelcy/hora/two_stage_vertical_results/s10_000_cold.json",
+      "completed": true,
+      "accepted": false,
+      "stage": "cold_start",
+      "error": null
+    }
+  ],
+  "acceptedFiles": [],
+  "settings": {
+    "repo": "/home/grelcy/hora",
+    "scales": [
+      1.0
+    ],
+    "trials": 1,
+    "target": 1,
+    "start_index": 0,
+    "seed": 2026,
+    "timeout": 120.0,
+    "viewer": true,
+    "no_armature": false,
+    "preflight": false,
+    "plot": true,
+    "out_dir": "two_stage_vertical_results",
+    "replay": null,
+    "dt": 0.004166666666666667,
+    "kp": 3.0,
+    "kd": 0.1,
+    "torque_limit": 0.5,
+    "mass": 0.05,
+    "friction": 0.5
+  },
+  "interrupted": false,
+  "workerError": false
+}

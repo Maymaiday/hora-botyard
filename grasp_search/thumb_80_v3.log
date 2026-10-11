@@ -1,0 +1,123 @@
+Importing module 'gym_38' (/home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/grelcy/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 1.13.1
+Device count 1
+/home/grelcy/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/grelcy/.cache/torch_extensions/py38_cu117 as PyTorch extensions root...
+Emitting ninja build file /home/grelcy/.cache/torch_extensions/py38_cu117/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+search_thumb.py:374: Hydra14MigrationWarning: 
+The version_base parameter is not specified.
+Hydra will assume defaults for version 1.1.
+Hydra 1.4 will remove this compatibility behavior.
+Before upgrading to Hydra 1.4, set version_base="1.3" and test your application.
+See https://hydra.cc/docs/upgrades/1.3_to_1.4/prepare_for_1_4/ for preparation instructions.
+  @hydra.main(config_name='config',config_path='configs')
+/home/grelcy/miniconda3/envs/hora/lib/python3.8/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(
+[BACKEND] {'simDevice': 'cuda:0', 'physics': 'gpu', 'tensorPipeline': 'cpu', 'controllerFeedback': 'every_physics_step'}
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: disabled
+Fixed-wrist BotYard DOF count: 20
+Fixed-wrist BotYard DOF names: ['FFJ4', 'FFJ3', 'FFJ2', 'FFJ1', 'LFJ4', 'LFJ3', 'LFJ2', 'LFJ1', 'MFJ4', 'MFJ3', 'MFJ2', 'MFJ1', 'RFJ4', 'RFJ3', 'RFJ2', 'RFJ1', 'THJ4', 'THJ3', 'THJ2', 'THJ1']
+BotYard policy DOF mapping: {'FFJ4': 0, 'FFJ3': 1, 'FFJ2': 2, 'LFJ4': 4, 'LFJ3': 5, 'LFJ2': 6, 'MFJ4': 8, 'MFJ3': 9, 'MFJ2': 10, 'RFJ4': 12, 'RFJ3': 13, 'RFJ2': 14, 'THJ4': 16, 'THJ3': 17, 'THJ2': 18, 'THJ1': 19}
+[COLLISION] named 28 exclusions applied; finger contact groups resolved
+BotYard fingertip rigid-body handles: {'ffdistal': 9, 'lfdistal': 14, 'mfdistal': 19, 'rfdistal': 24, 'thdistal': 29}
+Object rigid-body handle: 31
+[COORDINATES] post-physics fixed roots verified: world envs 1
+[ROOTS] {'1.0': [0.0, 0.0, 0.5, 0.5645108819007874, -0.005244936794042587, 0.003042427357286215, 0.8254033327102661]}
+BotYard canonical policy target: [-0.226776, 1.038626, 0.147626, -0.215458, 0.951093, 0.286194, -0.226791, 0.942159, 0.228717, -0.22133, 0.831814, 0.288584, -0.923196, -0.291674, 0.025, 0.59365]
+[THUMB V3] Tilted-root search; 2345 first, continuous metrics and elite mutations.
+[THUMB SEARCH] 1/80 fitness=-0.748 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=['125', '134', '1234', '1235', '1245', '1345']
+[THUMB SEARCH] 2/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 3/80 fitness=-2.649 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 4/80 fitness=-2.689 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 5/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 6/80 fitness=-2.867 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 7/80 fitness=-3.247 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 8/80 fitness=-2.612 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 9/80 fitness=-0.530 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 10/80 fitness=-2.278 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 11/80 fitness=-2.001 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=['134', '1234', '1235', '1245', '1345']
+[THUMB SEARCH] 12/80 fitness=-1.792 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 13/80 fitness=-0.521 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 14/80 fitness=-0.453 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 15/80 fitness=-1.996 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 16/80 fitness=-0.462 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 17/80 fitness=-0.473 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 18/80 fitness=-1.722 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 19/80 fitness=-0.528 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 20/80 fitness=-0.418 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 21/80 fitness=0.532 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=['125', '134', '1234', '1235', '1245', '1345']
+[THUMB SEARCH] 22/80 fitness=-1.982 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 23/80 fitness=-2.259 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 24/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 25/80 fitness=-1.984 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 26/80 fitness=-2.090 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 27/80 fitness=-0.584 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 28/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 29/80 fitness=-3.943 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 30/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 31/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 32/80 fitness=-2.743 2345=False detached=0.000s direction=lower reason=insufficient_four_finger_support_or_instability other=[]
+[THUMB SEARCH] 33/80 fitness=-0.483 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 34/80 fitness=-0.600 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 35/80 fitness=-0.418 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 36/80 fitness=-0.567 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 37/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 38/80 fitness=-0.518 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 39/80 fitness=-0.468 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 40/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 41/80 fitness=-0.040 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=['125', '1235', '1245']
+[THUMB SEARCH] 42/80 fitness=-0.451 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 43/80 fitness=-2.033 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 44/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 45/80 fitness=-0.517 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 46/80 fitness=-2.729 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 47/80 fitness=-0.566 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 48/80 fitness=-0.422 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 49/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 50/80 fitness=-1.846 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 51/80 fitness=0.533 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=['125', '134', '1234', '1235', '1245']
+[THUMB SEARCH] 52/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 53/80 fitness=-0.453 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 54/80 fitness=-0.591 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 55/80 fitness=-0.409 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 56/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 57/80 fitness=-1.907 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 58/80 fitness=-2.946 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 59/80 fitness=-0.513 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 60/80 fitness=-0.571 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 61/80 fitness=0.657 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=['125', '134', '1234', '1235', '1245', '1345']
+[THUMB SEARCH] 62/80 fitness=-0.441 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 63/80 fitness=-0.369 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 64/80 fitness=-1.928 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 65/80 fitness=-3.129 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 66/80 fitness=-3.153 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 67/80 fitness=-0.404 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 68/80 fitness=-0.601 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 69/80 fitness=-0.745 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 70/80 fitness=-0.667 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 71/80 fitness=-0.951 2345=False detached=0.000s direction=upper reason=thumb_contact_not_released other=['134', '1234', '1245', '1345']
+[THUMB SEARCH] 72/80 fitness=-100.000 2345=False detached=0.000s direction=lower reason=unstable_initial_hold other=[]
+[THUMB SEARCH] 73/80 fitness=-0.577 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 74/80 fitness=-0.551 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 75/80 fitness=-0.523 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 76/80 fitness=-0.402 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 77/80 fitness=-0.510 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 78/80 fitness=-0.426 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 79/80 fitness=-0.629 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[THUMB SEARCH] 80/80 fitness=-0.364 2345=False detached=0.000s direction=mixed reason=thumb_contact_not_released other=[]
+[RESULT] grasp_search/thumb_80_v3.top10.json

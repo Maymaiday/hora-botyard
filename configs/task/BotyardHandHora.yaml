@@ -134,7 +134,7 @@ env:
   asset:
     handAsset: assets/botyard_dexhand_gym/urdf/right_dexhand.urdf
   enableCameraSensors: false
-  graspCacheCountTag: 5k
+  graspCacheCountTag: 50k
   graspSeedBank: grasp_seed_banks/current_verified/s10.json
   graspReport: cache/generation_v4_report.json
   maxGraspEpisodes: 2000
@@ -154,7 +154,7 @@ env:
     - 0.3
     - 0.3
     - 0.06
-    - 0.08
+    - 0.12
     - 0.3
     - 0.3
     poseWeights20:

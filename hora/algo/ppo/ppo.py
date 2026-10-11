@@ -113,7 +113,8 @@ class PPO(object):
         self.dones = torch.ones((batch_size,), dtype=torch.uint8, device=self.device)
         self.agent_steps = 0
         self.max_agent_steps = self.ppo_config['max_agent_steps']
-        self.best_rewards = -10000
+        self.best_rewards = float('-inf')
+        self.best_step = 0
         # ---- Timing
         self.data_collect_time = 0
         self.rl_train_time = 0
@@ -163,7 +164,9 @@ class PPO(object):
         _t = time.time()
         _last_t = time.time()
         self.obs = self.env.reset()
-        self.agent_steps = self.batch_size
+        # Do not erase restored progress; initial reset still starts a new rollout.
+        if self.agent_steps <= 0:
+            self.agent_steps = self.batch_size
 
         while self.agent_steps < self.max_agent_steps:
             self.epoch_num += 1
@@ -173,36 +176,42 @@ class PPO(object):
             all_fps = self.agent_steps / (time.time() - _t)
             last_fps = self.batch_size / (time.time() - _last_t)
             _last_t = time.time()
-            info_string = f'Agent Steps: {int(self.agent_steps // 1e6):04}M | FPS: {all_fps:.1f} | ' \
-                          f'Last FPS: {last_fps:.1f} | ' \
-                          f'Collect Time: {self.data_collect_time / 60:.1f} min | ' \
-                          f'Train RL Time: {self.rl_train_time / 60:.1f} min | ' \
-                          f'Current Best: {self.best_rewards:.2f}'
-            print(info_string)
-
             self.write_stats(a_losses, c_losses, b_losses, entropies, kls)
-
-            mean_rewards = self.episode_rewards.get_mean()
-            mean_lengths = self.episode_lengths.get_mean()
+            mean_rewards = float(self.episode_rewards.get_mean())
+            mean_lengths = float(self.episode_lengths.get_mean())
             self.writer.add_scalar('episode_rewards/step', mean_rewards, self.agent_steps)
             self.writer.add_scalar('episode_lengths/step', mean_lengths, self.agent_steps)
-            checkpoint_name = f'ep_{self.epoch_num}_step_{int(self.agent_steps // 1e6):04}M_reward_{mean_rewards:.2f}'
+            checkpoint_name = f'ep_{self.epoch_num}_step_{self.agent_steps/1e6:.2f}M_reward_{mean_rewards:.2f}'
 
-            if self.save_freq > 0:
-                if self.epoch_num % self.save_freq == 0:
-                    self.save(os.path.join(self.nn_dir, checkpoint_name))
-                    self.save(os.path.join(self.nn_dir, 'last'))
+            if self.save_freq > 0 and self.epoch_num % self.save_freq == 0:
+                self.save(os.path.join(self.nn_dir, checkpoint_name))
+                self.save(os.path.join(self.nn_dir, 'last'))
 
+            # Preserve the original training-reward based best criterion.
+            # These are training statistics, NOT held-out evaluation scores.
             if mean_rewards > self.best_rewards and self.epoch_num >= self.save_best_after:
-                print(f'save current best reward: {mean_rewards:.2f}')
                 self.best_rewards = mean_rewards
+                self.best_step = self.agent_steps
                 self.save(os.path.join(self.nn_dir, 'best'))
+                # Best model updated; the [PPO] line below shows the new record.
+            best_repr = f'{self.best_rewards:.3f}' if self.best_step else 'N/A'
+            print(f'[PPO] epoch={self.epoch_num} | '
+                  f'steps={self.agent_steps/1e6:.3f}M/{self.max_agent_steps/1e6:.1f}M | '
+                  f'FPS={all_fps:.0f} | reward={mean_rewards:.3f} | '
+                  f'episodeLen={mean_lengths:.1f} | '
+                  f'BEST TRAIN REWARD={best_repr}@{self.best_step/1e6:.3f}M',
+                  flush=True)
 
         print('max steps achieved')
 
     def save(self, name):
         weights = {
             'model': self.model.state_dict(),
+            'optimizer': self.optimizer.state_dict(),
+            'epoch_num': self.epoch_num,
+            'agent_steps': self.agent_steps,
+            'best_rewards': self.best_rewards,
+            'best_step': self.best_step,
         }
         if self.running_mean_std:
             weights['running_mean_std'] = self.running_mean_std.state_dict()
@@ -216,6 +225,15 @@ class PPO(object):
         checkpoint = torch.load(fn)
         self.model.load_state_dict(checkpoint['model'])
         self.running_mean_std.load_state_dict(checkpoint['running_mean_std'])
+        if 'value_mean_std' in checkpoint:
+            self.value_mean_std.load_state_dict(checkpoint['value_mean_std'])
+        if 'optimizer' in checkpoint:
+            self.optimizer.load_state_dict(checkpoint['optimizer'])
+        self.epoch_num = int(checkpoint.get('epoch_num', 0))
+        self.agent_steps = int(checkpoint.get('agent_steps', 0))
+        self.best_rewards = float(checkpoint.get('best_rewards', float('-inf')))
+        self.best_step = int(checkpoint.get('best_step', 0))
+        print(f'[RESUME] old_checkpoint={not ("optimizer" in checkpoint)} step={self.agent_steps/1e6:.3f}M best={self.best_rewards}',flush=True)
 
     def restore_test(self, fn):
         checkpoint = torch.load(fn)

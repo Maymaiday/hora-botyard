@@ -48,6 +48,13 @@ def main(config: DictConfig):
     # sets seed. if seed is -1 will pick a random one
     config.seed = set_seed(config.seed)
 
+    # Hard fail before Isaac Gym is constructed for unsafe accidental baseline runs.
+    if not config.test and config.train.algo == 'PPO':
+        mode = config.task.env.get('trainingMode', 'constrained')
+        if mode != 'constrained' and not config.task.env.get('allowUnsafeHoraBaseline', False):
+            raise RuntimeError('Refusing PPO training: trainingMode must be constrained. hora_baseline bypasses drop/tilt/position safeguards.')
+        print(f'[SAFETY] trainingMode={mode} | target_steps={int(config.train.ppo.max_agent_steps)/1e6:.1f}M | '
+              f'forceScale={config.task.env.forceScale} | actionStepRad={config.task.env.controller.actionStepRad}',flush=True)
     cprint('Start Building the Environment', 'green', attrs=['bold'])
     env = isaacgym_task_map[config.task_name](
         config=dict(omegaconf_to_dict(config.task),rl_device=config.rl_device),
@@ -81,15 +88,6 @@ def main(config: DictConfig):
                 exit()
 
         agent.restore_train(config.train.load_path)
-        if config.train.algo == 'PPO':
-            from tools.botyard_training_progress import TrainingProgress
-            progress=TrainingProgress(agent,os.path.join(output_dif,'training_progress.jsonl'))
-            original_epoch=agent.train_epoch
-            def traced_epoch():
-                result=original_epoch()
-                progress.after_update()
-                return result
-            agent.train_epoch=traced_epoch
         agent.train()
         if config.train.algo == "PPO":
             agent.save(os.path.join(output_dif,"stage1_nn","final"))

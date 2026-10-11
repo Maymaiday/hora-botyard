@@ -25,6 +25,8 @@ class BotyardHandHoraVecTask(VecTask):
         mode=config['env'].get('trainingMode','constrained')
         if mode not in ('constrained','hora_baseline'):raise ValueError('Unknown trainingMode: '+str(mode))
         self.hora_baseline=mode=='hora_baseline'
+        if self.hora_baseline and not config['env'].get('allowUnsafeHoraBaseline', False):
+            raise RuntimeError('UNSAFE trainingMode=hora_baseline: disables BotYard hold/tilt/drop constraints. Use task.env.trainingMode=constrained. To reproduce legacy behavior explicitly set task.env.allowUnsafeHoraBaseline=true.')
         if self.hora_baseline and config['env']['genGrasps']:raise ValueError('hora_baseline is a training mode, not grasp generation')
         if self.hora_baseline:
             print('[阶段] HORA 基线：读取已有缓存，五项原始奖励，URDF 动作边界，掉落/超时重置',flush=True)
@@ -765,6 +767,23 @@ class BotyardHandHoraVecTask(VecTask):
             torque_penalty, self.torque_penalty_scale,
             work_penalty, self.work_penalty_scale,
         )
+        # AB_RECOVERY_PATCH_V1: potential-difference tilt recovery shaping.
+        # Compatible with old 96D observation / 16D action checkpoints.
+        # This rewards REDUCING tilt, not merely remaining tilted.
+        ab_cfg = self.config['env'].get('abRecovery', {})
+        recovery_weight = float(ab_cfg.get('weight', 0.0))
+        if recovery_weight != 0.0:
+            prev_axis_z = 1 - 2*(self.object_rot_prev[:,0]**2 + self.object_rot_prev[:,1]**2)
+            prev_tilt = torch.acos(torch.clamp(prev_axis_z.abs(), 0, 1))
+            # normalized to 5 degrees. Clamp against numerical spikes.
+            recovery_raw = torch.clamp(
+                (prev_tilt - tilt) / np.deg2rad(5.0), -1.0, 1.0
+            )
+            # During reset, the initial prev quaternion should match current pose.
+            self.rew_buf[:] += recovery_weight * recovery_raw
+            self.extras['ab_recovery_reward'] = (recovery_weight * recovery_raw).mean()
+        else:
+            self.extras['ab_recovery_reward'] = self.rew_buf.new_zeros(())
         c=self.config['env']['constraints']
         bad_drift=torch.linalg.norm(delta[:,:2],dim=1)>float(c['maxHorizontalDriftM'])
         bad_drop=delta[:,2]<-float(c['maxDropM'])
@@ -781,6 +800,22 @@ class BotyardHandHoraVecTask(VecTask):
             self.rew_buf[:]+=float(c['positionPenaltyScale'])*position_penalty+float(c['tiltPenaltyScale'])*tilt_penalty
             self.rew_buf[:]+=failure.float()*float(c['failurePenalty'])
             self.reset_buf[:]=(failure|(self.progress_buf>=self.max_episode_length)).long()
+        # Per-step diagnostic values, measured BEFORE reset. Termination rates are
+        # per-active-environment control-step, not completed-episode drop rates.
+        self.extras['failure_rate_step'] = failure.float().mean()
+        self.extras['drop_rate_step'] = bad_drop.float().mean()
+        self.extras['drift_rate_step'] = bad_drift.float().mean()
+        self.extras['tilt_rate_step'] = bad_tilt.float().mean()
+        self.extras['pose_violation_rate_step'] = bad_pose.float().mean()
+        self.extras['timeout_rate_step'] = (self.progress_buf>=self.max_episode_length).float().mean()
+        self.extras['mean_target_error_rad'] = (self.cur_targets[:, :self.num_allegro_hand_dofs]-self.allegro_hand_dof_pos).abs().mean()
+        self.extras['torque_saturation_fraction'] = (self.torques.abs() >= float(self.config['env']['botyard'].get('torqueLimit',0.5))-1e-4).float().mean()
+        # C_GAIT_V1 diagnostics, NOT measured finger-object pairwise contacts.
+        if bool(self.config['env'].get('cGait',{}).get('enabled',False)):
+            self.extras['c_gait_unsafe_fraction']=self._c_gait_unsafe.float().mean()
+            self.extras['c_gait_phase_mean']=self._c_gait_phase.float().mean()
+            self.extras['c_gait_candidate_boundary_fraction']=((self.cur_policy_targets-self.holding_reference).abs() >= (self._c_gait_limits.unsqueeze(0)-1e-5)).float().mean()
+        self.extras['reward_step_mean'] = self.rew_buf.mean()
         self.extras['position_error_m']=torch.linalg.norm(delta,dim=1).mean()
         self.extras['tilt_deg']=torch.rad2deg(tilt).mean()
         self.extras['position_penalty']=position_penalty.mean()
@@ -889,11 +924,64 @@ class BotyardHandHoraVecTask(VecTask):
             + (1./24 if self.hora_baseline else float(self.config['env']['controller']['actionStepRad'])) * self.actions
         )
 
+        # C_GAIT_V1: optional low-level finger-role scheduler.
+        # It changes only the 16D action gating and candidate joint TARGET bounds;
+        # it does NOT assert measured load-bearing contact or guarantee a stable grasp.
+        c_gait = self.config['env'].get('cGait', {})
+        if bool(c_gait.get('enabled', False)):
+            period = int(c_gait.get('period', 8))
+            settle = int(c_gait.get('settle', 2))
+            if period <= settle or settle < 0:
+                raise ValueError('cGait: require period > settle >= 0')
+            # episode progress counter automatically resets per environment
+            cycle = self.progress_buf.long() // period
+            phase = self.progress_buf.long() % period
+            # Thumb -> index -> middle -> ring -> little; role sequence, not a
+            # prescribed Cartesian trajectory or verified grasp sequence.
+            moving_group = cycle.remainder(5)
+            action_gain = float(c_gait.get('supportGain', 0.3))
+            moving_gain = float(c_gait.get('movingGain', 1.0))
+            settle_gain = float(c_gait.get('settleGain', 0.15))
+            gains = torch.full_like(self.actions, action_gain)
+            for group, ids in enumerate(((12,13,14,15),(0,1,2),(3,4,5),(6,7,8),(9,10,11))):
+                selected = moving_group == group
+                if selected.any():
+                    for joint_idx in ids:
+                        gains[selected, joint_idx] = moving_gain
+            settling = phase >= (period-settle)
+            gains = torch.where(settling.unsqueeze(-1), torch.full_like(gains, settle_gain), gains)
+            # Gate new manipulation motions when object approaches unstable tilt
+            # or excessive drift; supporting fingers may still make small corrections.
+            q = self.object_rot
+            axis_cos = (1.0 - 2.0*(q[:,0].square()+q[:,1].square())).abs().clamp(0.0,1.0)
+            tilt_now = torch.acos(axis_cos)
+            drift_now = torch.linalg.norm((self.object_pos-self.object_position_reference)[:,:2], dim=-1)
+            unsafe = (tilt_now > np.deg2rad(float(c_gait.get('pauseTiltDeg', 7.0)))) | (drift_now > float(c_gait.get('pauseDriftM', 0.008)))
+            gains = torch.where(unsafe.unsqueeze(-1), torch.full_like(gains, float(c_gait.get('unsafeGain',0.0))), gains)
+            step = float(self.config['env']['controller']['actionStepRad'])
+            policy_targets = self.prev_policy_targets + step * self.actions * gains
+            # Candidate lateral joints: FFJ4 LFJ4 MFJ4 RFJ4 THJ3.
+            # Their physical movement directions MUST be inspected in Viewer.
+            # Do not widen any other joint (especially finger flexion) here.
+            lateral_indices = tuple(int(x) for x in c_gait.get('candidateLateralIndices16',[0,3,6,9,13]))
+            if len(set(lateral_indices)) != len(lateral_indices) or any(i<0 or i>=16 for i in lateral_indices):
+                raise ValueError('Invalid cGait.candidateLateralIndices16')
+            limits = self.target_offset_limits.clone()
+            if bool(c_gait.get('widenCandidates', False)):
+                for i in lateral_indices:
+                    limits[i] = max(float(limits[i]), float(c_gait.get('lateralOffsetRad', 0.12)))
+            self._c_gait_limits = limits
+            # Diagnostics: inferred phase only, not confirmed support contact.
+            self._c_gait_phase = moving_group
+            self._c_gait_unsafe = unsafe
+        else:
+            self._c_gait_limits = self.target_offset_limits
+
         # Clamp using the limits of the 16 independent DOFs
         self.cur_policy_targets[:] = tensor_clamp(
             policy_targets,
-            self.policy_dof_lower_limits if self.hora_baseline else torch.maximum(self.policy_dof_lower_limits,self.holding_reference-self.target_offset_limits),
-            self.policy_dof_upper_limits if self.hora_baseline else torch.minimum(self.policy_dof_upper_limits,self.holding_reference+self.target_offset_limits)
+            self.policy_dof_lower_limits if self.hora_baseline else torch.maximum(self.policy_dof_lower_limits,self.holding_reference-self._c_gait_limits),
+            self.policy_dof_upper_limits if self.hora_baseline else torch.minimum(self.policy_dof_upper_limits,self.holding_reference+self._c_gait_limits)
         )
 
         self.prev_policy_targets[:] = \

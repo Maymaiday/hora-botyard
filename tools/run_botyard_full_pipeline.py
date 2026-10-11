@@ -3,16 +3,12 @@
 The active Python interpreter must be the user's hora conda interpreter.
 Native jobs run in their own process groups with disk logs and finite limits.
 """
-import argparse,codecs,hashlib,importlib.util,json,math,os,signal,subprocess,sys,time
+import argparse,hashlib,importlib.util,json,math,os,signal,subprocess,sys,time
 from pathlib import Path
 
 SCALE_TAG={1.:'s10',.9:'s09',.8:'s08'}
 def count_tag(n):return str(n//1000)+'k' if n%1000==0 else str(n)
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
-def simulation_backend(a):
-    device=getattr(a,'sim_device','cpu')
-    return dict(simDevice=device,physics='gpu' if device.startswith('cuda:') else 'cpu',
-                tensorPipeline='cpu',controllerFeedback='every_physics_step')
 def atomic_json(p,data):
     p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);tmp=p.with_name(p.name+'.tmp')
     tmp.write_text(json.dumps(data,indent=2));tmp.replace(p)
@@ -29,49 +25,27 @@ def stop(process):
         except ProcessLookupError:pass
         process.wait()
 
-class TerminalLog:
-    """Keep full child output on disk; show only meaningful progress lines."""
-    def __init__(self):
-        self.decoder=codecs.getincrementaldecoder('utf-8')('replace');self.pending=''
-        self.rich_training=False
-    def feed(self,data,final=False):
-        self.pending+=self.decoder.decode(data,final=final)
-        lines=self.pending.split('\n');self.pending=lines.pop()
-        if final and self.pending:lines.append(self.pending);self.pending=''
-        prefixes=('[阶段]','[重放]','[检查]','[原因]','[示例]','[停止]','[训练]',
-                  '[BACKEND]','[PPO PROGRESS]','[FINAL CHECKPOINT]',
-                  '[BATCH]','[SAVE]','[GEN]','[AVAILABLE DATA]','[RESUME PARTIAL]',
-                  '[STAGE]','[CALIBRATED]','[SEARCH REJECTED]','[REFINE REJECTED]')
-        for line in lines:
-            if line.startswith('[训练]'):self.rich_training=True
-            if line.startswith('Agent Steps:') and not self.rich_training:
-                print(line,flush=True);continue
-            if line.startswith('save current best reward:'):
-                print(line,flush=True);continue
-            if line.startswith(prefixes) or 'Using GPU PhysX' in line:
-                print(line,flush=True)
-
 def run_job(command,log,timeout):
-    labels={'mixed_training_replay':'训练前缓存重放','train':'PPO 训练'}
-    print('[阶段]',labels.get(log.stem,log.stem),flush=True);print('[日志]',log,flush=True)
-    started=time.monotonic();offset=0;reason=None;terminal=TerminalLog()
+    print('[COMMAND]',command,flush=True);print('[LOG]',log,flush=True)
+    started=time.monotonic();last=started;offset=0;reason=None
     log.parent.mkdir(parents=True,exist_ok=True)
     with log.open('wb') as out:
         process=subprocess.Popen(command,stdout=out,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL,start_new_session=True)
         try:
             while True:
                 with log.open('rb') as f:f.seek(offset);data=f.read();offset=f.tell()
-                if data:terminal.feed(data)
+                if data:print(data.decode(errors='replace'),end='',flush=True)
                 now=time.monotonic()
                 if process.poll() is not None:break
+                if now-last>=5:print('[RUNNING]',log.stem,'seconds',round(now-started,1),flush=True);last=now
                 if now-started>timeout:reason='timeout';stop(process);break
                 time.sleep(.2)
         except BaseException:stop(process);raise
     with log.open('rb') as f:
         f.seek(offset);data=f.read()
-        terminal.feed(data,final=True)
+        if data:print(data.decode(errors='replace'),end='',flush=True)
     code=124 if reason else process.returncode
-    print('[阶段]',labels.get(log.stem,log.stem),'完成' if code==0 else ('超时停止' if reason else '未通过，完整错误保存在日志'),flush=True)
+    print('[JOB DONE]',log.stem,'exit',code,'reason',reason,flush=True)
     return code
 
 class Pipeline:
@@ -80,8 +54,7 @@ class Pipeline:
         self.out=self.repo/'botyard_pipeline_runs'/time.strftime('%Y%m%d_%H%M%S')
         self.out.mkdir(parents=True,exist_ok=False)
         self.summary=dict(complete=False,phase='start',scales=a.scales,countPerScale=a.cache_count,
-                          trainSteps=a.train_steps,numEnvs=a.envs,generationNumEnvs=getattr(a,'generation_envs',1),events=[],output=None,
-                          simulationBackend=simulation_backend(a))
+                          trainSteps=a.train_steps,numEnvs=a.envs,events=[],output=None)
         self.cache_api=load_module(self.repo,'botyard_grasp_cache')
         self.anchor_attempts={}
         print('[PIPELINE OUTPUT]',self.out,flush=True)
@@ -91,20 +64,11 @@ class Pipeline:
         code=run_job([sys.executable,'-u']+args,self.out/(name+'.log'),timeout)
         self.summary['events'].append(dict(phase=name,exit=code));self.save();return code
     def common(self,envs,scales):
-        return ['pipeline=cpu','sim_device='+getattr(self.a,'sim_device','cpu'),'rl_device='+self.a.rl_device,'num_subscenes=1',
+        return ['pipeline=cpu','sim_device=cpu','rl_device='+self.a.rl_device,'num_subscenes=1',
                 'task.env.numEnvs='+str(envs),'task.env.randomization.randomizeScaleList='+str(scales).replace(' ',''),
                 'headless='+str(not self.a.viewer)]
     def seed_path(self,scale):return self.repo/'grasp_seed_banks/calibrated_v4'/(SCALE_TAG[scale]+'.json')
-    def training_tag(self):return getattr(self.a,'cache_tag',None) or count_tag(self.a.cache_count)
-    def cache_path(self,scale,count):
-        tag=self.training_tag() if count==self.a.cache_count else count_tag(count)
-        return self.repo/'cache'/('botyard_multiscale_v4_grasp_'+tag+'_'+SCALE_TAG[scale]+'.npy')
-    def prepare_available(self):
-        from botyard_available_cache import export_available
-        self.a.cache_tag='available_'+self.out.name
-        self.summary['availableTrainingData']=export_available(self.repo,self.a.scales,self.a.cache_count,self.a.cache_tag,self.cache_api)
-        self.summary['cacheTag']=self.a.cache_tag;self.save()
-
+    def cache_path(self,scale,count):return self.repo/'cache'/('botyard_multiscale_v4_grasp_'+count_tag(count)+'_'+SCALE_TAG[scale]+'.npy')
     def validated_cache(self,scale,count):
         path=self.cache_path(scale,count)
         if not path.exists() or not self.seed_path(scale).exists():return None
@@ -138,10 +102,8 @@ class Pipeline:
         report=self.out/(name+'_report.json')
         args=['gen_grasp_botyard.py','task=BotyardHandGrasp','task.env.baseObjScale='+str(scale),
               'task.env.targetGraspCount='+str(count),'task.env.maxGraspEpisodes='+str(max(1000,count*50)),
-              'task.env.graspReport='+str(report)]+self.common(1 if anchor else getattr(self.a,'generation_envs',1),[scale])
+              'task.env.graspReport='+str(report)]+self.common(1,[scale])
         if anchor:args+=['task.env.graspPoseNoise=0.0','task.env.graspObjectXYNoise=0.0','task.env.graspObjectZNoise=0.0','task.env.graspStallEpisodeLimit=1','task.env.episodeLength=336']
-        else:args+=['+task.env.graspResumePartial='+str(not self.a.fresh and not getattr(self.a,'no_resume_partial',False)),
-                    '+task.env.graspAdaptiveSampling='+str(getattr(self.a,'adaptive_generation',False))]
         code=self.job(name,args,self.a.worker_timeout if anchor else self.a.cache_timeout)
         # A window-close SystemExit(0) is not a completed generation phase.
         data=json.loads(report.read_text()) if report.exists() else {}
@@ -235,25 +197,18 @@ class Pipeline:
         path=Path('cache/training_replay_v4.json')
         if not path.exists():return False
         proof=json.loads(path.read_text())
-        try:return bool(proof.get('simulationBackend')==simulation_backend(self.a) and proof.get('passed') and proof.get('numEnvs')==self.a.envs and proof.get('countTag')==self.training_tag() and proof.get('fingerprints')==self.fingerprints() and proof.get('taskSourceSha256')==sha('hora/tasks/botyard_hand_hora.py') and proof.get('configSha256')==sha('configs/task/BotyardHandHora.yaml'))
+        try:return bool(proof.get('passed') and proof.get('numEnvs')==self.a.envs and proof.get('countTag')==count_tag(self.a.cache_count) and proof.get('fingerprints')==self.fingerprints() and proof.get('taskSourceSha256')==sha('hora/tasks/botyard_hand_hora.py') and proof.get('configSha256')==sha('configs/task/BotyardHandHora.yaml'))
         except OSError:return False
     def check(self):
         # Always replay this run: an old successful proof is not a new run.
         proof=Path('cache/training_replay_v4.json');previous=proof.stat().st_mtime_ns if proof.exists() else 0
-        args=['check_botyard_cache.py','task=BotyardHandHora','task.env.graspCacheCountTag='+self.training_tag()]+self.common(self.a.envs,self.a.scales)
+        args=['check_botyard_cache.py','task=BotyardHandHora','task.env.graspCacheCountTag='+count_tag(self.a.cache_count)]+self.common(self.a.envs,self.a.scales)
         if self.job('mixed_training_replay',args,self.a.check_timeout) or not self.proof_ok() or proof.stat().st_mtime_ns==previous:
-            raise RuntimeError('训练前重放未完成或未通过，PPO 未启动。检查 cache/training_replay_v4.json；若无新报告，查看 mixed_training_replay.log')
+            raise RuntimeError('Mixed-scale training-scene replay did not complete/pass; training blocked')
     def train(self):
-        baseline=self.a.phase=='baseline'
-        if baseline:
-            for scale in self.a.scales:
-                cache=self.validated_cache(scale,self.a.cache_count)
-                if cache is None:raise RuntimeError('完整缓存无法读取：'+str(self.cache_path(scale,self.a.cache_count)))
-                print('[检查] 已读取完整缓存：尺寸',scale,'行数',len(cache[0]),flush=True)
-            self.summary['trainingMode']='hora_baseline';self.summary['pretrainingReplayRequired']=False
-        elif not self.proof_ok():raise RuntimeError('Missing matching mixed-scale replay proof; run --phase check first')
-        name='BotyardHandHora/'+('hora_baseline_s10_' if baseline else 'multiscale_v4_')+self.out.name;self.summary['output']='outputs/'+name;self.save()
-        args=['train_botyard.py','task=BotyardHandHora','task.env.graspCacheCountTag='+self.training_tag(),
+        if not self.proof_ok():raise RuntimeError('Missing matching mixed-scale replay proof; run --phase check first')
+        name='BotyardHandHora/multiscale_v4_'+self.out.name;self.summary['output']='outputs/'+name;self.save()
+        args=['train_botyard.py','task=BotyardHandHora','task.env.graspCacheCountTag='+count_tag(self.a.cache_count),
               'train.ppo.output_name='+name,'train.ppo.max_agent_steps='+str(self.a.train_steps),
               'train.ppo.minibatch_size='+str(min(1024,self.a.envs*64)),
               'task.env.metricsPath='+str(self.out/'training_metrics.jsonl')]+self.common(self.a.envs,self.a.scales)
@@ -261,44 +216,32 @@ class Pipeline:
         batch=self.a.envs*64;mini=min(1024,batch)
         while batch%mini:mini//=2
         args[args.index('train.ppo.minibatch_size='+str(min(1024,batch)))]= 'train.ppo.minibatch_size='+str(mini)
-        if baseline:
-            args=[x for x in args if not x.startswith('train.ppo.minibatch_size=')]
-            mini=min(32768,self.a.envs*8)
-            while self.a.envs*8%mini:mini//=2
-            args+=['+task.env.trainingMode=hora_baseline','train.ppo.horizon_length=8',
-                'train.ppo.minibatch_size='+str(mini),'train.ppo.learning_rate=0.005',
-                'task.env.debugMetricsEvery=0','task.env.forceScale=2.0','task.env.randomForceProbScalar=0.25']
         if self.a.resume_checkpoint:args+=['checkpoint='+str(Path(self.a.resume_checkpoint).resolve())]
         print('[TRAIN OUTPUT]',self.summary['output'],flush=True)
         if self.job('train',args,self.a.train_timeout):raise RuntimeError('Training worker stopped with error/timeout')
         # Short/stopped runs need an explicit completion line, not just exit 0.
         if 'max steps achieved' not in (self.out/'train.log').read_text():raise RuntimeError('Training exited before reaching the configured budget')
     def execute(self):
-        if self.a.phase=='available':self.prepare_available()
         if self.a.phase in ('all','calibrate'):
             for scale in self.a.scales:self.calibrate(scale)
-        if self.a.phase in ('all','continue','generate'):
+        if self.a.phase in ('all','generate'):
             for scale in self.a.scales:
                 if not self.seed_path(scale).exists():raise RuntimeError('Calibrate first: '+str(scale))
                 if not self.generate(scale,self.a.cache_count):raise RuntimeError('Cache generation incomplete for '+str(scale))
-        if self.a.phase in ('all','continue','available','check'):self.check()
-        if self.a.phase in ('all','continue','available','train','baseline'):self.train()
+        if self.a.phase in ('all','check'):self.check()
+        if self.a.phase in ('all','train'):self.train()
         self.summary.update(complete=True,phase='done');self.save()
         print('[PIPELINE DONE]',self.out,flush=True)
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--phase',choices=['all','continue','available','calibrate','generate','check','train','baseline'],default='all')
-    p.add_argument('--scales',nargs='+',type=float,default=[1.,.9,.8]);p.add_argument('--cache-count',type=int,default=50000)
-    p.add_argument('--envs',type=int,default=528);p.add_argument('--generation-envs',type=int,default=512)
-    p.add_argument('--adaptive-generation',action='store_true',help='Reduce local sampling width after low-yield batches; acceptance unchanged')
-    p.add_argument('--no-resume-partial',action='store_true',help='Start generation from zero instead of validated partial rows')
-    p.add_argument('--train-steps',type=int,default=1000000)
+    p.add_argument('--phase',choices=['all','calibrate','generate','check','train'],default='all')
+    p.add_argument('--scales',nargs='+',type=float,default=[1.,.9,.8]);p.add_argument('--cache-count',type=int,default=5000)
+    p.add_argument('--envs',type=int,default=);p.add_argument('--train-steps',type=int,default=1000000)
     p.add_argument('--canonical-trials',type=int,default=16);p.add_argument('--viewer',action='store_true')
     p.add_argument('--adaptive-grip',action='store_true',help='Bounded lift/flip contact recovery for new canonical searches; cold targets remain frozen')
     p.add_argument('--candidate-order',nargs='+',type=int,default=[],help='Prioritize existing candidate indices without duplicating trials')
-    p.add_argument('--sim-device',choices=['cpu','cuda:0'],default='cuda:0',help='Physics device; CPU tensor pipeline retained for point contacts')
-    p.add_argument('--rl-device',choices=['cpu','cuda:0'],default='cuda:0');p.add_argument('--resume-checkpoint');p.add_argument('--fresh',action='store_true')
+    p.add_argument('--rl-device',choices=['cpu','cuda:0'],default='cpu');p.add_argument('--resume-checkpoint');p.add_argument('--fresh',action='store_true')
     p.add_argument('--recover-cold',action='append',type=Path,default=[],help='Refine a prior tilt-only cold failure before searching that size')
     p.add_argument('--repair-ff',action='store_true',help='Use forefinger preload search on --recover-cold reports')
     p.add_argument('--settled-window',action='store_true',help='Use stable final three seconds for search; cold acceptance remains strict')
@@ -306,25 +249,23 @@ def main():
     p.add_argument('--check-timeout',type=float,default=1800);p.add_argument('--train-timeout',type=float,default=86400)
     p.add_argument('--dry-run',action='store_true')
     a=p.parse_args()
-    if a.phase=='baseline' and a.scales!=[1.0]:p.error('--phase baseline uses the existing single size 1.0 cache; set --scales 1.0')
     from botyard_hold_recovery import candidate_order
     try:candidate_order(a.canonical_trials,a.candidate_order)
     except ValueError as exc:p.error(str(exc))
     if a.repair_ff and not a.recover_cold:p.error('--repair-ff requires --recover-cold')
     if a.settled_window and (not a.recover_cold or a.repair_ff):p.error('--settled-window requires --recover-cold and cannot combine with --repair-ff')
     if len(set(a.scales))!=len(a.scales) or any(s not in SCALE_TAG for s in a.scales):p.error('scales must be unique values among 1.0 0.9 0.8')
-    if a.cache_count<1 or a.envs<1 or a.generation_envs<1 or a.envs%len(a.scales) or a.train_steps<64*a.envs or not 1<=a.canonical_trials<=256:p.error('Invalid count, envs, budget or trial cap')
+    if a.cache_count<1 or a.envs<1 or a.envs%len(a.scales) or a.train_steps<64*a.envs or not 1<=a.canonical_trials<=256:p.error('Invalid count, envs, budget or trial cap')
     if any(not 0<x<float('inf') for x in [a.worker_timeout,a.cache_timeout,a.check_timeout,a.train_timeout]):p.error('Timeouts must be finite positive seconds')
     if a.dry_run:
-        print(json.dumps(dict(phase=a.phase,scales=a.scales,cacheRowsPerScale=a.cache_count,numEnvs=a.envs,generationNumEnvs=a.generation_envs,trainAgentSteps=a.train_steps,
-            order=(['read existing size 1.0 full cache','Stage1 PPO with original HORA objective'] if a.phase=='baseline' else ['export existing accepted rows','GPU/CPU mixed-layout zero-action replay','Stage1 PPO'] if a.phase=='available' else ['per-scale physics calibration','per-scale full cache generation','mixed-layout zero-action replay','Stage1 PPO']),
-            simulationBackend=simulation_backend(a),rlDevice=a.rl_device,initialGraspNotYetVerified=True),indent=2));return 0
+        print(json.dumps(dict(phase=a.phase,scales=a.scales,cacheRowsPerScale=a.cache_count,numEnvs=a.envs,trainAgentSteps=a.train_steps,
+            order=['per-scale physics calibration','per-scale full cache generation','mixed-layout zero-action replay','Stage1 PPO'],
+            physics='cpu',rlDevice=a.rl_device,initialGraspNotYetVerified=True),indent=2));return 0
     pipeline=Pipeline(a)
     try:pipeline.execute();return 0
     except KeyboardInterrupt:pipeline.summary['error']='interrupted';pipeline.save();return 130
     except Exception as exc:
         import traceback
-        (pipeline.out/'pipeline_error.log').write_text(traceback.format_exc(),encoding='utf-8')
-        pipeline.summary['error']=str(exc);pipeline.save();print('[停止]',exc,flush=True);return 1
+        traceback.print_exc();pipeline.summary['error']=str(exc);pipeline.save();print('[HALT]',exc,flush=True);return 1
 
 if __name__=='__main__':sys.exit(main())
